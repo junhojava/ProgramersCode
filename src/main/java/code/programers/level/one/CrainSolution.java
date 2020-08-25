@@ -35,6 +35,6 @@ public class CrainSolution
             result = false;
         }
 
-        return result;
+        return (flag == board.length);
     }
 }
