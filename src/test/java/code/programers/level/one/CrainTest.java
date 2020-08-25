@@ -63,6 +63,8 @@ public class CrainTest
         int[] moves = {1,5,3,5,1,2,1,4};
 
         CrainSolution crain = new CrainSolution();
-        crain.replaceMoves(moves);
+        int result = crain.replaceMoves(moves[0], -1);
+
+        assertEquals(0, result);
     }
 }
