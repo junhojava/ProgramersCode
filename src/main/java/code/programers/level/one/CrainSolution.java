@@ -19,12 +19,19 @@ public class CrainSolution
 
         for(int index=0; index< board.length; index++)
         {
-            if(board[index] == 0)
-            {
-                count += 1;
-            }
+            count(board[index], count);
         }
 
         return (count == board.length);
+    }
+
+    int count(int value, int count)
+    {
+        if(value == 0)
+        {
+            count += 1;
+        }
+
+        return count;
     }
 }
