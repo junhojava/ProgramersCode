@@ -26,15 +26,6 @@ public class CrainSolution
             }
         }
 
-        if(flag == board.length)
-        {
-            result = true;
-        }
-        else
-        {
-            result = false;
-        }
-
         return (flag == board.length);
     }
 }
