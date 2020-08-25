@@ -25,6 +25,7 @@ import org.junit.jupiter.api.Test;
  */
 public class CrainTest
 {
+
     @Test
     public void testCrain()
     {
@@ -38,5 +39,22 @@ public class CrainTest
         CrainSolution crainSolution = new CrainSolution();
 
         assertEquals(4, crainSolution.solution(board, moves));
+    }
+
+    @Test
+    public void testEmptyPosition()
+    {
+        int[][] board = {{0,0,0,0,0}
+        , {0,0,1,0,3}
+        , {0,2,5,0,1}
+        , {4,2,4,4,2}
+        , {3,5,1,3,1}};
+        int[] moves = {1,5,3,5,1,2,1,4};
+
+        CrainSolution crain = new CrainSolution();
+        int[] emptyPosition= crain.emptyPosition(board);
+        int[] result= {0};
+
+        assertEquals(result, emptyPosition);
     }
 }
