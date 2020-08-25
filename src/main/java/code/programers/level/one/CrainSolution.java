@@ -15,16 +15,16 @@ public class CrainSolution
 
     boolean emptyPosition(int[] board)
     {
-        int flag = 0;
+        int count = 0;
 
         for(int index=0; index< board.length; index++)
         {
             if(board[index] == 0)
             {
-                flag += 1;
+                count += 1;
             }
         }
 
-        return (flag == board.length);
+        return (count == board.length);
     }
 }
