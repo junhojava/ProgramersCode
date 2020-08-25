@@ -15,7 +15,6 @@ public class CrainSolution
 
     boolean emptyPosition(int[] board)
     {
-        boolean result= true;
         int flag = 0;
 
         for(int index=0; index< board.length; index++)
