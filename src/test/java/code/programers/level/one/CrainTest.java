@@ -1,6 +1,7 @@
 package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 /**
@@ -43,28 +44,29 @@ public class CrainTest
     @Test
     public void testEmptyPosition()
     {
-        int[][] board = {{0,0,0,0,0}
-        , {0,0,1,0,3}
-        , {0,2,5,0,1}
-        , {4,2,4,4,2}
-        , {3,5,1,3,1}};
+        int[][] board = {{0,0,0,0,0}};
 
         CrainSolution crain = new CrainSolution();
         boolean result= crain.emptyPosition(board[0]);
-        boolean second_position = crain.emptyPosition(board[1]);
 
         assertEquals(true, result);
-        assertEquals(false, second_position);
     }
 
     @Test
     public void testReplaceMoves()
     {
-        int[] moves = {1,5,3,5,1,2,1,4};
-
         CrainSolution crain = new CrainSolution();
-        int result = crain.replaceMoves(moves[0], -1);
+        int result = crain.replaceMoves(1, -1);
 
         assertEquals(0, result);
+    }
+
+    @Test
+    public void testEqualsDoll()
+    {
+        CrainSolution crain = new CrainSolution();
+        boolean result = crain.equalsDoll(1, 2);
+
+        assertFalse(result);
     }
 }
