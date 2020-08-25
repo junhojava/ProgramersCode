@@ -36,4 +36,9 @@ public class CrainSolution
     {
         return value + addend;
     }
+
+    boolean equalsDoll(int up, int down)
+    {
+        return (up == down);
+    }
 }
