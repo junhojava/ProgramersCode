@@ -31,4 +31,9 @@ public class CrainSolution
 
         return (count == board.length);
     }
+
+    int replaceMoves(int value, int addend)
+    {
+        return value + addend;
+    }
 }
