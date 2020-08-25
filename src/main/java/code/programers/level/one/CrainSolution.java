@@ -15,6 +15,8 @@ public class CrainSolution
 
     int[] emptyPosition(int[][] board)
     {
-        return null;
+        int[] result= {0};
+        
+        return result;
     }
 }

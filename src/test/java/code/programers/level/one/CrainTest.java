@@ -53,8 +53,7 @@ public class CrainTest
 
         CrainSolution crain = new CrainSolution();
         int[] emptyPosition= crain.emptyPosition(board);
-        int[] result= {0};
 
-        assertEquals(result, emptyPosition);
+        assertEquals(0, emptyPosition[0]);
     }
 }
