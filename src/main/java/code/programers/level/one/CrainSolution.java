@@ -17,21 +17,18 @@ public class CrainSolution
     {
         int count = 0;
 
-        for(int index=0; index< board.length; index++)
+        for(int index=board.length-1; index> -1; index--)
         {
-            count(board[index], count);
+            if(board[index] != 0)
+            {
+                return false;
+            }
+            else
+            {
+                count++;
+            }
         }
 
         return (count == board.length);
-    }
-
-    int count(int value, int count)
-    {
-        if(value == 0)
-        {
-            count += 1;
-        }
-
-        return count;
     }
 }
