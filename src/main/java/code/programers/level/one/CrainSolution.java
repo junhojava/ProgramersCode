@@ -15,31 +15,26 @@ public class CrainSolution
 
         for(int move: moves)
         {
-            int top = findDollPosition(board[move-1]);
-            int doll= 0;
-            int bucketOnTopDoll = bucketOnTop();
-            int bucketOnSecondDOll = bucketOnSecond();
-
-            if(top > -1)
-            {
-                doll = board[move-1][top];
-                board[move-1][top]= 0;
-            }
+            int doll= findDollInBoard(board, move-1);
 
             if(!isEmptySpace(doll))
             {
-                bucket.add(doll);
-            }
-
-            if(bucketHaveManyTwoDolls())
-            {
-                if(bucketSameDools())
+                if(!bucketIsEmpty())
                 {
-                    bucket.remove(bucket.size()-1);
-                    bucket.remove(bucket.size()-1);
-                    answer += 2;
+                    if(bucketSameDolls(doll))
+                    {
+                        bucket.remove(bucket.size()-1);
+                        answer += 2;
+                    }else
+                    {
+                        bucket.add(doll);
+                    }
+                }else
+                {
+                    bucket.add(doll);
                 }
             }
+
         }
 
         return answer;
@@ -101,13 +96,28 @@ public class CrainSolution
         }
     }
 
-    boolean bucketHaveManyTwoDolls()
+    boolean bucketIsEmpty()
     {
-        return (bucket.size()>1);
+        return bucket.size()==0;
     }
 
-    boolean bucketSameDools()
+    boolean bucketSameDolls(int doll)
     {
-        return (bucketOnTop() == bucketOnSecond());
+        return bucketOnTop() == doll;
+    }
+
+    int findDollInBoard(int[][] board, int move)
+    {
+        int result= 0;
+        for(int[] space: board)
+        {
+            if(space[move] > 0)
+            {
+                result = space[move];
+                space[move] = 0;
+                return result;
+            }
+        }
+        return result;
     }
 }

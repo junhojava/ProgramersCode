@@ -28,7 +28,8 @@ import org.junit.jupiter.api.Test;
 public class CrainTest
 {
 
-    int[][] board = {{0,0,0,0,0}
+    int[][] board = {
+          {0,0,0,0,0}
         , {0,0,1,0,3}
         , {0,2,5,0,1}
         , {4,2,4,4,2}
@@ -79,9 +80,8 @@ public class CrainTest
     {
         crain.bucket = new ArrayList<Integer>();
         crain.bucket.add(3);
-        crain.bucket.add(3);
 
-        assertEquals(true, crain.bucketSameDools());
+        assertEquals(true, crain.bucketSameDolls(3));
 
     }
 }
