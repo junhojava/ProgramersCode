@@ -52,8 +52,8 @@ public class CrainTest
         int[] moves = {1,5,3,5,1,2,1,4};
 
         CrainSolution crain = new CrainSolution();
-        int[] emptyPosition= crain.emptyPosition(board);
+        boolean result= crain.emptyPosition(board[0]);
 
-        assertEquals(0, emptyPosition[0]);
+        assertEquals(true, result);
     }
 }

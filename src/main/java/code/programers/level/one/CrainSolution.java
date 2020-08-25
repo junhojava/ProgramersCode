@@ -13,9 +13,10 @@ public class CrainSolution
         return answer;
     }
 
-    int[] emptyPosition(int[][] board)
+    boolean emptyPosition(int[] board)
     {
-        int[] result= {0};
+        boolean result= true;
+
         
         return result;
     }
