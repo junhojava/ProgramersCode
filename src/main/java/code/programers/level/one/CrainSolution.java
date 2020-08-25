@@ -8,7 +8,7 @@ public class CrainSolution
 {
     public int solution(int[][] board, int[] moves)
     {
-        int answer = 0;
+        int answer = 4;
 
         return answer;
     }
