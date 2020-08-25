@@ -1,5 +1,7 @@
 package code.programers.level.one;
 
+import java.util.Arrays;
+
 /**
  * Hello world!
  *
@@ -11,34 +13,5 @@ public class CrainSolution
         int answer = 4;
 
         return answer;
-    }
-
-    boolean emptyPosition(int[] board)
-    {
-        int count = 0;
-
-        for(int index=board.length-1; index> -1; index--)
-        {
-            if(board[index] != 0)
-            {
-                return false;
-            }
-            else
-            {
-                count++;
-            }
-        }
-
-        return (count == board.length);
-    }
-
-    int replaceMoves(int value, int addend)
-    {
-        return value + addend;
-    }
-
-    boolean equalsDoll(int up, int down)
-    {
-        return (up == down);
     }
 }

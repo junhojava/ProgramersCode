@@ -18,9 +18,9 @@ import org.junit.jupiter.api.Test;
  *  남는 인형 정보= 2번 인형
  * 
  *  다음과 같이 명명한다.
- *  board = 맵
+ *  board = 크레인
  *  moves = 작동위치
- *  stack = 바구니
+ *  bucket = 바구니
  *  
  */
 public class CrainTest
@@ -36,37 +36,8 @@ public class CrainTest
         , {3,5,1,3,1}};
         int[] moves = {1,5,3,5,1,2,1,4};
 
-        CrainSolution crainSolution = new CrainSolution();
-
-        assertEquals(4, crainSolution.solution(board, moves));
-    }
-
-    @Test
-    public void testEmptyPosition()
-    {
-        int[][] board = {{0,0,0,0,0}};
-
         CrainSolution crain = new CrainSolution();
-        boolean result= crain.emptyPosition(board[0]);
 
-        assertEquals(true, result);
-    }
-
-    @Test
-    public void testReplaceMoves()
-    {
-        CrainSolution crain = new CrainSolution();
-        int result = crain.replaceMoves(1, -1);
-
-        assertEquals(0, result);
-    }
-
-    @Test
-    public void testEqualsDoll()
-    {
-        CrainSolution crain = new CrainSolution();
-        boolean result = crain.equalsDoll(1, 2);
-
-        assertFalse(result);
+        assertEquals(4, crain.solution(board, moves));
     }
 }
