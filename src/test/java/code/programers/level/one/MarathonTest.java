@@ -30,4 +30,14 @@ public class MarathonTest {
 
         assertEquals("leo", result);
     }
+
+    @Test
+    public void testConcatParticipant()
+    {
+        String[] particiant = {"leo", "kiki", "eden"};
+
+        String result= marathon.concatParticipant(particiant);
+
+        assertEquals("leo,kiki,eden", result);
+    }
 }
