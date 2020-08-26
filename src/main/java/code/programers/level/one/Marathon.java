@@ -38,6 +38,6 @@ class Marathon {
     {
         String[][] array = {{}};
 
-        return array.getClass().equals(object);
+        return array.getClass().equals(object.getClass());
     }
 }
