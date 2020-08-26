@@ -12,7 +12,7 @@ public class MarathonTest {
     *   완주한 선수 = completion
     *   완주하지 못한 선수 = answer, (participant- completion)
     *   
-    *   1 <= particiant <= 100,000
+    *   1 <= participant <= 100,000
     *   completion == (participant -1)
     *   1<= participant[index].length <=20
     */
@@ -26,9 +26,9 @@ public class MarathonTest {
          * 완주한 선수 = ["eden", "kiki"]
          * 완주하지 못한 선수 = ["leo"]
          */
-        String[] particiant = {"leo", "kiki", "eden"};
+        String[] participant = {"leo", "kiki", "eden"};
         String[] completion= {"eden", "kiki"};
-        String result = marathon.solution(particiant, completion);
+        String result = marathon.solution(participant, completion);
 
         assertEquals("leo", result);
     }
@@ -76,8 +76,8 @@ public class MarathonTest {
     @Test
     public void testLinearFindIndex()
     {
-        String[] particiant = {"leo", "kiki", "eden"};
-        int two = marathon.linearFindIndex(particiant, "eden");
+        String[] participant = {"leo", "kiki", "eden"};
+        int two = marathon.linearFindIndex(participant, "eden");
 
         assertEquals(2, two);
     }
@@ -85,11 +85,27 @@ public class MarathonTest {
     @Test
     public void testReplaceString()
     {
-        String[] particiant = {"leo", "kiki", "eden"};
-        int two = marathon.linearFindIndex(particiant, "eden");
+        String[] participant = {"leo", "kiki", "eden"};
+        int two = marathon.linearFindIndex(participant, "eden");
 
-        particiant = marathon.replaceString(particiant, two, "wow");
+        participant = marathon.replaceString(participant, two, "wow");
 
-        assertEquals("wow", particiant[2]);
+        assertEquals("wow", participant[2]);
+    }
+
+    @Test
+    public void testLinearSearchMarathoner()
+    {
+        String[] participant = {"leo", "kiki", "eden"};
+        String[] completion= {"eden", "kiki"};
+
+        for(String name: completion)
+        {
+            int number = marathon.linearFindIndex(participant, name);
+            participant = marathon.replaceString(participant, number, "");
+        }
+
+        int last_number = marathon.isNotEmptyString(participant);
+        assertEquals(0, last_number);
     }
 }

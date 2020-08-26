@@ -60,4 +60,19 @@ class Marathon {
 
         return participant;
     }
+
+    int isNotEmptyString(String[] participant)
+    {
+        int index = 0;
+
+        for(; index< participant.length; index++)
+        {
+            if(!participant.equals(""))
+            {
+                return index;
+            }
+        }
+
+        return index;
+    }
 }
