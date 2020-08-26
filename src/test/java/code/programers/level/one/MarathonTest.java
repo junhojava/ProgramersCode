@@ -16,7 +16,7 @@ public class MarathonTest {
     *   completion == (participant -1)
     *   1<= participant[index].length <=20
     *
-    *   testCaseOne ~ testCaseTwo = 선형탐색(효율성↓)
+    *   testCaseOne ~ testCaseTwo = 선형탐색(효율성↓), 시간복잡도 =O(n)
     */
 
     Marathon marathon = new Marathon();
