@@ -38,6 +38,6 @@ public class MarathonTest {
 
         String result= marathon.concatParticipant(particiant);
 
-        assertEquals("leo,kiki,eden", result);
+        assertEquals("leo,kiki,eden,", result);
     }
 }
