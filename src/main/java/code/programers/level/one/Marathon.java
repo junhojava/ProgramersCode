@@ -14,8 +14,8 @@ class Marathon {
         return value/2;
     }
 
-    int isEven(int value)
+    boolean isEven(int value)
     {
-        return (value%2 == 0);
+        return (value%2) == 0;
     }
 }

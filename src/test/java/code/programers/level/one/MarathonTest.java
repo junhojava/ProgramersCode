@@ -1,6 +1,8 @@
 package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -45,8 +47,7 @@ public class MarathonTest {
         int eight = 8;
         int nine = 9;
 
-        assertTrue(marathone.isEven(eight));
-        assertTrue(marathone.isEven(nine));
-        assertFalse(marathone.isEven(nine));
+        assertTrue(marathon.isEven(eight));
+        assertFalse(marathon.isEven(nine));
     }
 }
