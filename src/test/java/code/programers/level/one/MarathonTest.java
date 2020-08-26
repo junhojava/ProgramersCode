@@ -39,4 +39,14 @@ public class MarathonTest {
 
         assertEquals(5, five);
     }
+
+    @Test void testEven()
+    {
+        int eight = 8;
+        int nine = 9;
+
+        assertTrue(marathone.isEven(eight));
+        assertTrue(marathone.isEven(nine));
+        assertFalse(marathone.isEven(nine));
+    }
 }
