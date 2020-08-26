@@ -162,4 +162,18 @@ class Marathon {
         }
         return participant;
     }
+
+    int compareName(String left, String right)
+    {
+        if(left.equals(right))
+        {
+            return 0;
+        }else if(left.compareTo(right) == 0)
+        {
+            return 1;
+        }else
+        {
+            return -1;
+        }
+    }
 }

@@ -146,4 +146,17 @@ public class MarathonTest {
 
         assertEquals("leo", result);
     }
+
+    @Test
+    void testCompareName()
+    {
+        /**
+         * sign = 부등호 표시를 위한 변수 {{작다=-1},{같다=0},{크다=1}}
+         */
+        String[] participant = {"leo", "kiki", "eden"};
+        participant = marathon.bubleSort(participant);
+        int sign = marathon.compareName(participant[1], "leo");
+
+        assertEquals(-1, sign);
+    }
 }
