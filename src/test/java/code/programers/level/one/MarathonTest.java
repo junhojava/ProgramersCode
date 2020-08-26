@@ -72,4 +72,18 @@ public class MarathonTest {
 
         assertTrue(result);
     }
+
+    @Test
+    public void testLinearFindIndex()
+    {
+        /**
+         * 마라톤 선수 = ["leo", "kiki", "eden"]
+         * 완주한 선수 = ["eden", "kiki"]
+         * 완주하지 못한 선수 = ["leo"]
+         */
+        String[] particiant = {"leo", "kiki", "eden"};
+        int result = marathon.linearFindIndex(particiant, "eden");
+
+        assertEquals(2, result);
+    }
 }

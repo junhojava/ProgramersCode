@@ -40,4 +40,17 @@ class Marathon {
 
         return array.getClass().equals(object.getClass());
     }
+
+    int linearFindIndex(String[] participant, String name)
+    {
+        for(int index= 0; index< participant.length; index++)
+        {
+            if(participant[index].equals(name))
+            {
+                return index;
+            }
+        }
+
+        return 0;
+    }
 }
