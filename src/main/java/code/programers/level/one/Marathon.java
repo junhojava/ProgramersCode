@@ -93,7 +93,7 @@ class Marathon {
 
     public String linearSearchInSort(String[] participant, String[] completion)
     {
-        participant = simpleSort(participant);
+        participant = bubleSort(participant);
 
         String answer = "";
 
@@ -110,30 +110,11 @@ class Marathon {
         return answer;
     }
 
-    public String[] simpleSort(String[] participant)
+    public String[] bubleSort(String[] participant)
     {
         /**
          * 이렇게 작동하는 정렬을 할 것입니다.
-         *  ↓
-         * [5,7,3,1,6,4]
-         *    ↓
-         * [5,7,3,1,6,4]
-         *    ↓
-         * [5,3,7,1,6,4]
-         *      ↓
-         * [5,3,7,1,6,4]
-         *      ↓
-         * [5,3,1,7,6,4]
-         *        ↓
-         * [5,3,1,7,6,4]
-         *          ↓
-         * [5,3,1,7,6,4]
-         *          ↓
-         * [5,3,1,6,7,4]
-         *            ↓
-         * [5,3,1,6,7,4]
-         * 
-         * 현재까지 한 것
+         * 스캔 = 1
          *   ↓
          * [leo, kiki, eden]
          *   ↓
@@ -141,7 +122,26 @@ class Marathon {
          *         ↓
          * [kiki, leo, eden]
          *         ↓
-         * [kiki, eden , leo]
+         * [kiki, eden, leo]
+         * 
+         * 스캔 = 2
+         *   ↓
+         * [kiki, eden, leo]
+         *   ↓
+         * [eden, kiki, leo]
+         *         ↓
+         * [eden, kiki, leo]
+         *               ↓
+         * [eden, kiki, leo]
+         * * 스캔 = 3
+         *   ↓
+         * [eden, kiki, leo]
+         *   ↓
+         * [eden, kiki, leo]
+         *         ↓
+         * [eden, kiki, leo]
+         * *             ↓
+         * [eden, kiki, leo]
          */
         String buffer = "";
         boolean isChanged = true;

@@ -127,7 +127,7 @@ public class MarathonTest {
     {
         String[] participant = {"leo", "kiki", "eden"};
 
-        String[] sortlist = marathon.simpleSort(participant);
+        String[] sortlist = marathon.bubleSort(participant);
 
         assertEquals("eden", participant[0]);
     }
