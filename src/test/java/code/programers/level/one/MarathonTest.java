@@ -17,7 +17,8 @@ public class MarathonTest {
     *   1<= participant[index].length <=20
     *
     *   testCaseOne ~ testCaseTwo = 순차탐색(효율성↓), 시간복잡도 =O(n)
-    *   testCaseThree = 정렬된 배열에서의 순차탐색(효율성↓), 시간복잡도 =O(n)
+    *   testCaseThree = 정렬된 배열에서의 순차탐색(효율성 하), 시간복잡도 =O(n)
+    *   testCaseFour = 정렬된 배열에서의 이진 탐색(효율성 중간), 시간복잡도 =O(log2n)
     */
 
     Marathon marathon = new Marathon();
@@ -157,6 +158,33 @@ public class MarathonTest {
         participant = marathon.bubleSort(participant);
         int sign = marathon.compareName(participant[1], "leo");
 
-        assertEquals(-1, sign);
+        assertEquals(1, sign);
+    }
+
+    @Test
+    void testBinarySearch()
+    {
+        String[] participant = {"leo", "kiki", "eden"};
+        participant = marathon.bubleSort(participant);
+        int first = marathon.binarySearch(participant, "eden", 0, participant.length);
+        int last = marathon.binarySearch(participant, "leo", 0, participant.length);
+
+        assertEquals(0, first);
+        assertEquals(2, last);
+    }
+
+    @Test
+    void testCaseFour()
+    {
+        /**
+         * 마라톤 선수 = ["leo", "kiki", "eden"]
+         * 완주한 선수 = ["eden", "kiki"]
+         * 완주하지 못한 선수 = ["leo"]
+         */
+        String[] participant = {"mislav", "stanko", "mislav", "ana", "ana"};
+        String[] completion= {"stanko", "ana", "mislav", "mislav"};
+        String result = marathon.binarySolution(participant, completion);
+
+        assertEquals("ana", result);
     }
 }

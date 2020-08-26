@@ -3,9 +3,17 @@ package code.programers.level.one;
 class Marathon {
 
     public String solution(String[] participant, String[] completion) {
-        String answer = "leo";
+        String answer = "";
+        
+        participant = bubleSort(participant);
+        for(String runner : completion)
+        {
+            int index = binarySearch(participant, runner, 0, participant.length);
+            participant[index] = "";
+            participant = bubleSort(participant);
+        }
 
-        return answer;
+        return participant[participant.length-1];
     }
 
     int half(int value)
@@ -165,17 +173,59 @@ class Marathon {
 
     int compareName(String left, String right)
     {
-        if(left.equals(right))
+        // equal
+        if(left.compareTo(right) == 0)
         {
             return 0;
         }
-        else if(left.compareTo(right) == 0)
-        {
-            return 1;
-        }
-        else
+        // left > right
+        else if(left.compareTo(right) > 0)
         {
             return -1;
         }
+        // left < right
+        else
+        {
+            return 1;
+        }
+    }
+
+    int binarySearch(String[] participant, String name, int low, int high)
+    {
+        int middle;
+
+        while(low <= high)
+        {
+            middle = (low+high)/2;
+            int sign = compareName(participant[middle], name);
+
+            if(sign == 0) // 탐색 성공
+            {
+                return middle;
+            }
+            else if(sign == -1) // 왼쪽부분 리스트 탐색
+            {
+                high = middle-1;
+            }
+            else // 오른쪽 부분 리스트 탐색
+            {
+                low = middle+1;
+            }
+        }
+        return -1;
+    }
+
+    public String binarySolution(String[] participant, String[] completion) {
+        String answer = "";
+        
+        participant = bubleSort(participant);
+        for(String runner : completion)
+        {
+            int index = binarySearch(participant, runner, 0, participant.length);
+            participant[index] = "";
+            participant = bubleSort(participant);
+        }
+
+        return participant[participant.length-1];
     }
 }
