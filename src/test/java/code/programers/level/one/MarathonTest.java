@@ -32,12 +32,11 @@ public class MarathonTest {
     }
 
     @Test
-    public void testConcatParticipant()
+    public void testHalfValue()
     {
-        String[] particiant = {"leo", "kiki", "eden"};
+        int nine = 9;
+        int five = marathon.half(nine);
 
-        String result= marathon.concatParticipant(particiant);
-
-        assertEquals("leo,kiki,eden,", result);
+        assertEquals(5, five);
     }
 }

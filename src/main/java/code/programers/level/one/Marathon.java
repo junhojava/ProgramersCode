@@ -2,19 +2,15 @@ package code.programers.level.one;
 
 class Marathon {
     public String solution(String[] participant, String[] completion) {
-        String answer = "leo";
+        String answer = "";
+
+        answer = "leo";
+
         return answer;
     }
 
-    public String concatParticipant(String[] participant)
+    int half(int value)
     {
-        String result = "";
-
-        for(String marathoner: participant)
-        {
-            result += (marathoner + ",");
-        }
-
-        return result;
+        return value/2;
     }
 }
