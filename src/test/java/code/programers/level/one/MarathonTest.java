@@ -34,6 +34,16 @@ public class MarathonTest {
     }
 
     @Test
+    void testCaseTwo()
+    {
+        String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
+        String[] completion= {"josipa", "filipa", "marina", "nikola"};
+        String result = marathon.solution(participant, completion);
+
+        assertEquals("vinko", result);
+    }
+
+    @Test
     public void testEvenHalf()
     {
         int six = 6;
