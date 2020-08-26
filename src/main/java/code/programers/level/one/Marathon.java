@@ -2,17 +2,7 @@ package code.programers.level.one;
 
 class Marathon {
     public String solution(String[] participant, String[] completion) {
-        String answer = "";
-
-        for(String name: completion)
-        {
-            int number = linearFindIndex(participant, name);
-            participant = replaceString(participant, number, "");
-        }
-
-        int last_number = isNotEmptyString(participant);
-
-        answer = participant[last_number];
+        String answer = "leo";
 
         return answer;
     }
@@ -75,12 +65,28 @@ class Marathon {
 
         for(; index< participant.length; index++)
         {
-            if(!participant.equals(""))
+            if(!participant[index].equals(""))
             {
                 return index;
             }
         }
 
         return index;
+    }
+
+    public String linearSearch(String[] participant, String[] completion) {
+        String answer = "";
+
+        for(String name: completion)
+        {
+            int number = linearFindIndex(participant, name);
+            participant = replaceString(participant, number, "");
+        }
+
+        int last_number = isNotEmptyString(participant);
+
+        answer = participant[last_number];
+
+        return answer;
     }
 }

@@ -28,7 +28,7 @@ public class MarathonTest {
          */
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion= {"eden", "kiki"};
-        String result = marathon.solution(participant, completion);
+        String result = marathon.linearSearch(participant, completion);
 
         assertEquals("leo", result);
     }
@@ -38,7 +38,7 @@ public class MarathonTest {
     {
         String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
         String[] completion= {"josipa", "filipa", "marina", "nikola"};
-        String result = marathon.solution(participant, completion);
+        String result = marathon.linearSearch(participant, completion);
 
         assertEquals("vinko", result);
     }
