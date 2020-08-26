@@ -120,4 +120,14 @@ public class MarathonTest {
         int last_number = marathon.isNotEmptyString(participant);
         assertEquals(0, last_number);
     }
+
+    @Test
+    public void testSimpleSort()
+    {
+        String[] participant = {"leo", "kiki", "eden"};
+
+        String[] sortlist = marathon.simpleSort(participant);
+
+        assertEquals("eden", participant[0]);
+    }
 }
