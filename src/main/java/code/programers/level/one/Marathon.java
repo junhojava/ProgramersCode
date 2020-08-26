@@ -168,10 +168,12 @@ class Marathon {
         if(left.equals(right))
         {
             return 0;
-        }else if(left.compareTo(right) == 0)
+        }
+        else if(left.compareTo(right) == 0)
         {
             return 1;
-        }else
+        }
+        else
         {
             return -1;
         }
