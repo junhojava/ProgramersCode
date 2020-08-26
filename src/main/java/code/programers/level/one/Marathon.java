@@ -11,7 +11,17 @@ class Marathon {
 
     int half(int value)
     {
-        return value/2;
+        int result = 0;
+
+        if(isEven(value))
+        {
+            result= value/2;
+        }else
+        {
+            result= value/2 +1;
+        }
+
+        return result;
     }
 
     boolean isEven(int value)

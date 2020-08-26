@@ -34,20 +34,31 @@ public class MarathonTest {
     }
 
     @Test
-    public void testHalfValue()
+    public void testEvenHalf()
     {
-        int nine = 9;
-        int five = marathon.half(nine);
+        int six = 6;
+        int three = marathon.half(six);
 
-        assertEquals(5, five);
+        assertEquals(3, three);
     }
 
-    @Test void testEven()
+    @Test
+    public void testEven()
     {
         int eight = 8;
         int nine = 9;
 
         assertTrue(marathon.isEven(eight));
         assertFalse(marathon.isEven(nine));
+    }
+
+    @Test
+    public void testOddHalf()
+    {
+        int five = 5;
+
+        int three= marathon.half(five);
+
+        assertEquals(3, three);
     }
 }
