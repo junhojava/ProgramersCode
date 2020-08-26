@@ -16,7 +16,8 @@ public class MarathonTest {
     *   completion == (participant -1)
     *   1<= participant[index].length <=20
     *
-    *   testCaseOne ~ testCaseTwo = 선형탐색(효율성↓), 시간복잡도 =O(n)
+    *   testCaseOne ~ testCaseTwo = 순차탐색(효율성↓), 시간복잡도 =O(n)
+    *   testCaseThree = 정렬된 배열에서의 순차탐색(효율성↓), 시간복잡도 =O(n)
     */
 
     Marathon marathon = new Marathon();
@@ -129,5 +130,20 @@ public class MarathonTest {
         String[] sortlist = marathon.simpleSort(participant);
 
         assertEquals("eden", participant[0]);
+    }
+
+    @Test
+    public void testCaseThree()
+    {
+        /**
+         * 마라톤 선수 = ["eden", "kiki", "leo"]
+         * 완주한 선수 = ["eden", "kiki"]
+         * 완주하지 못한 선수 = ["leo"]
+         */
+        String[] participant = {"leo", "kiki", "eden"};
+        String[] completion= {"eden", "kiki"};
+        String result = marathon.linearSearch(participant, completion);
+
+        assertEquals("leo", result);
     }
 }

@@ -91,6 +91,25 @@ class Marathon {
         return answer;
     }
 
+    public String linearSearchInSort(String[] participant, String[] completion)
+    {
+        participant = simpleSort(participant);
+
+        String answer = "";
+
+        for(String name: completion)
+        {
+            int number = linearFindIndex(participant, name);
+            participant = replaceString(participant, number, "");
+        }
+
+        int last_number = isNotEmptyString(participant);
+
+        answer = participant[last_number];
+
+        return answer;
+    }
+
     public String[] simpleSort(String[] participant)
     {
         /**
