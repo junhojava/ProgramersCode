@@ -1,6 +1,7 @@
 package code.programers.level.one;
 
 class Marathon {
+
     public String solution(String[] participant, String[] completion) {
         String answer = "leo";
 
@@ -88,5 +89,58 @@ class Marathon {
         answer = participant[last_number];
 
         return answer;
+    }
+
+    public String[] simpleSort(String[] participant)
+    {
+        /**
+         * 이렇게 작동하는 정렬을 할 것입니다.
+         *  ↓
+         * [5,7,3,1,6,4]
+         *    ↓
+         * [5,7,3,1,6,4]
+         *    ↓
+         * [5,3,7,1,6,4]
+         *      ↓
+         * [5,3,7,1,6,4]
+         *      ↓
+         * [5,3,1,7,6,4]
+         *        ↓
+         * [5,3,1,7,6,4]
+         *          ↓
+         * [5,3,1,7,6,4]
+         *          ↓
+         * [5,3,1,6,7,4]
+         *            ↓
+         * [5,3,1,6,7,4]
+         * 
+         * 현재까지 한 것
+         *   ↓
+         * [leo, kiki, eden]
+         *   ↓
+         * [kiki, leo, eden]
+         *         ↓
+         * [kiki, leo, eden]
+         *         ↓
+         * [kiki, eden , leo]
+         */
+        String buffer = "";
+        boolean isChanged = true;
+
+        while(isChanged)
+        {
+            isChanged = false;
+            for(int index=0; index < participant.length-1; index++)
+            {
+                if(participant[index].compareTo(participant[index+1]) > 0)
+                {
+                    buffer= participant[index];
+                    participant[index] = participant[index+1];
+                    participant[index+1] = buffer;
+                    isChanged = true;
+                }
+            }
+        }
+        return participant;
     }
 }
