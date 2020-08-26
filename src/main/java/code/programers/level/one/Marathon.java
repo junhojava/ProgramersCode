@@ -4,7 +4,15 @@ class Marathon {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
 
-        answer = "leo";
+        for(String name: completion)
+        {
+            int number = linearFindIndex(participant, name);
+            participant = replaceString(participant, number, "");
+        }
+
+        int last_number = isNotEmptyString(participant);
+
+        answer = participant[last_number];
 
         return answer;
     }
