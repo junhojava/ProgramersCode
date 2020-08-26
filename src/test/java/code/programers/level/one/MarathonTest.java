@@ -15,6 +15,8 @@ public class MarathonTest {
     *   1 <= participant <= 100,000
     *   completion == (participant -1)
     *   1<= participant[index].length <=20
+    *
+    *   testCaseOne ~ testCaseTwo = 선형탐색(효율성↓)
     */
 
     Marathon marathon = new Marathon();
