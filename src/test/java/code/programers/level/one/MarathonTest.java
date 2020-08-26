@@ -61,4 +61,15 @@ public class MarathonTest {
 
         assertEquals(3, three);
     }
+
+    @Test
+    public void testTwoDimensionString()
+    {
+        int nine = 9;
+        int five = marathon.half(9);
+        String[][] areas = marathon.twoDimensionString(five);
+        boolean result = marathon.isTwoDimensionString(areas.getClass());
+
+        assertTrue(result);
+    }
 }

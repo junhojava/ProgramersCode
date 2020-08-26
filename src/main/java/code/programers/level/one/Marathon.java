@@ -28,4 +28,16 @@ class Marathon {
     {
         return (value%2) == 0;
     }
+
+    String[][] twoDimensionString(int index)
+    {
+        return new String[2][index];
+    }
+
+    boolean isTwoDimensionString(Object object)
+    {
+        String[][] array = {{}};
+
+        return array.getClass().equals(object);
+    }
 }
