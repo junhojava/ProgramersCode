@@ -81,4 +81,15 @@ public class MarathonTest {
 
         assertEquals(2, two);
     }
+
+    @Test
+    public void testReplaceString()
+    {
+        String[] particiant = {"leo", "kiki", "eden"};
+        int two = marathon.linearFindIndex(particiant, "eden");
+
+        particiant = marathon.replaceString(particiant, two, "wow");
+
+        assertEquals("wow", particiant[2]);
+    }
 }

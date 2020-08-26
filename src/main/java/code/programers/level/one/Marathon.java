@@ -53,4 +53,11 @@ class Marathon {
 
         return 0;
     }
+
+    String[] replaceString(String[] participant, int index, String replace_character)
+    {
+        participant[index] = replace_character;
+
+        return participant;
+    }
 }
