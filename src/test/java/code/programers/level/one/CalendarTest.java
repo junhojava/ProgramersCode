@@ -57,10 +57,29 @@ public class CalendarTest {
     @Test
     void testMonthConvertDay()
     {
+        int one = calendar.convertMonthToDay(1);
         int two = calendar.convertMonthToDay(2);
         int five = calendar.convertMonthToDay(5);
 
+        assertEquals(0, one);
         assertEquals(31, two);
         assertEquals(121, five);
+    }
+    
+    @Test
+    void testCaseOne()
+    {
+        int day= calendar.date(5, 24);
+
+        assertEquals(2, day);
+    }
+
+    @Test
+    void testCaseOneString()
+    {
+        int day = calendar.date(5, 24);
+        
+
+        assertEquals("TUE", calendar.dayConvertString(day));
     }
 }
