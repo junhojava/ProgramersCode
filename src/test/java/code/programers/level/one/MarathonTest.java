@@ -79,7 +79,6 @@ public class MarathonTest {
     @Test
     public void testTwoDimensionString()
     {
-        int nine = 9;
         int five = marathon.half(9);
         String[][] areas = marathon.twoDimensionString(five);
         boolean result = marathon.isTwoDimensionString(areas);
@@ -128,7 +127,7 @@ public class MarathonTest {
     {
         String[] participant = {"leo", "kiki", "eden"};
 
-        String[] sortlist = marathon.bubleSort(participant);
+        participant = marathon.bubleSort(participant);
 
         assertEquals("eden", participant[0]);
     }
