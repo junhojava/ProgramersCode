@@ -26,4 +26,12 @@ public class ExportCharacterTest {
 
         assertTrue(result);
      }
+
+     @Test
+     void testHalf()
+     {
+         int half = exportCharacter.half("solution".length());
+
+         assertEquals(4, half);
+     }
 }
