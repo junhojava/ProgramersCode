@@ -32,6 +32,5 @@ public class ExportCharacter {
         {
             return str.substring(index-1, index);
         }
-        
     }
 }
