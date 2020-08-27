@@ -23,7 +23,6 @@ public class Calendar {
         {
             day += convertMonthToDay(month);
             day += new_year - 1;
-            day %= 7;
         }
 
         return day % 7;
