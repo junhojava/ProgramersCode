@@ -41,6 +41,8 @@ public class CalendarTest {
      * 144 % 7 = 4
      * 5 + 4 = 9
      * 9 % 7 = 2
+     * 
+     * 2월 1일이면 31 % 7 = 2 SUN
      */
     Calendar calendar = new Calendar();
 
@@ -55,8 +57,10 @@ public class CalendarTest {
     @Test
     void testMonthConvertDay()
     {
-        int day = calendar.convertMonthToDay(5);
+        int two = calendar.convertMonthToDay(2);
+        int five = calendar.convertMonthToDay(5);
 
-        assertEquals(120, day);
+        assertEquals(31, two);
+        assertEquals(121, five);
     }
 }
