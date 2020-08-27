@@ -21,4 +21,17 @@ public class ExportCharacter {
 
         return result;
     }
+
+    String exportString(String str, int index)
+    {
+        if(isEven(str.length()))
+        {
+            return str.substring(index-1, index+1);
+        }
+        else
+        {
+            return str.substring(index-1, index);
+        }
+        
+    }
 }
