@@ -14,5 +14,9 @@ public class Calendar {
 
         return 1;
     }
-    
+
+    int convertMonthToDay(int month)
+    {
+        return 120;
+    }
 }

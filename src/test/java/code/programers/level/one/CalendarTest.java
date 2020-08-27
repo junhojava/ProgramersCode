@@ -42,14 +42,21 @@ public class CalendarTest {
      * 5 + 4 = 9
      * 9 % 7 = 2
      */
+    Calendar calendar = new Calendar();
 
     @Test
     void testNewYear()
     {
-        Calendar calendar = new Calendar();
-
         int day= calendar.date(1, 1);
 
         assertEquals(5, day);
+    }
+
+    @Test
+    void testMonthConvertDay()
+    {
+        int day = calendar.convertMonthToDay(5);
+
+        assertEquals(120, day);
     }
 }
