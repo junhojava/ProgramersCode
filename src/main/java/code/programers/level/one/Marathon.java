@@ -13,7 +13,7 @@ class Marathon {
             participant = bubleSort(participant);
         }
 
-        return participant[participant.length-1];
+        return answer;
     }
 
     int half(int value)
@@ -216,8 +216,6 @@ class Marathon {
     }
 
     public String binarySolution(String[] participant, String[] completion) {
-        String answer = "";
-        
         participant = bubleSort(participant);
         for(String runner : completion)
         {
