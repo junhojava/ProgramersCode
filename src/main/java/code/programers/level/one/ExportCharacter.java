@@ -1,9 +1,9 @@
 package code.programers.level.one;
 
 public class ExportCharacter {
-    
-    int length(String str)
+
+    boolean isEven(int value)
     {
-        return 8;
+        return (value%2) == 0;
     }
 }

@@ -1,6 +1,8 @@
 package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,11 +20,10 @@ public class ExportCharacterTest {
     ExportCharacter exportCharacter = new ExportCharacter();
 
      @Test
-     public void testLength()
+     public void testIsEven()
      {
+        boolean result = exportCharacter.isEven("solution".length());
 
-         int result = exportCharacter.length("solution");
-
-         assertEquals(8, result);
+        assertTrue(result);
      }
 }
