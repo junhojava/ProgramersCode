@@ -3,6 +3,10 @@ package code.programers.level.one;
 public class NumberDivisor {
     int divisor;
 
+    NumberDivisor()
+    {
+    }
+
     NumberDivisor(int divisor)
     {
         this.divisor = divisor;
@@ -65,5 +69,15 @@ public class NumberDivisor {
             result[index] = numbers[begin+ index];
         }
         return result;
+    }
+
+    int[] solution(int[] numbers, int divisor) {
+        this.divisor = divisor;
+
+        numbers = divisorList(numbers);
+        numbers = bubleSort(numbers);
+
+        int[] answer = subList(numbers, countNumber(numbers, 0));
+        return answer;
     }
 }
