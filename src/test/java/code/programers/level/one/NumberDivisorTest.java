@@ -34,4 +34,13 @@ public class NumberDivisorTest
 
         assertArrayEquals(new int[]{0,0,5,10}, five.bubleSort(numbers));
     }
+
+    @Test
+    void testSubList()
+    {
+        NumberDivisor five = new NumberDivisor(5);
+        int[] numbers = {0, 0, 5, 10};
+
+        assertArrayEquals(new int[]{5,10}, five.subList(numbers, 2));
+    }
 }

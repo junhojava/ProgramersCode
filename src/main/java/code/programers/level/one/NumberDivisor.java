@@ -36,6 +36,34 @@ public class NumberDivisor {
 
     int[] bubleSort(int[] numbers)
     {
-        return new int[]{};
+        int buffer = 0;
+        boolean isChanged = true;
+
+        while(isChanged)
+        {
+            isChanged = false;
+            for(int index=0; index < numbers.length-1; index++)
+            {
+                if(numbers[index]>numbers[index+1])
+                {
+                    buffer= numbers[index];
+                    numbers[index] = numbers[index+1];
+                    numbers[index+1] = buffer;
+                    isChanged = true;
+                }
+            }
+        }
+        return numbers;
+    }
+
+    int[] subList(int[] numbers, int begin)
+    {
+        int[] result = new int[numbers.length - begin];
+
+        for(int index= 0; index<result.length; index++)
+        {
+            result[index] = numbers[begin+ index];
+        }
+        return result;
     }
 }
