@@ -77,7 +77,18 @@ public class NumberDivisor {
         numbers = divisorList(numbers);
         numbers = bubleSort(numbers);
 
-        int[] answer = subList(numbers, countNumber(numbers, 0));
+        int begin = countNumber(numbers, 0);
+
+        int[] answer;
+
+        if(begin == numbers.length)
+        {
+            answer = new int[]{-1};
+        }else
+        {
+            answer = subList(numbers, begin);
+        }
+        
         return answer;
     }
 }

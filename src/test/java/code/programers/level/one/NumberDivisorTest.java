@@ -43,4 +43,28 @@ public class NumberDivisorTest
 
         assertArrayEquals(new int[]{5,10}, five.subList(numbers, 2));
     }
+
+    @Test void testCaseOne()
+    {
+        NumberDivisor numberDivisor = new NumberDivisor();
+        int[] numbers = {5, 9, 7, 10};
+
+        assertArrayEquals(new int[]{5, 10}, numberDivisor.solution(numbers, 5));
+    }
+
+    @Test void testCaseTwo()
+    {
+        NumberDivisor numberDivisor = new NumberDivisor();
+        int[] numbers = {3, 36, 1, 2};
+
+        assertArrayEquals(new int[]{1, 2, 3, 36}, numberDivisor.solution(numbers, 1));
+    }
+
+    @Test void testCaseThree()
+    {
+        NumberDivisor numberDivisor = new NumberDivisor();
+        int[] numbers = {3, 2, 6};
+
+        assertArrayEquals(new int[]{-1}, numberDivisor.solution(numbers, 10));
+    }
 }
