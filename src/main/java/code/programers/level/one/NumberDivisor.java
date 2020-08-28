@@ -10,6 +10,27 @@ public class NumberDivisor {
 
     int[] divisorList(int[] numbers)
     {
-        return new int[]{5, 10};
+        for(int index=0; index<numbers.length; index++)
+        {
+            if((numbers[index] % divisor) != 0)
+            {
+                numbers[index] = 0;
+            }
+        }
+        return numbers;
+    }
+
+    int countNumber(int[] numbers, int number)
+    {
+        int result = 0;
+        for(int value: numbers)
+        {
+            if(value == number)
+            {
+                result++;
+            }
+        }
+
+        return result;
     }
 }
