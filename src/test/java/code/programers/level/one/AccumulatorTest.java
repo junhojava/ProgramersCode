@@ -14,9 +14,9 @@ public class AccumulatorTest {
     {
         Accumulator accumulator = new Accumulator();
 
-        int[] pair = accumulator.diffMinMax(5, 3);
+        long[] pair = accumulator.diffMinMax(5, 3);
 
-        assertArrayEquals(new int[]{3, 5}, pair);
+        assertArrayEquals(new long[]{3, 5}, pair);
     }
 
     @Test
@@ -29,12 +29,12 @@ public class AccumulatorTest {
     }
 
     @Test
-    void testSumMinToMax()
+    void testCaseOne()
     {
         Accumulator accumulator = new Accumulator();
 
-        int[] pair = accumulator.diffMinMax(5, 3);
+        long[] pair = accumulator.diffMinMax(-2, -10);
 
-        assertEquals(12, accumulator.sumMinToMax(pair));
+        assertEquals(-54, accumulator.sumMinToMax(pair[0], pair[1]));
     }
 }
