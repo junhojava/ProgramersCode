@@ -33,4 +33,9 @@ public class Accumulator {
             return false;
         }
     }
+
+    int sumZeroToMax(int max)
+    {
+        return max * (max+1) /2;
+    }
 }
