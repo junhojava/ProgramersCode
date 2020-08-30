@@ -34,13 +34,9 @@ public class Accumulator {
         }
     }
 
-    long sumMinToMax(long min, long max)
+    long sumBetweenMinToMax(long min, long max)
     {
-        return min - max;
+        return (max - min +1) * (min + max) / 2;
     }
 
-    long sumZeroToValue(long value)
-    {
-        return value * (value+1)/2;
-    }
 }

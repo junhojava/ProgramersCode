@@ -35,6 +35,6 @@ public class AccumulatorTest {
 
         long[] pair = accumulator.diffMinMax(-2, -10);
 
-        assertEquals(-54, accumulator.sumMinToMax(pair[0], pair[1]));
+        assertEquals(-54, accumulator.sumBetweenMinToMax(pair[0], pair[1]));
     }
 }
