@@ -184,9 +184,15 @@ public class MarathonTest {
          */
         String[] participant = {"mislav", "stanko", "mislav", "ana", "ana"};
         String[] completion= {"stanko", "ana", "mislav", "mislav"};
-        String result = marathon.binarySolution(participant, completion);
 
-        assertEquals("ana", result);
+        Map<String, Integer> participant_map = marathon.addCountName(participant);
+
+        for(String name: completion)
+        {
+            marathon.subCountName(participant_map, name);
+        }
+
+        assertEquals("ana", participant_map.keySet().toArray()[0]);
     }
 
     @Test

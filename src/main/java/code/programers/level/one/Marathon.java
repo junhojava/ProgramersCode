@@ -241,6 +241,13 @@ class Marathon {
 
     void subCountName(Map<String, Integer> participant_map, String name)
     {
-        participant_map.put(name, participant_map.get(name)-1);
+        int count = participant_map.get(name);
+        if(count == 1)
+        {
+            participant_map.remove(name);
+        }else
+        {
+            participant_map.put(name, count-1);
+        }
     }
 }
