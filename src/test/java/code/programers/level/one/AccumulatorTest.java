@@ -29,10 +29,12 @@ public class AccumulatorTest {
     }
 
     @Test
-    void testSumZeroToMax()
+    void testSumMinToMax()
     {
         Accumulator accumulator = new Accumulator();
 
-        assertEquals(15, accumulator.sumZeroToMax(5));
+        int[] pair = accumulator.diffMinMax(5, 3);
+
+        assertEquals(12, accumulator.sumMinToMax(pair));
     }
 }

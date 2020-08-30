@@ -34,8 +34,13 @@ public class Accumulator {
         }
     }
 
-    int sumZeroToMax(int max)
+    int sumMinToMax(int[] pair)
     {
-        return max * (max+1) /2;
+        int result = 0;
+        for(int index = pair[0]; index <= pair[1]; index++)
+        {
+            result += index;
+        }
+        return result;
     }
 }
