@@ -8,18 +8,13 @@ public class Accumulator {
 
     long[] diffMinMax(int left, int right)
     {
-        long[] result = new long[2];
         if(left < right)
         {
-            result[0] = left;
-            result[1] = right;
+            return new long[]{left, right};
         }else
         {
-            result[0] = right;
-            result[1] = left;
+            return new long[]{right, left};
         }
-
-        return result;
     }
 
     boolean numberEquals(int left, int right)
