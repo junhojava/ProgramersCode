@@ -19,14 +19,18 @@ public class Accumulator {
 
     boolean numberEquals(int left, int right)
     {
+        boolean result;
+
         if(left == right)
         {
-            return true;
+            result = true;
         }
         else
         {
-            return false;
+            result = false;
         }
+
+        return result;
     }
 
     long sumBetweenMinToMax(long min, long max)
