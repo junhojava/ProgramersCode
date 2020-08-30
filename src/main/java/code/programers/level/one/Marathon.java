@@ -238,4 +238,9 @@ class Marathon {
         }
         return result;
     }
+
+    void subCountName(Map<String, Integer> participant_map, String name)
+    {
+        participant_map.put(name, participant_map.get(name)-1);
+    }
 }

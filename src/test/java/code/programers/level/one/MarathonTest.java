@@ -194,7 +194,7 @@ public class MarathonTest {
     {
         String[] participant = {"mislav", "stanko", "mislav", "ana", "ana"};
 
-        Map<String, Integer> participant_map = marathon.countName(participant);
+        Map<String, Integer> participant_map = marathon.addCountName(participant);
 
         assertEquals(2, participant_map.get("mislav"));
     }
@@ -205,7 +205,7 @@ public class MarathonTest {
         String[] participant = {"mislav", "stanko", "mislav", "ana", "ana"};
         Map<String, Integer> participant_map = marathon.addCountName(participant);
 
-        participant_map = marathon.subCountName("mislav");
+        marathon.subCountName(participant_map, "mislav");
 
         assertEquals(1, participant_map.get("mislav"));
     }
