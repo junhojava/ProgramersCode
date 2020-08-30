@@ -20,5 +20,10 @@ public class Accumulator {
         }
 
         return result;
-    })
+    }
+
+    boolean numberEquals(int left, int right)
+    {
+        return false;
+    }
 }
