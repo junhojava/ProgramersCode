@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class MarathonTest {
@@ -185,5 +187,26 @@ public class MarathonTest {
         String result = marathon.binarySolution(participant, completion);
 
         assertEquals("ana", result);
+    }
+
+    @Test
+    void testMislavCount()
+    {
+        String[] participant = {"mislav", "stanko", "mislav", "ana", "ana"};
+
+        Map<String, Integer> participant_map = marathon.countName(participant);
+
+        assertEquals(2, participant_map.get("mislav"));
+    }
+
+    @Test
+    void testMislavOnePassed()
+    {
+        String[] participant = {"mislav", "stanko", "mislav", "ana", "ana"};
+        Map<String, Integer> participant_map = marathon.addCountName(participant);
+
+        participant_map = marathon.subCountName("mislav");
+
+        assertEquals(1, participant_map.get("mislav"));
     }
 }

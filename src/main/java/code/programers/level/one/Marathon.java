@@ -1,17 +1,12 @@
 package code.programers.level.one;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Marathon {
 
     public String solution(String[] participant, String[] completion) {
         String answer = "";
-        
-        participant = bubleSort(participant);
-        for(String runner : completion)
-        {
-            int index = binarySearch(participant, runner, 0, participant.length);
-            participant[index] = "";
-            participant = bubleSort(participant);
-        }
 
         return answer;
     }
@@ -225,5 +220,22 @@ class Marathon {
         }
 
         return participant[participant.length-1];
+    }
+
+    Map<String, Integer> addCountName(String[] name_list)
+    {
+        Map<String, Integer> result = new HashMap<String, Integer>();
+        for(String name:name_list)
+        {
+            if(result.get(name)==(null))
+            {
+                result.put(name, 1);
+            }
+            else
+            {
+                result.put(name, result.get(name)+1);
+            }
+        }
+        return result;
     }
 }
