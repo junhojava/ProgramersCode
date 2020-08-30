@@ -1,6 +1,7 @@
 package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,7 @@ public class AccumulatorTest {
     {
         Accumulator accumulator = new Accumulator();
 
-        assertTrue(accumulator.numberEquals(5, 3));
+        assertFalse(accumulator.numberEquals(5, 3));
+        assertTrue(accumulator.numberEquals(3, 3));
     }
 }

@@ -24,6 +24,13 @@ public class Accumulator {
 
     boolean numberEquals(int left, int right)
     {
-        return false;
+        if(left == right)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
