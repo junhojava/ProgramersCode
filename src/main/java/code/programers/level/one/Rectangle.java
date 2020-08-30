@@ -15,8 +15,6 @@ public class Rectangle {
     
     int alone(int[] position)
     {
-        int result = 0;
-        
         if(position[0] == position[1])
         {
             return position[2];
