@@ -107,4 +107,52 @@ public class DartTest {
 
          assertEquals(-2, dart.poundCalc(number));
      }
+
+     @Test
+     void testCaseOne()
+     {
+        String input = "1S2D*3T";
+
+        int[] numbers = dart.numbers(input);
+        String[] area = dart.character(input);
+        String[][] area_special = new String[2][3];
+
+        for(int index=0; index< 3; index++)
+        {
+            area_special[0][index] = dart.splitTwoCharacter(area[index], 0, 1);
+            if(dart.isTwoCharacter(area[index]))
+            {
+                area_special[1][index] = dart.splitTwoCharacter(area[index], 1, 2);
+            }
+            else
+            {
+                area_special [1][index] = "";
+            }
+        }
+
+        for(int index=0; index< 3; index++)
+        {
+            numbers[index] = dart.calc(numbers[index], area_special[0][index]);
+
+            if(area_special[1][index].equals("*"))
+            {
+                if(index != 0)
+                {
+                    numbers[index-1] = dart.asteriskCalc(numbers[index-1]);
+                }
+                    numbers[index] = dart.asteriskCalc(numbers[index]);
+            }else if(area_special[1][index].equals("#"))
+            {
+                numbers[index] = dart.poundCalc(numbers[index]);
+            }
+        }
+
+        int result = 0;
+        for(int number: numbers)
+        {
+            result += number;
+        }
+
+        assertEquals(37, result);
+     }
 }
