@@ -48,4 +48,15 @@ public class Dart {
 
         return number;
     }
+
+    boolean isTwoCharacter(String character)
+    {
+        boolean result = false;
+        if(character.length() == 2)
+        {
+            result =  true;
+        }
+
+        return result;
+    }
 }

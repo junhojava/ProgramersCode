@@ -2,6 +2,8 @@ package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -57,5 +59,16 @@ public class DartTest {
 
         assertEquals(1, dart.calc(numbers[0], area[0]));
         assertEquals(27, dart.calc(numbers[2], area[2]));
+     }
+
+     @Test
+     void testCharacterLengthTwo()
+     {
+        String input = "1S2D*3T";
+
+        String[] area = dart.character(input);
+
+        assertFalse(dart.isTwoCharacter(area[0]));
+        assertTrue(dart.isTwoCharacter(area[1]));
      }
 }
