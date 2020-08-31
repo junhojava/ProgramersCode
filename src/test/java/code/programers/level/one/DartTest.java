@@ -37,22 +37,25 @@ public class DartTest {
      }
 
      @Test
-     void testArea()
+     void testcharacter()
      {
          String input = "1S2D*3T";
 
-         String[] area = dart.area(input);
+         String[] area = dart.character(input);
 
-         assertArrayEquals(new String[]{"S", "D","T"}, area);
+         assertArrayEquals(new String[]{"S", "D*","T"}, area);
      }
 
      @Test
-     void testSpecial()
+     void testNumberCalcArea()
      {
-         String input = "1S2D*3T";
+        String input = "1S2D*3T";
 
-         String[] area = dart.special(input);
+        int[] numbers = dart.numbers(input);
 
-         assertArrayEquals(new String[]{"S", "D*","T"}, area);
+        String[] area = dart.character(input);
+
+        assertEquals(1, dart.calc(numbers[0], area[0]));
+        assertEquals(27, dart.calc(numbers[2], area[2]));
      }
 }
