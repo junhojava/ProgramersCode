@@ -59,4 +59,14 @@ public class Dart {
 
         return result;
     }
+
+    String splitTwoCharacter(String character, int begin, int end)
+    {
+        return character.substring(begin, end);
+    }
+
+    int asteriskCalc(int number)
+    {
+        return number*2;
+    }
 }
