@@ -69,4 +69,9 @@ public class Dart {
     {
         return number*2;
     }
+
+    int poundCalc(int number)
+    {
+        return number*-1;
+    }
 }
