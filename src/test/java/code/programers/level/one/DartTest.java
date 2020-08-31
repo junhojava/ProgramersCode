@@ -25,15 +25,34 @@ public class DartTest {
      * 특수문자: *, #
      */
 
+    Dart dart = new Dart();
      @Test
-     void testGetNumberIndex()
+     void testNumbers()
      {
         String input = "1S2D*3T";
 
-        Dart dart = new Dart();
+        int[] numbers = dart.numbers(input);
 
-        int[] result = dart.numbers(input);
+        assertArrayEquals(new int[]{1,2,3}, numbers);
+     }
 
-        assertArrayEquals(new int[]{1,2,3}, result);
+     @Test
+     void testArea()
+     {
+         String input = "1S2D*3T";
+
+         String[] area = dart.area(input);
+
+         assertArrayEquals(new String[]{"S", "D","T"}, area);
+     }
+
+     @Test
+     void testSpecial()
+     {
+         String input = "1S2D*3T";
+
+         String[] area = dart.special(input);
+
+         assertArrayEquals(new String[]{"S", "D*","T"}, area);
      }
 }
