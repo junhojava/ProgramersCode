@@ -71,4 +71,40 @@ public class DartTest {
         assertFalse(dart.isTwoCharacter(area[0]));
         assertTrue(dart.isTwoCharacter(area[1]));
      }
+
+     @Test
+     void testSplitTwoCharacter()
+     {
+        String[] character = {"S", "D*", "T"};
+
+        String[][] area_special = new String[2][character.length];
+
+        for(int index=0; index< character.length; index++)
+        {
+            if(dart.isTwoCharacter(character[index]))
+            {
+                area_special [0][index] = dart.splitTwoCharacter(character[index], 0, 1);
+                area_special [1][index] = dart.splitTwoCharacter(character[index], 1, 2);
+            }
+        }
+
+        assertEquals("D", area_special[0][1]);
+        assertEquals("*", area_special[1][1]);
+     }
+
+     @Test
+     void testSpecialCalc()
+     {
+        int number = 2;
+
+        assertEquals(4, dart.asteriskCalc(number));
+     }
+     
+     @Test
+     void testPoundCalc()
+     {
+         int number = 2;
+
+         assertEquals(-2, dart.poundClac(number));
+     }
 }
