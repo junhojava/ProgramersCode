@@ -105,6 +105,6 @@ public class DartTest {
      {
          int number = 2;
 
-         assertEquals(-2, dart.poundClac(number));
+         assertEquals(-2, dart.poundCalc(number));
      }
 }
