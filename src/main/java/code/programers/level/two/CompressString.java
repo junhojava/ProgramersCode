@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompressString {
-    
+
     boolean only(String s, String c)
     {
         return s.replace(c, "").length() == s.length() - 1;
@@ -51,5 +51,63 @@ public class CompressString {
     int stringToInt(String left)
     {
         return Integer.parseInt(left);
+    }
+
+    String concatString(String left, String right, int number)
+    {
+        if(number > 1)
+        {
+            return left+number+right;
+        }
+        else
+        {
+            return left+right;
+        }
+    }
+
+    String compresString(String s, int number)
+    {
+        String[] list = splitedList(s, number);
+        String result = "";
+
+        if(number > 1)
+        {
+            int begin = 0;
+            if(remained(s.length(), number))
+            {
+                begin = s.length() - s.length()%number;
+            }
+            else
+            {
+                begin = s.length()-number;
+            }
+            
+            list = concatList(list, s.substring(begin ,s.length()));
+        }
+
+        int count = 1;
+            for(int index=0; index+1<list.length; index++)
+            {
+                String crnt = list[index];
+                String next = list[index+1];
+                if(equalsString(crnt, next))
+                {
+                    count++;
+                }
+                else
+                {
+                    result = concatString(result, crnt, count);
+
+                    count = 1;
+                }
+                list[index] = "";
+            }
+
+            if(!equalsString(list[list.length-1], ""))
+            {
+                result = concatString(result, list[list.length-1], count);
+            }
+
+            return result;
     }
 }
