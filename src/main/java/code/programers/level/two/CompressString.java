@@ -1,7 +1,9 @@
 package code.programers.level.two;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CompressString {
     
@@ -55,6 +57,69 @@ public class CompressString {
         if(left.equals(right))
         {
             result = true;
+        }
+
+        return result;
+    }
+
+    int minLength(String s)
+    {
+        int result = s.length();
+
+        for(int index=1; index<s.length()/2 +1; index++)
+        {
+            List<String> string_list = splitAt(s, index, s.length());
+
+            if(isRemained(s.length(), index))
+            {
+                int value = s.length()%index;
+                string_list.add(s.substring(s.length()-value, s.length()));
+            }
+
+            int count = 1;
+
+            Map<String, Integer> map = new HashMap<String, Integer>();
+
+            String tmp = "";
+
+            for(int idx=0; idx< string_list.size() -1; idx++)
+            {
+                if(isSameString(string_list.get(idx), string_list.get(idx+1)))
+                {
+                    count++;
+                    map.put(string_list.get(idx), count);
+                }
+                else
+                {
+                    if(count== 1)
+                    {
+                        tmp += string_list.get(idx);
+                    }else
+                    {
+                        tmp += count+string_list.get(idx);
+                    }
+                    count = 1;
+                    map.remove(string_list.get(idx));
+                    map.put(string_list.get(idx+1), count);
+                }
+            }
+
+            if(!map.isEmpty())
+            {
+                for(Map.Entry<String, Integer> entry: map.entrySet())
+                {
+                    if(entry.getValue().equals(1))
+                    {
+                        tmp += entry.getKey();
+                    }else
+                    {
+                        tmp += entry.getValue() + entry.getKey();
+                    }
+                }
+            }
+            if(tmp.length()<result) 
+                result = tmp.length();
+
         }
 
         return result;

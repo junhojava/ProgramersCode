@@ -1,15 +1,12 @@
 package code.programers.level.two;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
@@ -142,5 +139,12 @@ public class CompressStringTest {
         assertEquals("2a2ba3c", s);
     }
 
-    
+    @Test
+    void testCaseTwo()
+    {
+        String s = "aabbaccc";
+
+        System.out.println(1/2);
+        assertEquals(7, compressString.minLength(s));
+    }
 }
