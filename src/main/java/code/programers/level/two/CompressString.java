@@ -45,6 +45,18 @@ public class CompressString {
 
     boolean isRemained(int length, int number)
     {
-        return (length%number) == 0;
+        return (length%number) != 0;
+    }
+
+    int accumulateSame(String left, String right, int number)
+    {
+        if(left.equals(right))
+        {
+            return number+1;
+        }
+        else
+        {
+            return 1;
+        }
     }
 }
