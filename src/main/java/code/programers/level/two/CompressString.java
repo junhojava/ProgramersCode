@@ -48,8 +48,8 @@ public class CompressString {
         return result;
     }
 
-    String replaceOne(String number)
+    int stringToInt(String left)
     {
-        return number.replaceAll("1", "");
+        return Integer.parseInt(left);
     }
 }

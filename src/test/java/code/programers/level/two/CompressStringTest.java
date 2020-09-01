@@ -58,20 +58,4 @@ public class CompressStringTest {
 
         assertArrayEquals(new String[]{"aaa", "bbc", "cc"}, compressString.concatList(list, "cc"));
     }
-
-    @Test
-    void testReplaceOne()
-    {
-        String one = "1";
-
-        assertEquals("", compressString.replaceOne(one));
-    }
-
-    @Test
-    void testReplaceEleven()
-    {
-        String eleven = "11";
-
-        assertEquals("1", compressString.replaceOne(eleven));
-    }
 }
