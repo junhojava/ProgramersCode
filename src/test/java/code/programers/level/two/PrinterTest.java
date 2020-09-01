@@ -19,6 +19,30 @@ public class PrinterTest {
      * {0,1,2,3}
      * 
      * {2,3,0,1}
+     * 
+     * 4번째위치 출력
+     * 1,1,9,1,8,1
+     * 
+     * ↓
+     * 1,9,1,8(v),1,1
+     * ↓
+     * 1,1,9,1,8(v),1
+     * ↓(출력)
+     * 9,1,8(v),1,1,1
+     *   ↓(출력)
+     * 9,8(v),1,1,1,1
+     * 
+     * 0번째 위치 출력
+     * ↓
+     * 1,9,1,8,1,1(v)
+     * ↓(출력)
+     * 9,1,8,1,1(v),1
+     *   ↓(출력)
+     * 9,8,1,1(v),1,1
+     *     ↓(출력)
+     * 9,8,1,1(v),1,1
+     *       ↓(출력)
+     * 9,8,1,1(v),1,1
      */
     Printer printer = new Printer();
 
@@ -37,9 +61,9 @@ public class PrinterTest {
 
         int max_index = printer.maxIndex(priorities);
         
-        int result = printer.calcShiftedIndex(0, max_index, priorities.length);
+        int result = printer.calcShiftedIndex(2, max_index, priorities.length);
     
-        assertEquals(result, 2);
+        assertEquals(1, result);
     }
 
     @Test
@@ -51,6 +75,50 @@ public class PrinterTest {
         
         int result = printer.calcShiftedIndex(0, max_index, priorities.length);
     
-        assertEquals(result, 4);
+        assertEquals(5, result);
+    }
+
+    @Test
+    void testCaseThree()
+    {
+        int[] priorities = {1,2,3,4,5,6,7,8,9,1,2,3,4};
+
+        int max_index = printer.maxIndex(priorities);
+        
+        int result = printer.calcShiftedIndex(7, max_index, priorities.length);
+    
+        assertEquals(result, 13);
+    }
+
+    @Test
+    void testCaseFour()
+    {
+        int[] priorities = {1,5,4,1,8,2,8,2};
+
+        int max_index = printer.maxIndex(priorities);
+
+        int result = printer.calcShiftedIndex(0, max_index, priorities.length);
+
+        assertEquals(5, result);
+    }
+
+    @Test
+    void testShiftArray()
+    {
+        int[] priorities = {1,1,9,1,8,1};
+
+        int[] result = printer.shiftList(priorities, 2);
+
+        assertArrayEquals(new int[]{9,1,8,1,1,1}, result);
+    }
+
+    @Test
+    void testFirstOutArray()
+    {
+        int[] priorities= {9,1,8,1,1,1};
+
+        int[] result = printer.firstOutList(priorities);
+
+        assertArrayEquals(new int[]{1,8,1,1,1}, result);
     }
 }
