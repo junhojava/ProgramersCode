@@ -1,5 +1,6 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -12,19 +13,15 @@ public class PrinterTest {
      * 내 문서의 인쇄 순번 return
      * 
      * • 테스트 목록
-     * 0번째 인덱스의 배열을 2번 움직이도록 순환시킨다.
-     * 
-     * 
-     * 
-     * 
+     * 제일 큰 숫자가 몇번째 인덱스에 존재하는지 확인하기
      */
     Printer printer = new Printer();
 
     @Test
-    void testShiftLotate()
+    void testMaxIndex()
     {
         int[] priorities = {2,1,3,2};
 
-        assertEquals(new int[]{3,2,2,1}, printer.shiftLotate(priorities, 0, 2));
+        assertEquals(2, printer.maxIndex(priorities));
     }
 }

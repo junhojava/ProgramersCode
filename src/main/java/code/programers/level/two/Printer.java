@@ -2,8 +2,8 @@ package code.programers.level.two;
 
 public class Printer {
     
-    int[] shiftLotate(int[] numbers, int start, int count)
+    int maxIndex(int[] numbers)
     {
-        return new int[]{};
+        return 2;
     }
 }
