@@ -98,9 +98,7 @@ public class CompressStringTest {
         String left ="aa";
         String right = "aa";
 
-        int result = compressString.accumulateSame(left, right, 1);
-
-        assertEquals(2, result);
+        assertTrue(compressString.isSameString(left, right, 1));
     }
     
     @Test

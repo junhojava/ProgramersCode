@@ -48,15 +48,15 @@ public class CompressString {
         return (length%number) != 0;
     }
 
-    int accumulateSame(String left, String right, int number)
+    boolean isSameString(String left, String right, int number)
     {
         if(left.equals(right))
         {
-            return number+1;
+            return true;
         }
         else
         {
-            return 1;
+            return false;
         }
     }
 }
