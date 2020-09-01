@@ -1,5 +1,7 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class PrinterTest {
@@ -23,6 +25,6 @@ public class PrinterTest {
     {
         int[] priorities = {2,1,3,2};
 
-        assertEquals(new int{3,2,2,1}, printer.shiftLotate(0, 2));
+        assertEquals(new int[]{3,2,2,1}, printer.shiftLotate(priorities, 0, 2));
     }
 }
