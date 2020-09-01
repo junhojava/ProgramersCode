@@ -41,4 +41,16 @@ public class PrinterTest {
     
         assertEquals(result, 2);
     }
+
+    @Test
+    void testCaseTwo()
+    {
+        int[] priorities = {1,1,9,1,1,1};
+
+        int max_index = printer.maxIndex(priorities);
+        
+        int result = printer.calcShiftedIndex(0, max_index, priorities.length);
+    
+        assertEquals(result, 4);
+    }
 }
