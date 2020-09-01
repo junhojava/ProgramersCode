@@ -17,5 +17,11 @@ public class CompressStringTest {
      */
     CompressString compressString = new CompressString();
 
-    
+    @Test
+    void testOnly()
+    {
+        String s= "xababcdcdababcdcd";
+        
+        assertTrue(compressString.only(s, s.substring(0, 1)));
+    }
 }
