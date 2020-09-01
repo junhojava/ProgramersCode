@@ -6,9 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
@@ -47,7 +49,7 @@ public class CompressStringTest {
         String s = "aabbaccc";
         List<String> string_list = new ArrayList<String>();
 
-        List<String> result = compressString.splitAt(s, 3, s.length());
+        List<String> result = compressString.splitAt(s, 1, s.length());
 
         string_list.add("a");
         string_list.add("a");
@@ -67,5 +69,78 @@ public class CompressStringTest {
         String s ="aabbaccc";
 
         assertTrue(compressString.isRemained(s.length(), 3));
+    }
+
+    @Test
+    void testSplitThree()
+    {
+        String s ="aabbaccc";
+
+        List<String> string_list = compressString.splitAt(s, 3, s.length());
+        List<String> result = new ArrayList<String>();
+
+        if(compressString.isRemained(s.length(), 3))
+        {
+            int value = s.length()%3;
+            string_list.add(s.substring(s.length()-value, s.length()));
+        }
+
+        result.add("aab");
+        result.add("bac");
+        result.add("cc");
+
+        assertEquals(result, string_list);
+    }
+
+    @Test
+    void testaccumulateString()
+    {
+        String left ="aa";
+        String right = "aa";
+
+        int result = compressString.accumulateSame(left, right, 1);
+
+        assertEquals(2, result);
+    }
+    
+    @Test
+    void testTestCaseOne()
+    {
+        String s ="aabbaccc";
+
+        List<String> string_list = compressString.splitAt(s, 1, s.length());
+
+        int count = 1;
+
+        Map<String, Integer> map = new HashMap<String, Integer>();
+
+        s="";
+
+        for(int index=0; index< string_list.size()-1; index++)
+        {
+            if(string_list.get(index).equals(string_list.get(index+1)))
+            {
+                count++;
+                map.put(string_list.get(index), count);
+            }
+            else
+            {
+                s += count+string_list.get(index);
+                map.remove(string_list.get(index));
+                count = 1;
+            }
+        }
+
+        if(!map.isEmpty())
+        {
+            for(Map.Entry<String, Integer> entry: map.entrySet())
+            {
+                s += entry.getValue() + entry.getKey();
+            }
+
+            s = s.replaceAll("[1]", "");
+        }
+
+        assertEquals("2a2ba3c", s);
     }
 }
