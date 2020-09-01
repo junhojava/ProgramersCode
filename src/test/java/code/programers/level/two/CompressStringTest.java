@@ -21,7 +21,24 @@ public class CompressStringTest {
     void testOnly()
     {
         String s= "xababcdcdababcdcd";
-        
+
         assertTrue(compressString.only(s, s.substring(0, 1)));
+    }
+
+    @Test
+    void testRemain()
+    {
+        String s = "asdf";
+
+        assertTrue(compressString.remained(s.length(), 3));
+    }
+
+    @Test
+    void testEqualsString()
+    {
+        String s = "aa";
+
+        assertFalse(compressString.equalsString(s, "ab"));
+        assertTrue(compressString.equalsString(s, "aa"));
     }
 }
