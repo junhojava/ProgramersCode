@@ -136,18 +136,44 @@ public class PrinterTest {
     @Test
     void testMyCaseOne()
     {
-        int[] priorities = {1,1,9,1,8,1,1};
+        int[] priorities = {1,1,9,8,8,1,1};
+        int[] locations = new int[]{0,1,2,3,4,5,6};
+
         int location = 4;
         boolean flag = true;
+        int value = priorities[location];
+        int count = 0;
 
         while(flag)
         {
-            int value = priorities[location];
+            int max_index = printer.maxIndex(priorities);
 
             if(printer.isMaxValue(priorities, value))
             {
-                System.out.println("hello world");
+                if(locations[max_index] == location)
+                {
+                    flag = false;
+                }
+                else
+                {
+                    printer.shiftList(priorities, max_index);
+                    printer.shiftList(locations, max_index);
+
+                    priorities= printer.firstOutList(priorities);
+                    locations= printer.firstOutList(locations);
+                    count++;
+                }
+            }
+            else
+            {
+                printer.shiftList(priorities, max_index);
+                printer.shiftList(locations, max_index);
+
+                priorities= printer.firstOutList(priorities);
+                locations= printer.firstOutList(locations);
+                count++;
             }
         }
+        assertEquals(2, count);
     }
 }
