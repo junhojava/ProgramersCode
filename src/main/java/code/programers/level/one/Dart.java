@@ -1,8 +1,5 @@
 package code.programers.level.one;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Dart {
 
     String area= "SDT";
