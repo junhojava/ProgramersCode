@@ -55,10 +55,22 @@ public class Printer {
     int[] firstOutList(int[] priorities)
     {
         int[] result = new int[priorities.length-1];
-        for(int index=1; index<result.length; index++)
+        for(int index=0; index<result.length; index++)
         {
             result[index] = priorities[index+1];
         }
         return result;
+    }
+
+    boolean isMaxValue(int[] numbers, int max)
+    {
+        for(int number: numbers)
+        {
+            if(number > max)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

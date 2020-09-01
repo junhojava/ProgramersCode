@@ -2,6 +2,8 @@ package code.programers.level.two;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -120,5 +122,21 @@ public class PrinterTest {
         int[] result = printer.firstOutList(priorities);
 
         assertArrayEquals(new int[]{1,8,1,1,1}, result);
+    }
+
+    @Test
+    void testIsMaxValue()
+    {
+        int[] priorities = {9,1,8,1,1,1};
+
+        assertFalse(printer.isMaxValue(priorities, 1));
+        assertTrue(printer.isMaxValue(priorities, 9));
+    }
+
+    @Test
+    void testMyCaseOne()
+    {
+        int[] priorities = {9,1,8,1,1,1};
+        int
     }
 }
