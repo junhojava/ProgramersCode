@@ -47,4 +47,9 @@ public class CompressString {
 
         return result;
     }
+
+    String replaceOne(String one)
+    {
+        return one.replaceAll("1", "");
+    }
 }
