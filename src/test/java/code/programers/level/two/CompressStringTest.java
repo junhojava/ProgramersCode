@@ -1,5 +1,7 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.Test;
 
 public class CompressStringTest {
@@ -10,8 +12,7 @@ public class CompressStringTest {
     void testFirstCharacterDuiplication()
     {
         String s= "xasdfasdf";
-        
-        assertFalse(compressString.firstCharacterDuiplication(s));
-        
+
+        assertFalse(compressString.firstCharacterDuplication(s));
     }
 }
