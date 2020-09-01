@@ -66,4 +66,12 @@ public class CompressStringTest {
 
         assertEquals("", compressString.replaceOne(one));
     }
+
+    @Test
+    void testReplaceEleven()
+    {
+        String eleven = "11";
+
+        assertEquals("1", compressString.replaceOne(eleven));
+    }
 }
