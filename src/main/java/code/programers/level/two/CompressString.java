@@ -1,5 +1,8 @@
 package code.programers.level.two;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CompressString {
     
     boolean only(String s, String c)
@@ -15,5 +18,19 @@ public class CompressString {
     boolean equalsString(String left, String right)
     {
         return left.equals(right);
+    }
+
+    String[] splitedList(String s, int number)
+    {
+        List<String> list = new ArrayList<String>();
+
+        for(int index=0; index+number< s.length(); index+=number)
+        {
+            String crnt = s.substring(index, index+number);
+
+            list.add(crnt);
+        }
+
+        return list.toArray(new String[0]);
     }
 }

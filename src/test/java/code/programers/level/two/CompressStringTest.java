@@ -1,5 +1,6 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,5 +41,13 @@ public class CompressStringTest {
 
         assertFalse(compressString.equalsString(s, "ab"));
         assertTrue(compressString.equalsString(s, "aa"));
+    }
+
+    @Test
+    void testSpliedList()
+    {
+        String s = "aaabbccc";
+
+        assertArrayEquals(new String[]{"aaa", "bbc"}, compressString.splitedList(s, 3));
     }
 }
