@@ -33,4 +33,18 @@ public class CompressString {
 
         return list.toArray(new String[0]);
     }
+
+    String[] concatList(String[] list, String str)
+    {
+        String[] result = new String[list.length+1];
+
+        for(int index=0; index<list.length; index++)
+        {
+            result[index] = list[index];
+        }
+
+        result[result.length-1] = str;
+
+        return result;
+    }
 }

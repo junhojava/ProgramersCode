@@ -50,4 +50,12 @@ public class CompressStringTest {
 
         assertArrayEquals(new String[]{"aaa", "bbc"}, compressString.splitedList(s, 3));
     }
+
+    @Test
+    void testConcatList()
+    {
+        String[] list = {"aaa", "bbc"};
+
+        assertArrayEquals(new String[]{"aaa", "bbc", "cc"}, compressString.concatList(list, "cc"));
+    }
 }
