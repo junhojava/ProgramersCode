@@ -98,7 +98,7 @@ public class CompressStringTest {
         String left ="aa";
         String right = "aa";
 
-        assertTrue(compressString.isSameString(left, right, 1));
+        assertTrue(compressString.isSameString(left, right));
     }
     
     @Test
@@ -116,7 +116,7 @@ public class CompressStringTest {
 
         for(int index=0; index< string_list.size()-1; index++)
         {
-            if(string_list.get(index).equals(string_list.get(index+1)))
+            if(compressString.isSameString(string_list.get(index), string_list.get(index+1)))
             {
                 count++;
                 map.put(string_list.get(index), count);
@@ -141,4 +141,6 @@ public class CompressStringTest {
 
         assertEquals("2a2ba3c", s);
     }
+
+    
 }
