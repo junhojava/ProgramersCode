@@ -136,7 +136,18 @@ public class PrinterTest {
     @Test
     void testMyCaseOne()
     {
-        int[] priorities = {9,1,8,1,1,1};
-        int
+        int[] priorities = {1,1,9,1,8,1,1};
+        int location = 4;
+        boolean flag = true;
+
+        while(flag)
+        {
+            int value = priorities[location];
+
+            if(printer.isMaxValue(priorities, value))
+            {
+                System.out.println("hello world");
+            }
+        }
     }
 }
