@@ -57,13 +57,13 @@ public class OpenChatTest {
     }
 
     @Test
-    void testIsEnterAndChange()
+    void testWritingName()
     {
         OpenChat oc = new OpenChat();
         oc.users = new HashMap();
 
         String[] record = {"Enter uid4567 Prodo", "Change uid4567 Ryan"};
 
-        assertEquals("Ryan", oc.whoAreYou(record));
+        assertEquals("Ryan", oc.whoAreYou(record, "uid4567"));
     }
 }

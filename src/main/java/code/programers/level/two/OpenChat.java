@@ -21,20 +21,16 @@ public class OpenChat {
         return record.substring(0, 6).equals("Change");
     }
 
-    String whoAreYou(String[] records)
+    String whoAreYou(String[] records, String uid)
     {
         for(String record: records)
         {
             String[] info = record.split(" ");
-            if(isEnter(record))
-            {
-                users.put(info[1], info[2]);
-            }
-            else if(isChange(record))
+            if(isEnter(record) || isChange(record))
             {
                 users.put(info[1], info[2]);
             }
         }
-        return "Ryan";
+        return users.get("uid");
     }
 }
