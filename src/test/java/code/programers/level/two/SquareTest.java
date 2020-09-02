@@ -15,4 +15,10 @@ public class SquareTest {
     {
         assertTrue(square.isEqualSize(10, 10));
     }
+
+    @Test
+    void testIsEven()
+    {
+        assertFalse(square.isEven(3));
+    }
 }
