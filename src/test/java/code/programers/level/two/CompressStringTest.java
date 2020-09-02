@@ -59,90 +59,6 @@ public class CompressStringTest {
         assertArrayEquals(new String[]{"aaa", "bbc", "cc"}, compressString.concatList(list, "cc"));
     }
 
-    @Test
-    void testCaseOne()
-    {
-        String s= "aabbaccc";
-        String result = "";
-
-        if(compressString.only(s, "a"))
-        {
-            assertTrue(true);
-        }
-        else
-        {
-            String[] list = compressString.splitedList(s, 1);
-
-            int count = 1;
-            for(int index=0; index+1<list.length; index++)
-            {
-                String crnt = list[index];
-                String next = list[index+1];
-                if(compressString.equalsString(crnt, next))
-                {
-                    count++;
-                }
-                else
-                {
-                    result = compressString.concatString(result, crnt, count);
-
-                    list[index] = "";
-                    count = 1;
-                }
-            }
-
-            if(!compressString.equalsString(list[list.length-1], ""))
-            {
-                result = compressString.concatString(result, list[list.length-1], count);
-            }
-
-            System.out.println(result);
-            assertEquals(7, result.length());
-        }
-    }
-
-    @Test
-    void testCaseTwo()
-    {
-        String s= "ababcdcdababcdcd";
-        String result = "";
-
-        if(compressString.only(s, "a"))
-        {
-            assertTrue(true);
-        }
-        else
-        {
-            String[] list = compressString.splitedList(s, 8);
-            list = compressString.concatList(list, "ababcdcd");
-
-            int count = 1;
-            for(int index=0; index+1<list.length; index++)
-            {
-                String crnt = list[index];
-                String next = list[index+1];
-                if(compressString.equalsString(crnt, next))
-                {
-                    count++;
-                }
-                else
-                {
-                    result = compressString.concatString(result, crnt, count);
-
-                    count = 1;
-                }
-                list[index] = "";
-            }
-
-            if(!compressString.equalsString(list[list.length-1], ""))
-            {
-                result = compressString.concatString(result, list[list.length-1], count);
-            }
-
-            System.out.println(result);
-            assertEquals(9, result.length());
-        }
-    }
 
     @Test
     void testTwoSplitedList()
@@ -158,50 +74,9 @@ public class CompressStringTest {
     void testConcatString()
     {
         String s = "2a2ba";
-        assertEquals("2a2ba2c", compressString.concatString(s, "c", 2));
+        assertEquals("2a2ba2c", compressString.concatString("c", 2));
     }
 
-    @Test
-    void testCaseThree()
-    {
-        String s= "abcabcdede";
-        String result = "";
-
-        if(compressString.only(s, "a"))
-        {
-            assertTrue(true);
-        }
-        else
-        {
-            String[] list = compressString.splitedList(s, 3);
-
-            int count = 1;
-            for(int index=0; index+1<list.length; index++)
-            {
-                String crnt = list[index];
-                String next = list[index+1];
-                if(compressString.equalsString(crnt, next))
-                {
-                    count++;
-                }
-                else
-                {
-                    result = compressString.concatString(result, crnt, count);
-
-                    count = 1;
-                }
-                list[index] = "";
-            }
-
-            if(!compressString.equalsString(list[list.length-1], ""))
-            {
-                result = compressString.concatString(result, list[list.length-1], count);
-            }
-
-            System.out.println(result);
-            assertEquals(8, result.length());
-        }
-    }
 
     @Test
     void testCaseFour()
