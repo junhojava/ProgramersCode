@@ -23,6 +23,7 @@ public class OpenChatTest {
      * 중복 닉네임을 허용한다.
      * Muzi , Prodo -> Prodo(전 Muzi), Prodo
      * 
+     * 유저는 uid로 구분한다.
      * 
      */
     @Test
@@ -31,5 +32,21 @@ public class OpenChatTest {
         OpenChat oc = new OpenChat();
 
         assertTrue(oc.isEnter("Enter uid1234 Muzi"));
+    }
+
+    @Test
+    void testIsLeave()
+    {
+        OpenChat oc = new OpenChat();
+
+        assertTrue(oc.isLeave("Leave uid1234"));
+    }
+
+    @Test
+    void testIsChage()
+    {
+        OpenChat oc = new OpenChat();
+
+        assertTrue(oc.isChange("Change uid4567 Ryan"));
     }
 }

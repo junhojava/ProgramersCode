@@ -6,4 +6,14 @@ public class OpenChat {
     {
         return record.substring(0, 5).equals("Enter");
     }
+
+    boolean isLeave(String record)
+    {
+        return record.substring(0, 5).equals("Leave");
+    }
+
+    boolean isChange(String record)
+    {
+        return record.substring(0, 6).equals("Change");
+    }
 }
