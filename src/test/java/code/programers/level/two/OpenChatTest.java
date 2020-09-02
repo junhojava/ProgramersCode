@@ -1,6 +1,9 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,6 +28,9 @@ public class OpenChatTest {
      * 
      * 유저는 uid로 구분한다.
      * 
+     * {"uid1234": "Muzi", "uid4567": "Prodo"}
+     * -> {"uid1234": "Prodo", "uid4567": "Ryan"}
+     * 
      */
     @Test
     void testIsEnter()
@@ -48,5 +54,16 @@ public class OpenChatTest {
         OpenChat oc = new OpenChat();
 
         assertTrue(oc.isChange("Change uid4567 Ryan"));
+    }
+
+    @Test
+    void testIsEnterAndChange()
+    {
+        OpenChat oc = new OpenChat();
+        oc.users = new HashMap();
+
+        String[] record = {"Enter uid4567 Prodo", "Change uid4567 Ryan"};
+
+        assertEquals("Ryan", oc.whoAreYou(record));
     }
 }
