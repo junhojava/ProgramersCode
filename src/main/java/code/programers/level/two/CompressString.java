@@ -24,9 +24,17 @@ public class CompressString {
     {
         List<String> list = new ArrayList<String>();
 
-        for(int index=0; index+number< s.length(); index+=number)
+        for(int index=0; index< s.length(); index+=number)
         {
-            String crnt = s.substring(index, index+number);
+            String crnt = "";
+            if(index+number > s.length())
+            {
+                crnt = s.substring(index, s.length());
+            }
+            else
+            {
+                crnt = s.substring(index, index+number);
+            }
 
             list.add(crnt);
         }
@@ -53,15 +61,15 @@ public class CompressString {
         return Integer.parseInt(left);
     }
 
-    String concatString(String left, String right, int number)
+    String concatString(String right, int number)
     {
         if(number > 1)
         {
-            return left+number+right;
+            return number+right;
         }
         else
         {
-            return left+right;
+            return right;
         }
     }
 
@@ -70,44 +78,87 @@ public class CompressString {
         String[] list = splitedList(s, number);
         String result = "";
 
-        if(number > 1)
+        if(!listToString(list).equals(s))
         {
-            int begin = 0;
-            if(remained(s.length(), number))
-            {
-                begin = s.length() - s.length()%number;
-            }
-            else
-            {
-                begin = s.length()-number;
-            }
-            
-            list = concatList(list, s.substring(begin ,s.length()));
+            int value = s.length()- listToString(list).length();
+            list = concatList(list, s.substring(s.length()-value ,s.length()));
         }
 
         int count = 1;
-            for(int index=0; index+1<list.length; index++)
+            for(int index=1; index<=list.length; index++)
             {
-                String crnt = list[index];
-                String next = list[index+1];
-                if(equalsString(crnt, next))
+                String crnt = list[index-1];
+                if(index==list.length)
                 {
-                    count++;
+                    list[index-1] = concatString(crnt, count);
                 }
                 else
                 {
-                    result = concatString(result, crnt, count);
-
-                    count = 1;
+                    String next = list[index];
+                    if(equalsString(crnt, next))
+                    {
+                        count++;
+                        list[index-1] = "";
+                    }
+                    else
+                    {
+                        list[index-1] = concatString(crnt, count);
+                        
+                        count = 1;
+                    }
                 }
-                list[index] = "";
+
             }
 
-            if(!equalsString(list[list.length-1], ""))
-            {
-                result = concatString(result, list[list.length-1], count);
-            }
+            // if(!equalsString(list[list.length-1], ""))
+            // {
+            //     list[list.length-1] = concatString(result, list[list.length-1], count);
+            // }
 
-            return result;
+            return listToString(list);
     }
+
+    String listToString(String[] list)
+    {
+        String result = "";
+        for(String s: list)
+        {
+            result += s;
+        }
+
+        return result;
+    }
+
+    public int solution(String s) {
+        if(s.length() == 1) return 1;
+         
+        int answer = 1001;
+        for (int i = 1; i <= s.length() / 2; i++) {
+            String now, next = "", result = "";
+            int hit = 1;
+            for (int j = 0; j <= s.length() / i; j++) {
+                int start = j * i;
+                int end = i * (j + 1) > s.length() ? s.length() : i * (j + 1);
+                now = next;
+                next = s.substring(start, end);
+ 
+                if(now.equals(next)) {
+                    hit++;
+                } else {
+                    result += (processHit(hit) + now);
+                    hit = 1;
+                }
+            }
+            result += (processHit(hit) + next);
+            answer = Math.min(answer, result.length());
+        }
+ 
+        return answer;
+    }
+
+
+    private static String processHit(int hit) {
+        return hit > 1 ? String.valueOf(hit) : "";
+    }
+
 }

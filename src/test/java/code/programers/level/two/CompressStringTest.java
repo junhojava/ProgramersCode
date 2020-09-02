@@ -44,11 +44,11 @@ public class CompressStringTest {
     }
 
     @Test
-    void testSpliedList()
+    void testSplietdList()
     {
         String s = "aaabbccc";
 
-        assertArrayEquals(new String[]{"aaa", "bbc"}, compressString.splitedList(s, 3));
+        assertArrayEquals(new String[]{"aaa", "bbc", "cc"}, compressString.splitedList(s, 3));
     }
 
     @Test
@@ -151,7 +151,7 @@ public class CompressStringTest {
 
         String[] list = compressString.splitedList(s, 3);
 
-        assertArrayEquals(new String[]{"aba", "bcd", "cda", "bab", "cdc"}, list);
+        assertArrayEquals(new String[]{"aba", "bcd", "cda", "bab", "cdc", "d"}, list);
     }
 
     @Test
@@ -174,7 +174,6 @@ public class CompressStringTest {
         else
         {
             String[] list = compressString.splitedList(s, 3);
-            list = compressString.concatList(list, "e");
 
             int count = 1;
             for(int index=0; index+1<list.length; index++)
@@ -207,13 +206,13 @@ public class CompressStringTest {
     @Test
     void testCaseFour()
     {
-        String s= "abcabcdede";
-        int answer = s.length();
+        String s= "ababcdcdababcdcd";
+        int answer = 1000;
         String result = "";
 
-        if(compressString.only(s, "a"))
+        if(compressString.only(s, s.substring(0,1)))
         {
-            assertTrue(true);
+            answer= s.length();
         }
         else
         {
@@ -228,33 +227,24 @@ public class CompressStringTest {
             }
         }
 
-        assertEquals(8, answer);
+        assertEquals(9, answer);
     }
 
     @Test
     void testCaseFive()
     {
-        String s= "xababcdcdababcdcd";
-        int answer = s.length();
-        String result = "";
+        String s= "ababcdcdababcdcd";
 
-        if(compressString.only(s, "x"))
-        {
-            answer = 17;
-        }
-        else
-        {
-            for(int index=1; index< s.length()/2 + 1; index++)
-            {
-                result = compressString.compresString(s, index);
+        assertEquals(9, compressString.solution(s));
+    }
 
-                if(answer > result.length())
-                {
-                    answer = result.length();
-                }
-            }
-        }
+    @Test
+    void testEqualsListToString()
+    {
+        String s= "abcabcabcabcdededededede";
 
-        assertEquals(17, answer);
+        String[] list = compressString.splitedList(s, 4);
+
+        assertEquals(s, compressString.listToString(list));
     }
 }
