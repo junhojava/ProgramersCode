@@ -76,7 +76,6 @@ public class CompressString {
     String compresString(String s, int number)
     {
         String[] list = splitedList(s, number);
-        String result = "";
 
         if(!listToString(list).equals(s))
         {
@@ -109,11 +108,6 @@ public class CompressString {
                 }
 
             }
-
-            // if(!equalsString(list[list.length-1], ""))
-            // {
-            //     list[list.length-1] = concatString(result, list[list.length-1], count);
-            // }
 
             return listToString(list);
     }

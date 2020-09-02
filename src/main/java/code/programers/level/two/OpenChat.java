@@ -48,8 +48,7 @@ public class OpenChat {
     
     public String[] solution(String[] record) {
         users = new HashMap<String, String>();
-        message = new ArrayList();
-        String result = "";
+        message = new ArrayList<String>();
         
         whoAreYou(record);
         
