@@ -1,8 +1,10 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
@@ -60,10 +62,22 @@ public class OpenChatTest {
     void testWritingName()
     {
         OpenChat oc = new OpenChat();
-        oc.users = new HashMap();
+        oc.users = new HashMap<String, String>();
+        oc.message = new ArrayList<String>();
 
         String[] record = {"Enter uid4567 Prodo", "Change uid4567 Ryan"};
 
-        assertEquals("Ryan", oc.whoAreYou(record, "uid4567"));
+        oc.whoAreYou(record);
+
+        assertEquals("Ryan", oc.users.get("uid4567"));
+    }
+
+    @Test
+    void testCaseOne()
+    {
+        OpenChat oc = new OpenChat();
+        String[] record = {"Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"};
+
+        assertArrayEquals(new String[]{"Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."}, oc.solution(record));
     }
 }
