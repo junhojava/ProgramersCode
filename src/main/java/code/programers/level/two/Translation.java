@@ -47,7 +47,8 @@ public class Translation {
         int index = 2;
         String result = "";
         String empty = "(";
-        String u, v;
+        String u;
+        String v;
 
         if(isEmpty(s))
         {
