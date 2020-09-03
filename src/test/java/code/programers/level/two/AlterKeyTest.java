@@ -18,6 +18,18 @@ public class AlterKeyTest {
      * 이름과 전공을 제외한다.
      * 카운터에 1을 더한다.
      * 
+     * list = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+     * 
+     * 짝지을 컬럼 = 1
+     * for(list[0])
+     *     컬럼의 값이 0이고, 짝의 수인 1과 같으면
+     *     0번째 컬럼은 유일성을 만족한다.
+     *     0번째 컬럼 관련 자료는 모두 1로 바꾼다.
+     * list = [[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0]];
+     * 
+     * 짝지을 컬럼 = 2
+     * for(list[1])
+     *     컬럼의 값이 
      */
     String[][] relation;
     AlterKey ak = new AlterKey();
@@ -31,9 +43,9 @@ public class AlterKeyTest {
     @Test
     void testUniqueColumn()
     {
-        int result = 0;
+        ak.count = 0;
         relation = new String[][]{{"100","ryan","music","2"},{"200","apeach","math","2"},{"300","tube","computer","3"},{"400","con","computer","4"},{"500","muzi","music","3"},{"600","apeach","music","2"}};
-        ak.list = new int[relation[0].length][relation[0].length];
+        ak.init(relation[0].length); 
 
         for(int column=0; column<relation[0].length; column++)
         {
@@ -49,29 +61,16 @@ public class AlterKeyTest {
                 else
                 {
                     ak.flag = false;
-                    ak.list[0][column] = 1;
                 }
+            }
+
+            if(ak.flag)
+            {
+                ak.listRemove(new int[]{column});
             }
             ak.clear();
         }
-        result = ak.isZero(ak.list[0], 0);
-        assertEquals(1, result);
-    }
 
-    @Test
-    void testIsPair()
-    {
-        int result = 0;
-        relation = new String[][]{{"100","ryan","music","2"},{"200","apeach","math","2"},{"300","tube","computer","3"},{"400","con","computer","4"},{"500","muzi","music","3"},{"600","apeach","music","2"}};
-        ak.list = new int[][]{{0,1,1,1},{1,0,0,0},{1,0,0,0},{1,0,0,0}};
-
-
-        int index= 0;
-        if(ak.list[1][index])
-        {
-
-        }
-
-
+        assertEquals(1, ak.count);
     }
 }

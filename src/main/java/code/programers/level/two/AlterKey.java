@@ -1,14 +1,13 @@
 package code.programers.level.two;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class AlterKey {
     Map<String, Integer> attribute = new HashMap<String, Integer>();
     boolean flag = true;
-    int[][] list;
+    Map<Integer, String> list = new HashMap<Integer, String>();
+    int count;
     
     boolean isUnique(String key)
     {
@@ -26,27 +25,20 @@ public class AlterKey {
         attribute.clear();
     }
 
-    int isZero(int[] numbers, int row)
+    void init(int length)
     {
-        int result = 0;
-        for(int index = 0; index< list.length; index++)
+        for(int index=0; index<length; index++)
         {
-            if(numbers[index] == 0)
-            {
-                for(int pair = 0; pair<numbers.length; pair++)
-                {
-                    if(pair != row)
-                    {
-                        list[pair][index] = 1;
-                    }
-                    else
-                    {
-                        list[pair][index] = 0;
-                    }
-                }
-                result++;
-            }
+            list.put(index, ".");
         }
-        return result;
+    }
+
+    void listRemove(int[] indexs)
+    {
+        count++;
+        for(int index:indexs)
+        {
+            list.remove(index);
+        }
     }
 }
