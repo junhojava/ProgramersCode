@@ -6,49 +6,25 @@ import java.util.List;
 import java.util.Map;
 
 public class AlterKey {
-    Map<String, Integer> attribute = new HashMap<String, Integer>();
-    boolean flag = true;
-    Map<Integer, String> list = new HashMap<Integer, String>();
-    int count;
-    
+    int[] remained;
+    int[] removed;
+    int[] will;
+
+    Map<String, Integer> map = new HashMap<String, Integer>();
+    Map<Integer, Integer> remained_map = new HashMap<Integer, Integer>();
+
     boolean isUnique(String key)
     {
-        return attribute.get(key) == null;
+        return map.get(key) == null;
     }
 
-    int[][] combination(int[] list, int count)
+    int[][] combination(int[] list, int[][] target)
     {
         List<int[]> result = new ArrayList<int[]>();
-        int max = list[list.length-1];
-        int min = list[0];
-        int next = list[1];
 
-        for(int index=0; index<list.length-1;index++)
+        for(int[] dimension:target)
         {
-            for(int inner = index+1; inner<list.length; inner++)
-            {
-                result.add(new int[]{list[index], list[inner]});
-            }
-        }
-
-        return result.toArray(new int[0][]);
-    }
-
-    int[][] tripleCombination(int[] list)
-    {
-        List<int[]> result = new ArrayList<int[]>();
-        List<int[]> sample = new ArrayList<int[]>();
-
-        sample.add(new int[]{1,2});
-        sample.add(new int[]{1,3});
-        sample.add(new int[]{1,4});
-        sample.add(new int[]{2,3});
-        sample.add(new int[]{2,4});
-        sample.add(new int[]{3,4});
-        
-        for(int[] dimension:sample)
-        {
-            if(dimension[0] < list[list.length-2])
+            if(dimension[0] < list[list.length-(dimension.length)])
             {
                 for(int index=0; index<list.length; index++)
                 {
@@ -70,5 +46,29 @@ public class AlterKey {
         }
 
         return result.toArray(new int[0][]);
+    }
+
+    int[] columns(int length)
+    {
+        int[] result = new int[length];
+        for(int index=0; index< length; index++)
+        {
+            result[index] = index;
+        }
+
+        return result;
+    }
+
+    int[][] dimension(int[] list)
+    {
+        int[][] result = new int[list.length][1];
+
+        int index=0;
+        for(int number:list)
+        {
+            result[index++][0] = number;
+        }
+
+        return result;
     }
 }
