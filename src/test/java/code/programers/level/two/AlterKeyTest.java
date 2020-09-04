@@ -65,44 +65,34 @@ public class AlterKeyTest {
         int count = 0;
         String[][] relation = {{"100","ryan","music","2"},{"200","apeach","math","2"},{"300","tube","computer","3"},{"400","con","computer","4"},{"500","muzi","music","3"},{"600","apeach","music","2"}};
 
-        int[] columns = ak.columns(relation[0].length);
+        count = ak.solution(relation);
+        assertEquals(2, count);
+    }
 
-        int[][] combination = {{}};
+    @Test
+    void testRemove()
+    {
+        ak.remained = new int[]{0,1,2,3};
 
-        combination= ak.dimension(columns);
+        int[] result = ak.remove(ak.remained, new int[]{0});
 
-        for(int[] list: combination)
-        {
-            ak.flag = true;
-            for(String[] record:relation)
-            {
-                String key = "";
-                for(int index: list)
-                {
-                    key += record[index];
-                }
+        assertArrayEquals(new int[]{1,2,3}, result);
+    }
 
-                if(ak.isUnique(key))
-                {
-                    ak.map.put(key, 1);
-                }
-                else
-                {
-                    ak.flag = false;
-                }
+    @Test
+    void testCaseTwo()
+    {
+        int count = 0;
+        String[][] relation = {
+            {"b","2","a","a","b"},
+            {"b","2","7","1","b"},
+            {"1","0","a","a","8"},
+            {"7","5","a","a","9"},
+            {"3","0","a","f","9"}};
 
-            }
-            if(ak.flag)
-            {
-                count++;
-            }
-            else
-            {
+        count = ak.solution(relation);
 
-            }
-
-            ak.map.clear();
-        }
-        assertEquals(1, count);
+        System.out.println(ak.unique_key);
+        assertEquals(5, count);
     }
 }
