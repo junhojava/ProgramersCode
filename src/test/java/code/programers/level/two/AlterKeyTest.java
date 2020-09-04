@@ -26,8 +26,14 @@ public class AlterKeyTest {
     }
 
     @Test
-    void testConcatColumn()
+    void testPair()
     {
         assertArrayEquals(new int[][]{{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}}, ak.combination(new int[]{1,2,3,4}, 2));
+    }
+
+    @Test
+    void testTriple()
+    {
+        assertArrayEquals(new int[][]{{1,2,3}, {1,2,4}, {1,3,4}, {2,3,4}}, ak.tripleCombination(new int[]{1,2,3,4}));
     }
 }
