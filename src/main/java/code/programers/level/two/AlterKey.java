@@ -14,31 +14,8 @@ public class AlterKey {
         return attribute.get(key) == null;
     }
 
-    void putKey(String key)
+    int[][] combination(int[] list, int count)
     {
-        attribute.put(key, 1);
-    }
-
-    void clear()
-    {
-        flag = true;
-        attribute.clear();
-    }
-
-    void init(int length)
-    {
-        for(int index=0; index<length; index++)
-        {
-            list.put(index, ".");
-        }
-    }
-
-    void listRemove(int[] indexs)
-    {
-        count++;
-        for(int index:indexs)
-        {
-            list.remove(index);
-        }
+        return new int[][]{{1,2},{1,3},{1,4},{2,3},{2,4},{3,4}};
     }
 }
