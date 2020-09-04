@@ -55,6 +55,8 @@ public class AlterKeyTest {
 
         int[] columns = ak.columns(relation[0].length);
 
-        assertArrayEquals(new int[][]{{0},{1},{2},{3}}, ak.dimension(columns));
+        int[][] combination = ak.dimension(columns);
+
+        assertArrayEquals(new int[][]{{0},{1},{2},{3}}, combination);
     }
 }
