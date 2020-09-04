@@ -11,6 +11,7 @@ public class AlterKey {
     int[] will;
 
     Map<String, Integer> map = new HashMap<String, Integer>();
+    boolean flag;
     Map<Integer, Integer> remained_map = new HashMap<Integer, Integer>();
 
     boolean isUnique(String key)
