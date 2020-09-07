@@ -17,4 +17,9 @@ public class NewsClustrering {
 
         return result;
     }
+
+    boolean isEnglish(String str)
+    {
+        return str.matches("^[a-zA-Z]*$");
+    }
 }
