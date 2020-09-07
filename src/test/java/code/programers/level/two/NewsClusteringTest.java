@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
@@ -34,7 +35,7 @@ public class NewsClusteringTest {
     }
 
     @Test
-    void testSimilarity()
+    void testCountKey()
     {
         String[] list = nc.multiCombination("handshake");
 
@@ -42,7 +43,42 @@ public class NewsClusteringTest {
 
         Map<String, Integer> map = new HashMap<String, Integer>();
 
-        map.put("ha", 2);
-        map.put("")
+        map.put("HA", 2);
+        map.put("AN", 1);
+        map.put("ND", 1);
+        map.put("DS", 1);
+        map.put("SH", 1);
+        map.put("AK", 1);
+        map.put("KE", 1);
+
+        assertEquals(map, result);
+    }
+
+    @Test
+    void testSimilirity()
+    {
+        String[] list1 = nc.multiCombination("handshake");
+        String[] list2 = nc.multiCombination("shake ands");
+
+        Map<String, Integer> map1 = nc.countKey(list1);
+        Map<String, Integer> map2 = nc.countKey(list2);
+
+        int intersection = nc.intersection(map1, map2);
+        int union = nc.union(map1, map2);
+
+        assertEquals(7, intersection);
+        assertEquals(8, union);
+    }
+
+    @Test
+    void testZeroCombination()
+    {
+        assertTrue(nc.isZero(nc.multiCombination("123")));
+    }
+
+    @Test
+    void testNonZeroCombination()
+    {
+        assertFalse(nc.isZero(nc.multiCombination("asb")));
     }
 }

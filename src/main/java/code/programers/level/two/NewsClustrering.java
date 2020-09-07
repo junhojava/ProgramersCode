@@ -1,8 +1,10 @@
 package code.programers.level.two;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class NewsClustrering {
 
@@ -35,5 +37,57 @@ public class NewsClustrering {
             result.put(str, result.getOrDefault(str, 0) + 1);
 
         return result;
+    }
+
+    int intersection(Map<String, Integer>map1, Map<String,Integer>map2)
+    {
+        int result = 0;
+        Map<String, Integer> map = new HashMap<String, Integer>();
+
+        for(Entry<String, Integer> entry: map1.entrySet())
+            if(map2.get(entry.getKey())!= null)
+                map.put(entry.getKey(), Math.min(entry.getValue(), map2.get(entry.getKey())));
+
+        for(Entry<String, Integer> entry: map2.entrySet())
+            if(map1.get(entry.getKey())!= null)
+                map.put(entry.getKey(), Math.min(entry.getValue(), map1.get(entry.getKey())));
+
+        for(Entry<String, Integer> entry: map.entrySet())
+            result += (double) entry.getValue();
+
+        return result;
+    }
+
+    int union(Map<String, Integer>map1, Map<String,Integer>map2)
+    {
+        int result = 0;
+        Map<String, Integer> map = new HashMap<String, Integer>();
+
+        for(Entry<String, Integer> entry: map1.entrySet())
+            if(map2.get(entry.getKey())!= null)
+                map.put(entry.getKey(), Math.max(entry.getValue(), map2.get(entry.getKey())));
+            else
+                map.put(entry.getKey(), entry.getValue());
+
+        for(Entry<String, Integer> entry: map2.entrySet())
+            if(map1.get(entry.getKey())!= null)
+                map.put(entry.getKey(), Math.max(entry.getValue(), map1.get(entry.getKey())));
+            else
+                map.put(entry.getKey(), entry.getValue());
+
+        for(Entry<String, Integer> entry: map.entrySet())
+            result += (double) entry.getValue();
+
+        return result;
+    }
+
+    boolean isZero(String[] list)
+    {
+        int count = 0;
+        for(String str:list)
+            if(!str.equals(""))
+                count++;
+
+        return count == 0;
     }
 }
