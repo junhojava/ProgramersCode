@@ -11,5 +11,14 @@ public class NewsClusteringTest {
     
     NewsClustrering nc = new NewsClustrering();
 
-    
+    @Test
+    void testMultiCombination()
+    {
+        String france = "france";
+
+        String[] result = nc.multiCombination(france);
+
+        assertArrayEquals(new String[]{"FR", "RA", "AN", "NC", "CE"}, result);
+    }
+
 }
