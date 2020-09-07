@@ -2,6 +2,7 @@ package code.programers.level.two;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class NewsClustrering {
 
@@ -25,5 +26,14 @@ public class NewsClustrering {
     boolean isEnglish(String str)
     {
         return str.matches("^[a-zA-Z]*$");
+    }
+
+    Map<String, Integer> countKey(String[] list)
+    {
+        Map<String, Integer> result = new HashMap<String, Integer>();
+        for(String str:list)
+            result.put(str, result.getOrDefault(str, 0) + 1);
+
+        return result;
     }
 }
