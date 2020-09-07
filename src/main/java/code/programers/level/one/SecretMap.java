@@ -7,4 +7,15 @@ public class SecretMap {
     {
         return number % 2 == 0;
     }
+
+    int sqrt(int number, int count)
+    {
+        int result = 1;
+        while(count-- > 0)
+        {
+            result *= number;
+        }
+
+        return result;
+    }
 }
