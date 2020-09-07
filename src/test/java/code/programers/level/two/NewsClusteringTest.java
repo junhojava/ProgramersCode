@@ -18,8 +18,8 @@ public class NewsClusteringTest {
     @Test
     void testMultiCombination()
     {
-        String[] result = nc.combination("FRANCE");
+        String[] france = nc.combination("FRANCE");
 
-        assertArrayEquals(new String[]{"FR", "RA", "AN", "NC", "CE"}, result);
+        assertArrayEquals(new String[]{"FR", "RA", "AN", "NC", "CE"}, france);
     }
 }
