@@ -10,12 +10,6 @@ public class SecretMapTest {
     SecretMap sm = new SecretMap();
 
     @Test
-    void testIsEven()
-    {
-        assertFalse(sm.isEven(13));
-    }
-
-    @Test
     void testTwoSqrt()
     {
         int number = sm.sqrt(2, 5);
