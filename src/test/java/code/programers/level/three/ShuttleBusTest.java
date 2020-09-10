@@ -11,6 +11,5 @@ public class ShuttleBusTest {
     @Test
     void testRemained()
     {
-        assertEquals(1,1);
     }
 }
