@@ -38,16 +38,10 @@ public class FriendsBlock {
             List<String> list = convertList(m, width);
 
             for(int height = 0; height < m ; height++)
-            {
                 if(height < list.size())
-                {
                     blocks[m-1-height][width] = list.get(height);
-                }
                 else
-                {
                     blocks[m-1-height][width] = "";
-                }
-            }
         }
     }
 
