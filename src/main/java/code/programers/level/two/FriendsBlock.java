@@ -24,4 +24,25 @@ public class FriendsBlock {
 
         return board;
     }
+
+    int[] isHit(String[][] board)
+    {
+        int[] result = new int[1];
+
+        for(int height= 0; height< board.length-1; height++)
+            for(int width = 0; width < board[0].length-1; width++)
+            {
+                String block = board[height][width];
+
+                if(block == board[height+1][width] && block == board[height+1][width+1] && block == board[height][width+1])
+                {
+                    if(block != null)
+                    {
+                        return new int[]{height, width};
+                    }
+                }
+            }
+
+        return result;
+    }
 }

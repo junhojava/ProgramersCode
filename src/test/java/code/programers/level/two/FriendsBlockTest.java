@@ -1,6 +1,7 @@
 package code.programers.level.two;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +35,17 @@ public class FriendsBlockTest {
         result = fb.down(result);
 
         assertArrayEquals(new String[][]{{null, null, null, "D", "E"}, {null, null, null, "D", "E"}, {"C", "C", "B", "B", "F"}, {"C", "C", "B", "B", "F"}}, result);
+    }
+
+    @Test
+    void testIsHit()
+    {
+        String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
+
+        String[][] result = fb.toArray(board);
+
+        int[] hit = fb.isHit(result);
+
+        assertEquals(new int[]{1,1}, hit);
     }
 }
