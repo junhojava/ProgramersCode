@@ -6,16 +6,13 @@ import java.util.List;
 
 public class ShuttleBus {
 
-    int remained(int n, int m, int length)
+    boolean isRemained(String[] seats)
     {
-        int seat = n*m;
+        for(String seat:seats)
+            if(seat.equals(""))
+                return true;
 
-        if(length > seat)
-            return -1;
-        else if (length == seat)
-            return 0;
-        else
-            return 1;
+        return false;
     }
 
     String[] times(int n, int t)
@@ -67,9 +64,9 @@ public class ShuttleBus {
                     int time_hour = Integer.parseInt(timetable[table_index].split(":")[0]);
                     int time_minute = Integer.parseInt(timetable[table_index].split(":")[1]);
 
-                    if(hour > time_hour || (hour == time_hour && minute == time_minute))
+                    if(hour > time_hour || (hour == time_hour && minute >= time_minute))
                     {
-                        if(list.size() > m)
+                        if(list.size() < m)
                         {
                             list.add(timetable[table_index]);
                             timetable[table_index] = "";
@@ -78,6 +75,10 @@ public class ShuttleBus {
                 }
             }
 
+            while(list.size() != m)
+            {
+                list.add("");
+            }
             result[index] = list.toArray(new String[0]);
         }
 
