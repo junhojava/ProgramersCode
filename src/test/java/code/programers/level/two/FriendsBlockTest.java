@@ -55,6 +55,21 @@ public class FriendsBlockTest {
     @Test
     void testCaseOne()
     {
+        String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
+        int result = 0;
+        fb.blocks = new String[4][5];
         
+        fb.toArray(board, 4, 5);
+        
+        int flag = fb.isHit(3, 4);
+        while(flag != 0)
+        {
+            result += flag;
+            fb.down(4, 5);
+
+            flag = fb.isHit(3, 4);
+        }
+
+        assertEquals(14, result);
     }
 }
