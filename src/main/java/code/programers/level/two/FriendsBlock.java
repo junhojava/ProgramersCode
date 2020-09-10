@@ -1,6 +1,8 @@
 package code.programers.level.two;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -16,15 +18,37 @@ public class FriendsBlock {
                 blocks[height][width] = board[height].substring(width, width+1);
     }
 
+
+
+    List<String> convertList(int m, int n)
+    {
+        List<String> list = new ArrayList<String>();
+
+        for(int height=m-1; height > -1; height--)
+            if(!blocks[height][n].equals(""))
+                list.add(blocks[height][n]);
+
+        return list;
+    }
+
     void down(int m, int n)
     {
-        for(int height= 1; height< m; height++)
-            for(int width=0; width< n; width++)
-                if(blocks[height][width].equals(""))
+        for(int width = 0; width < n; width++)
+        {
+            List<String> list = convertList(m, width);
+
+            for(int height = 0; height < m ; height++)
+            {
+                if(height < list.size())
                 {
-                    blocks[height][width] = blocks[height-1][width];
-                    blocks[height-1][width] = "";
+                    blocks[m-1-height][width] = list.get(height);
                 }
+                else
+                {
+                    blocks[m-1-height][width] = "";
+                }
+            }
+        }
     }
 
     int isHit(int m, int n)

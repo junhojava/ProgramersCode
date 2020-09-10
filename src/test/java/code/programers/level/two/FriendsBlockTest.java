@@ -20,26 +20,6 @@ public class FriendsBlockTest {
     }
 
     @Test
-    void testDown()
-    {
-        String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
-        fb.blocks = new String[4][5];
-
-        fb.toArray(board, 4, 5);
-
-        fb.blocks[1][0] = "";
-        fb.blocks[1][1] = "";
-        fb.blocks[1][2] = "";
-        fb.blocks[2][0] = "";
-        fb.blocks[2][1] = "";
-        fb.blocks[2][2] = "";
-        
-        fb.down(4, 5);
-
-        assertArrayEquals(new String[][]{{"", "", "", "D", "E"}, {"", "", "", "D", "E"}, {"C", "C", "B", "B", "F"}, {"C", "C", "B", "B", "F"}}, fb.blocks);
-    }
-
-    @Test
     void testIsHit()
     {
         String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
@@ -87,7 +67,6 @@ public class FriendsBlockTest {
         {
             result += flag;
             fb.down(6, 6);
-
             flag = fb.isHit(5, 5);
         }
 
@@ -109,7 +88,6 @@ public class FriendsBlockTest {
         {
             result += flag;
             fb.down(5, 6);
-
             flag = fb.isHit(4, 5);
         }
 
