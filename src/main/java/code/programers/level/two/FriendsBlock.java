@@ -1,47 +1,64 @@
 package code.programers.level.two;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 public class FriendsBlock {
-    
-    String[][] toArray(String[] board)
-    {
-        String[][] result = new String[board.length][board[0].length()];
-        for(int height = 0; height< result.length; height++)
-            for(int width = 0; width< result[0].length; width++)
-                result[height][width] = board[height].substring(width, width+1);
 
-        return result;
+    Map<String, Integer> map;
+    String[][] blocks;
+
+    void toArray(String[] board, int m, int n)
+    {
+        for(int height = 0; height< m; height++)
+            for(int width = 0; width< n; width++)
+                blocks[height][width] = board[height].substring(width, width+1);
     }
 
-    String[][] down(String[][] board)
+    void down(int m, int n)
     {
-        for(int height= 1; height< board.length; height++)
-            for(int width=0; width< board[0].length; width++)
-                if(board[height][width] == null)
+        for(int height= 1; height< m; height++)
+            for(int width=0; width< n; width++)
+                if(blocks[height][width].equals(""))
                 {
-                    board[height][width] = board[height-1][width];
-                    board[height-1][width] = null;
+                    blocks[height][width] = blocks[height-1][width];
+                    blocks[height-1][width] = "";
                 }
-
-        return board;
     }
 
-    int[] isHit(String[][] board)
+    int isHit(int m, int n)
     {
-        int[] result = new int[1];
+        int result = 0;
+        map = new HashMap<String, Integer>();
 
-        for(int height= 0; height< board.length-1; height++)
-            for(int width = 0; width < board[0].length-1; width++)
+        for(int height= 0; height< m; height++)
+            for(int width = 0; width < n; width++)
             {
-                String block = board[height][width];
+                String block = blocks[height][width];
 
-                if(block == board[height+1][width] && block == board[height+1][width+1] && block == board[height][width+1])
+                if(block.equals(blocks[height+1][width]) && block.equals(blocks[height+1][width+1]) && block.equals(blocks[height][width+1]))
                 {
-                    if(block != null)
-                    {
-                        return new int[]{height, width};
-                    }
+                    if(!block.equals(""))
+                        map.put(Integer.toString(height).concat("n"+Integer.toString(width)), 1);
+                        map.put(Integer.toString(height).concat("n"+Integer.toString(width+1)), 1);
+                        map.put(Integer.toString(height+1).concat("n"+Integer.toString(width)), 1);
+                        map.put(Integer.toString(height+1).concat("n"+Integer.toString(width+1)), 1);
                 }
             }
+
+        for(Entry<String, Integer> entry: map.entrySet())
+        {
+            String[] key = entry.getKey().split("n");
+
+            int height = Integer.parseInt(key[0]);
+            int width = Integer.parseInt(key[1]);
+
+            blocks[height][width] = "";
+        }
+
+        result = map.size();
+        map.clear();
 
         return result;
     }

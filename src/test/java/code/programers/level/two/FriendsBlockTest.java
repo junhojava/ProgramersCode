@@ -12,40 +12,49 @@ public class FriendsBlockTest {
     void testToArray()
     {
         String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
+        fb.blocks = new String[4][5];
 
-        String[][] result = fb.toArray(board);
+        fb.toArray(board, 4, 5);
 
-        assertArrayEquals(new String[][]{{"C", "C", "B", "D", "E"}, {"A", "A", "A", "D", "E"}, {"A", "A", "A", "B", "F"}, {"C", "C", "B", "B", "F"}}, result);
+        assertArrayEquals(new String[][]{{"C", "C", "B", "D", "E"}, {"A", "A", "A", "D", "E"}, {"A", "A", "A", "B", "F"}, {"C", "C", "B", "B", "F"}}, fb.blocks);
     }
 
     @Test
     void testDown()
     {
         String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
+        fb.blocks = new String[4][5];
 
-        String[][] result = fb.toArray(board);
+        fb.toArray(board, 4, 5);
 
-        result[1][0] = null;
-        result[1][1] = null;
-        result[1][2] = null;
-        result[2][0] = null;
-        result[2][1] = null;
-        result[2][2] = null;
+        fb.blocks[1][0] = "";
+        fb.blocks[1][1] = "";
+        fb.blocks[1][2] = "";
+        fb.blocks[2][0] = "";
+        fb.blocks[2][1] = "";
+        fb.blocks[2][2] = "";
         
-        result = fb.down(result);
+        fb.down(4, 5);
 
-        assertArrayEquals(new String[][]{{null, null, null, "D", "E"}, {null, null, null, "D", "E"}, {"C", "C", "B", "B", "F"}, {"C", "C", "B", "B", "F"}}, result);
+        assertArrayEquals(new String[][]{{"", "", "", "D", "E"}, {"", "", "", "D", "E"}, {"C", "C", "B", "B", "F"}, {"C", "C", "B", "B", "F"}}, fb.blocks);
     }
 
     @Test
     void testIsHit()
     {
         String[] board= {"CCBDE", "AAADE", "AAABF", "CCBBF"};
+        fb.blocks = new String[4][5];
 
-        String[][] result = fb.toArray(board);
+        fb.toArray(board, 4, 5);
 
-        int[] hit = fb.isHit(result);
+        int hit = fb.isHit(3, 4);
 
-        assertEquals(new int[]{1,1}, hit);
+        assertEquals(6, hit);
+    }
+
+    @Test
+    void testCaseOne()
+    {
+        
     }
 }
