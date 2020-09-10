@@ -27,7 +27,7 @@ public class ShuttleBus {
             if(minute > 59)
             {
                 hour = minute / 60;
-                minute = hour % 60;
+                minute = minute % 60;
             }
 
             result[index] = prefix(hour+ 9) + ":" + prefix(minute);
