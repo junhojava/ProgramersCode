@@ -11,5 +11,13 @@ public class ShuttleBusTest {
     @Test
     void testRemained()
     {
+        int n = 1;
+        int m = 5;
+
+        String[] timetable = {"08:00", "08:01", "08:02", "08:03"};
+
+        int count = sb.remained(n, m, timetable.length);
+
+        assertEquals(1, count);
     }
 }
