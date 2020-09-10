@@ -38,13 +38,13 @@ public class FriendsBlock {
                 String block = blocks[height][width];
 
                 if(block.equals(blocks[height+1][width]) && block.equals(blocks[height+1][width+1]) && block.equals(blocks[height][width+1]))
-                {
                     if(!block.equals(""))
+                    {
                         map.put(Integer.toString(height).concat("n"+Integer.toString(width)), 1);
                         map.put(Integer.toString(height).concat("n"+Integer.toString(width+1)), 1);
                         map.put(Integer.toString(height+1).concat("n"+Integer.toString(width)), 1);
                         map.put(Integer.toString(height+1).concat("n"+Integer.toString(width+1)), 1);
-                }
+                    }
             }
 
         for(Entry<String, Integer> entry: map.entrySet())
