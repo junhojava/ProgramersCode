@@ -93,4 +93,26 @@ public class FriendsBlockTest {
 
         assertEquals(15, result);
     }
+
+    @Test
+    void testCaseThree()
+    {
+        String[] board = {"AAAAAA", "BBAATB", "BBAATB", "JJJTAA", "JJJTAA"};
+
+        int result = 0;
+        fb.blocks = new String[5][6];
+        
+        fb.toArray(board, 5, 6);
+        
+        int flag = fb.isHit(4, 5);
+        while(flag != 0)
+        {
+            result += flag;
+            fb.down(5, 6);
+
+            flag = fb.isHit(4, 5);
+        }
+
+        assertEquals(24, result);
+    }
 }
