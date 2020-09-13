@@ -35,4 +35,14 @@ public class MockExamTest {
 
         assertArrayEquals(new int[]{1}, top);
     }
+
+    @Test
+    void testTopThree()
+    {
+        int[] rank = {2, 2, 2};
+
+        int[] top = me.top(rank);
+
+        assertArrayEquals(new int[]{1,2,3}, top);
+    }
 }
