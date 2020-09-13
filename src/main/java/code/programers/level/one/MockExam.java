@@ -6,4 +6,9 @@ public class MockExam {
     {
         return left%right;
     }
+
+    boolean isHit(int left, int right)
+    {
+        return left == right;
+    }
 }
