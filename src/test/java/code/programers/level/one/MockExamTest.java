@@ -70,4 +70,29 @@ public class MockExamTest {
 
         assertArrayEquals(new int[]{1,}, top);
     }
+
+    @Test
+    void testCaseTwo()
+    {
+        int[][] testers = {{1,2,3,4,5},{2,1,2,3,2,4,2,5},{3,3,1,1,2,2,4,4,5,5}};
+        int[] answers = {1,3,2,4,2};
+        int[] scores = {0,0,0};
+
+        for(int number=0; number< answers.length; number++)
+        {
+            for(int tester=0; tester<3; tester++)
+            {
+                int index = me.index(number, testers[tester].length );
+
+                if(me.isHit(answers[number], testers[tester][index]))
+                {
+                    scores[tester]++;
+                }
+            }
+        }
+
+        int[] top = me.top(scores);
+
+        assertArrayEquals(new int[]{1,2,3}, top);
+    }
 }
