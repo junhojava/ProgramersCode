@@ -12,7 +12,8 @@ public class SortStringTest {
     void test()
     {
         String[] list = {"sun", "bed", "car"};
+        String[] subList = ss.substring(list, 1);
 
-        assertArrayEquals(new String[]{"un", "ed", "ar"}, ss.substring(list, 1));
+        assertArrayEquals(new String[]{"ar", "ed", "un"}, ss.sort(subList));
     }
 }

@@ -1,5 +1,7 @@
 package code.programers.level.one;
 
+import java.util.Arrays;
+
 public class SortString {
     
     String[] substring(String[] list, int position)
@@ -8,6 +10,13 @@ public class SortString {
         {
             list[index] = list[index].substring(position);
         }
+
+        return list;
+    }
+
+    String[] sort(String[] list)
+    {
+        Arrays.sort(list);
 
         return list;
     }
