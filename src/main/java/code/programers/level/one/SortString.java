@@ -10,7 +10,7 @@ public class SortString {
         String[] result = new String[list.length];
 
         for(int index=0; index<list.length;index++)
-            result[index] = list[index].substring(position);
+            result[index] = list[index].substring(position, position+1);
 
         return result;
     }
@@ -24,7 +24,7 @@ public class SortString {
 
     boolean compare(String left, String right, int position)
     {
-        return left.substring(position).equals(right);
+        return left.substring(position, position+1).equals(right);
     }
 
     boolean isMulti(String[] list, String str)
