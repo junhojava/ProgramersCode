@@ -1,5 +1,6 @@
 package code.programers.level.one;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -31,5 +32,26 @@ public class ContinuedNumberTest {
             else
                 if(!(cn.isEquals(result[result.length-1], number)))
                     result = cn.put(result, number);
+
+        assertArrayEquals(new int[]{1,3,0,1}, result);
+    }
+
+    @Test
+    void testCaseTwo()
+    {
+        int[] list = {4,4,4,3,3};
+        int[] result = new int[0];
+
+        for(int number:list)
+            if(result.length == 0)
+            {
+                result = new int[1];
+                result[0] = number;
+            }
+            else
+                if(!(cn.isEquals(result[result.length-1], number)))
+                    result = cn.put(result, number);
+
+        assertArrayEquals(new int[]{4,3}, result);
     }
 }
