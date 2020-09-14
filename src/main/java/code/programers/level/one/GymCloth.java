@@ -21,4 +21,15 @@ public class GymCloth {
 
         return result;
     }
+
+    int count(int[] list)
+    {
+        int result= 0;
+
+        for(int number: list)
+            if(number == -1)
+                result++;
+
+        return result;
+    }
 }
