@@ -2,12 +2,13 @@ package code.programers.level.one;
 
 public class GymCloth {
     
-    boolean isSelf(int[] list, int me)
+    int isSelf(int[] list, int me)
     {
-        for(int loster: list)
-            if(loster == me)
-                return true;
+        int index = 0;
+        for(;index<list.length; index++)
+            if(list[index] == me)
+                return index;
 
-        return false;
+        return -1;
     }
 }
