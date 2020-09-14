@@ -20,19 +20,19 @@ public class SortStringTest {
         String[] list = {"sun", "bed", "car"};
         String[] subList = ss.substring(list, 1);
 
-        assertArrayEquals(new String[]{"ar", "ed", "un"}, ss.sort(subList));
+        assertArrayEquals(new String[]{"a", "e", "u"}, ss.sort(subList));
     }
 
     @Test
     void testCompare()
     {
-        assertTrue(ss.compare("sun", "un", 1));
+        assertTrue(ss.compare("sun", "u", 1));
     }
 
     @Test
     void testIsMulti()
     {
-        assertTrue(ss.isMulti(new String[]{"cd", "cd"}, "cd"));
+        assertTrue(ss.isMulti(new String[]{"c", "c"}, "c"));
     }
 
     @Test
@@ -57,25 +57,25 @@ public class SortStringTest {
     @Test
     void testCaseOne()
     {
-        String[] strings = {"bar", "sun", "bed", "car"};
+        String[] strings = {"mun", "sun", "bed", "car"};
         String[] subStrings = ss.substring(strings, 1);
         subStrings= ss.sort(subStrings);
 
-        List<String> strList = Arrays.asList(strings);
         List<String> arr = new ArrayList<String>();
         List<String> result = new ArrayList<String>();
 
         for(int index=0; index< subStrings.length; index++)
         {
             boolean flag = ss.isMulti(subStrings, subStrings[index]);
-            for(String str:strList)
+            int count = 0;
+            for(String str:strings)
             {
                 if(ss.compare(str, subStrings[index], 1))
                 {
                     arr.add(str);
 
                     if(flag)
-                        index++;
+                        count++;
                 }
             }
 
@@ -87,11 +87,11 @@ public class SortStringTest {
             }
 
             if(flag)
-                index--;
+                index += (count-1);
 
             arr.clear();
         }
 
-        assertArrayEquals(new String[]{"bar", "car", "bed", "sun"}, result.toArray(new String[0]));
+        assertArrayEquals(new String[]{"car", "bed", "mun", "sun"}, result.toArray(new String[0]));
     }
 }
