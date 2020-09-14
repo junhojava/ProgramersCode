@@ -3,6 +3,9 @@ package code.programers.level.one;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class ContinuedNumberTest {
@@ -40,18 +43,23 @@ public class ContinuedNumberTest {
     void testCaseTwo()
     {
         int[] list = {4,4,4,3,3};
-        int[] result = new int[0];
+
+        List<Integer> result = new ArrayList<Integer>();
 
         for(int number:list)
-            if(result.length == 0)
-            {
-                result = new int[1];
-                result[0] = number;
-            }
+            if(result.size() == 0)
+                result.add(number);
             else
-                if(!(cn.isEquals(result[result.length-1], number)))
-                    result = cn.put(result, number);
+                if(!(cn.isEquals(result.get(result.size()-1), number)))
+                    result.add(number);
 
-        assertArrayEquals(new int[]{4,3}, result);
+        int[] answer = new int[result.size()];
+
+        for(int index=0; index<answer.length; index++)
+        {
+            answer[index] = result.get(index);
+        }
+
+        assertArrayEquals(new int[]{4,3}, answer);
     }
 }
