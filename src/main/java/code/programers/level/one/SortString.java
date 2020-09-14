@@ -1,6 +1,8 @@
 package code.programers.level.one;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SortString {
     
@@ -24,5 +26,12 @@ public class SortString {
     boolean compare(String left, String right, int position)
     {
         return left.substring(position).equals(right);
+    }
+
+    boolean isMulti(String[] list, String str)
+    {
+        List<String> strList= Arrays.asList(list);
+
+        return strList.indexOf(str) != strList.lastIndexOf(str);
     }
 }
