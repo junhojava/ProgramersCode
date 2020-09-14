@@ -4,6 +4,6 @@ public class IndexNumber {
     
     int length(int start, int end)
     {
-        return end - (start - 1);
+        return end - start;
     }
 }

@@ -11,6 +11,6 @@ public class IndexNumberTest {
     @Test
     void testLength()
     {
-        assertEquals(4, in.length(2,5));
+        assertEquals(3, in.length(2,5));
     }
 }
