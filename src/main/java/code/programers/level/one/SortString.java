@@ -6,12 +6,12 @@ public class SortString {
     
     String[] substring(String[] list, int position)
     {
-        for(int index=0; index<list.length;index++)
-        {
-            list[index] = list[index].substring(position);
-        }
+        String[] result = new String[list.length];
 
-        return list;
+        for(int index=0; index<list.length;index++)
+            result[index] = list[index].substring(position);
+
+        return result;
     }
 
     String[] sort(String[] list)
@@ -19,5 +19,10 @@ public class SortString {
         Arrays.sort(list);
 
         return list;
+    }
+
+    boolean compare(String left, String right, int position)
+    {
+        return left.substring(position).equals(right);
     }
 }
