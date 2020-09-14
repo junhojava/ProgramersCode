@@ -43,14 +43,55 @@ public class SortStringTest {
         List<String> strList = Arrays.asList(list);
         List<String> arr = new ArrayList<String>();
 
-        for(String str:strList)
-        {
-            if(ss.compare(str, "an", 1))
-                arr.add(str);
-        }
+        for(int lindex=0; lindex<strList.size(); lindex++)
+            if(ss.compare(strList.get(lindex), "an", 1))
+            {
+                arr.add(strList.get(lindex));
+            }
 
         Collections.sort(arr);
 
         assertArrayEquals(new String[]{"can", "man"}, arr.toArray(new String[0]));
+    }
+
+    @Test
+    void testCaseOne()
+    {
+        String[] strings = {"bar", "sun", "bed", "car"};
+        String[] subStrings = ss.substring(strings, 1);
+        subStrings= ss.sort(subStrings);
+
+        List<String> strList = Arrays.asList(strings);
+        List<String> arr = new ArrayList<String>();
+        List<String> result = new ArrayList<String>();
+
+        for(int index=0; index< subStrings.length; index++)
+        {
+            boolean flag = ss.isMulti(subStrings, subStrings[index]);
+            for(String str:strList)
+            {
+                if(ss.compare(str, subStrings[index], 1))
+                {
+                    arr.add(str);
+
+                    if(flag)
+                        index++;
+                }
+            }
+
+            Collections.sort(arr);
+
+            for(String str:arr)
+            {
+                result.add(str);
+            }
+
+            if(flag)
+                index--;
+
+            arr.clear();
+        }
+
+        assertArrayEquals(new String[]{"bar", "car", "bed", "sun"}, result.toArray(new String[0]));
     }
 }
