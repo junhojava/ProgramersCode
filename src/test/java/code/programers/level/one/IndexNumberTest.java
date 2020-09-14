@@ -16,4 +16,13 @@ public class IndexNumberTest {
         result = in.sort(result);
         assertArrayEquals(new int[]{2,3,5,6}, result);
     }
+
+    @Test
+    void testCaseOne()
+    {
+        int[] result = in.split(new int[]{1,5,2,6,3,7,4}, 2, 5);
+        result = in.sort(result);
+
+        assertEquals(5, result[2]);
+    }
 }
