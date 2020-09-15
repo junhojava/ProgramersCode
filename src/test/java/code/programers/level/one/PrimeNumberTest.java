@@ -13,4 +13,10 @@ public class PrimeNumberTest {
     {
         assertEquals(1, pn.divide(2,2));
     }
+
+    @Test
+    void testModZero()
+    {
+        assertEquals(0, pn.mod(2,2));
+    }
 }

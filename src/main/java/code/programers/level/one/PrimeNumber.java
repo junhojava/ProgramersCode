@@ -6,4 +6,9 @@ public class PrimeNumber {
     {
         return left / right;
     }
+
+    int mod(int left, int right)
+    {
+        return left % right;
+    }
 }
