@@ -42,4 +42,27 @@ public class PrimeNumberTest {
 
         assertEquals(4, count);
     }
+
+    @Test
+    void testCaseTwo()
+    {
+        int n = 5;
+        int count = 0;
+
+        for(int left= 2; left<= n; left++)
+        {
+            count++;
+            for(int right = 2; right <= left; right++)
+            {
+                if(pn.mod(left, right) == 0)
+                {
+                    if(pn.divide(left, right) != 1)
+                        count--;
+                        break;
+                }
+            }
+        }
+
+        assertEquals(3, count);
+    }
 }
