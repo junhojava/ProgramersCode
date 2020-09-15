@@ -2,7 +2,7 @@ package code.programers.level.one;
 
 public class CaesarCipher {
     String lowAlphabet = "abcdefghijklmnopqrstuvwxyz";
-    String upperAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     boolean isAlphabet(String s)
     {

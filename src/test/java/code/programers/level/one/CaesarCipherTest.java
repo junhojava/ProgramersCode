@@ -24,7 +24,7 @@ public class CaesarCipherTest {
     @Test
     void testShiftString()
     {
-        assertEquals("b", cc.shift("a", 1));
+        assertEquals("b", cc.lowShift("a", 1));
     }
 
     @Test
@@ -38,13 +38,34 @@ public class CaesarCipherTest {
             String c = s.substring(index, index+1);
             if(cc.isAlphabet(c))
                 if(cc.isLowCase(c))
-                    answer += cc.shift(c, 4);
+                    answer += cc.lowShift(c, 4);
                 else
-                    answer += cc.shift(c.toLowerCase(), 4).toUpperCase();
+                    answer += cc.upperShift(c, 4);
             else
                 answer += " ";
         }
 
         assertEquals("e F d", answer);
+    }
+
+    @Test
+    void testCaseTwo()
+    {
+        String s = "z";
+        String answer = "";
+
+        for(int index=0; index<s.length(); index++)
+        {
+            String c = s.substring(index, index+1);
+            if(cc.isAlphabet(c))
+                if(cc.isLowCase(c))
+                    answer += cc.lowShift(c, 1);
+                else
+                    answer += cc.upperShift(c, 1);
+            else
+                answer += " ";
+        }
+
+        assertEquals("a", answer);
     }
 }
