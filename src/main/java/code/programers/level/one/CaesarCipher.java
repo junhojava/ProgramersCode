@@ -7,4 +7,9 @@ public class CaesarCipher {
     {
         return (s.matches("[a-z]") || s.matches("[A-Z]"));
     }
+
+    boolean isLowCase(String s)
+    {
+        return s.matches("[a-z]");
+    }
 }
