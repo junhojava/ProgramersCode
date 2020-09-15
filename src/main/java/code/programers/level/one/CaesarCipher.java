@@ -1,7 +1,7 @@
 package code.programers.level.one;
 
 public class CaesarCipher {
-    String alphbet = "abcdefghijklmnopqrstuvwxyz";
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     boolean isAlphabet(String s)
     {
@@ -11,5 +11,12 @@ public class CaesarCipher {
     boolean isLowCase(String s)
     {
         return s.matches("[a-z]");
+    }
+
+    String shift(String s, int count)
+    {
+        int index = alphabet.indexOf(s);
+
+        return alphabet.substring(index+count, index+count+1);
     }
 }
