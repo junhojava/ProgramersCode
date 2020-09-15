@@ -2,6 +2,9 @@ package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class PrimeNumberTest {
@@ -46,23 +49,28 @@ public class PrimeNumberTest {
     @Test
     void testCaseTwo()
     {
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(2);
         int n = 5;
-        int count = 0;
 
-        for(int left= 2; left<= n; left++)
+        for(int left= 3; left<= n; left++)
         {
-            count++;
-            for(int right = 2; right <= left; right++)
+            boolean flag = true;
+            for(Integer right:list)
             {
                 if(pn.mod(left, right) == 0)
                 {
-                    if(pn.divide(left, right) != 1)
-                        count--;
-                        break;
+                    flag = false;
+                    break;
                 }
+            }
+
+            if(flag)
+            {
+                list.add(left);
             }
         }
 
-        assertEquals(3, count);
+        assertEquals(3, list.size());
     }
 }
