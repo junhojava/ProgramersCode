@@ -23,6 +23,9 @@ public class WaterMelonTest {
             answer += Integer.toString(wm.mod(index, 2));
         }
 
-        assertEquals("101", answer);
+        answer = answer.replace("1", "수");
+        answer = answer.replace("0", "박");
+        
+        assertEquals("수박수", answer);
     }
 }
