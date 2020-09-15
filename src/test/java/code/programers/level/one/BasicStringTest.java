@@ -15,4 +15,12 @@ public class BasicStringTest {
 
         assertEquals(4, bs.length(str));
     }
+
+    @Test
+    void testReplaceNumber()
+    {
+        String str = "a234";
+
+        assertEquals("a", bs.replaceNumber(str));
+    }
 }

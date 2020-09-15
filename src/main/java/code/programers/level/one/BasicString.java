@@ -6,4 +6,9 @@ public class BasicString {
     {
         return str.length();
     }
+
+    String replaceNumber(String str)
+    {
+        return str.replaceAll("\\d", "");
+    }
 }
