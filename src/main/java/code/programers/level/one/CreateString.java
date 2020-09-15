@@ -14,7 +14,7 @@ public class CreateString {
             if(index % 2 == 0)
                 result += str.substring(index, index+1).toUpperCase();
             else
-                result += str.substring(index, index+1);
+                result += str.substring(index, index+1).toLowerCase();
 
         return result;
     }
