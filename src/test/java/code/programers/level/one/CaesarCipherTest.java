@@ -9,8 +9,14 @@ public class CaesarCipherTest {
     CaesarCipher cc = new CaesarCipher();
 
     @Test
-    void isAlphabet()
+    void testIsAlphabet()
     {
         assertTrue(cc.isAlphabet(" "));
+    }
+
+    @Test
+    void testAIsLowCase()
+    {
+        assertTrue(cc.isLowCase("A"));
     }
 }
