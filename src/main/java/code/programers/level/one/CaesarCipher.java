@@ -18,6 +18,6 @@ public class CaesarCipher {
         int left = alphabet.indexOf(s);
         int right = alphabet.length();
 
-        return alphabet.substring(left+count%right, left+count+1%right);
+        return alphabet.substring((left+count)%right, (left+count+1)%right);
     }
 }
