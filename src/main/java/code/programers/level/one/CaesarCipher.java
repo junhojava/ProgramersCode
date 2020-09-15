@@ -1,7 +1,8 @@
 package code.programers.level.one;
 
 public class CaesarCipher {
-    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    String lowAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    String upperAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
     boolean isAlphabet(String s)
     {
@@ -13,11 +14,22 @@ public class CaesarCipher {
         return s.matches("[a-z]");
     }
 
-    String shift(String s, int count)
+    String lowShift(String s, int count)
     {
-        int left = alphabet.indexOf(s);
-        int right = alphabet.length();
+        int left = lowAlphabet.indexOf(s);
+        int right = lowAlphabet.length();
+        int index = (left+count) % right;
 
-        return alphabet.substring((left+count)%right, (left+count+1)%right);
+
+        return lowAlphabet.substring(index, index+1);
+    }
+
+    String upperShift(String s, int count)
+    {
+        int left = upperAlphabet.indexOf(s);
+        int right = upperAlphabet.length();
+        int index = (left+count) % right;
+
+        return upperAlphabet.substring(index, index+1);
     }
 }
