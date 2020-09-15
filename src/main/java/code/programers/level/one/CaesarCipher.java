@@ -15,8 +15,9 @@ public class CaesarCipher {
 
     String shift(String s, int count)
     {
-        int index = alphabet.indexOf(s);
+        int left = alphabet.indexOf(s);
+        int right = alphabet.length();
 
-        return alphabet.substring(index+count, index+count+1);
+        return alphabet.substring(left+count%right, left+count+1%right);
     }
 }
