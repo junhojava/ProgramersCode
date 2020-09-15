@@ -19,4 +19,20 @@ public class CreateStringTest {
     {
         assertEquals("TrY", cs.changeCase("try"));
     }
+
+    @Test
+    void testCaseOne()
+    {
+        String[] list = new String[]{"try", "hello", "world"};
+        String answer = "";
+
+        for(int index=0; index<list.length; index++)
+        {
+            answer += cs.changeCase(list[index])+ " ";
+        }
+
+        answer = answer.substring(0, answer.length()-1);
+
+        assertEquals("TrY HeLlO WoRlD", answer);
+    }
 }
