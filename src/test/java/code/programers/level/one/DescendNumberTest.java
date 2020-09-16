@@ -9,6 +9,7 @@ public class DescendNumberTest {
     
     ReverseNumber rn = new ReverseNumber();
     SumNumbers sn = new SumNumbers();
+    DescendNumber dn = new DescendNumber();
 
     @Test
     void testToString()
@@ -22,5 +23,11 @@ public class DescendNumberTest {
     void testSplit()
     {
         assertArrayEquals(new String[]{"1", "1", "8", "3", "7", "2"}, sn.split(rn.toString(118372)));
+    }
+
+    @Test
+    void testDescendSort()
+    {
+        assertArrayEquals(new String[]{"8","7","3","2","1","1"}, dn.sort(sn.split(rn.toString(118372)),"desc"));
     }
 }
