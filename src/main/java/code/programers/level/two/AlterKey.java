@@ -20,7 +20,7 @@ public class AlterKey {
         return map.get(key) == null;
     }
 
-    int[][] combination(int[] list, int[][] target)
+    public int[][] combination(int[] list, int[][] target)
     {
         List<int[]> result = new ArrayList<int[]>();
 
@@ -50,7 +50,7 @@ public class AlterKey {
         return result.toArray(new int[0][]);
     }
 
-    int[] columns(int length)
+    public int[] columns(int length)
     {
         int[] result = new int[length];
         for(int index=0; index< length; index++)
