@@ -6,4 +6,9 @@ public class SumNumbers {
     {
         return Integer.toString(number);
     }
+
+    String[] split(String str)
+    {
+        return str.split("");
+    }
 }
