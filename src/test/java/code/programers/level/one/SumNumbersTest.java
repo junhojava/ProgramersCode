@@ -25,4 +25,21 @@ public class SumNumbersTest {
 
         assertArrayEquals(new String[]{"1", "2", "3"}, list);
     }
+
+    @Test
+    void testCaseOne()
+    {
+        int n = 123;
+
+        String[] list= sn.split(sn.convertIntToString(n));
+
+        int result = 0;
+
+        for(String number: list)
+        {
+            result += Integer.parseInt(number);
+        }
+
+        assertEquals(6, result);
+    }
 }
