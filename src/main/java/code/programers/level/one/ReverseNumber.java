@@ -7,16 +7,16 @@ public class ReverseNumber {
         return Long.toString(number);
     }
 
-    String[] reverse(String[] list)
+    int[] reverse(String[] list)
     {
-        String[] result = new String[list.length];
+        int[] result = new int[list.length];
 
         int end = list.length-1;
 
         for(int index=0; index<list.length; index++)
         {
-            result[index] = list[end-index];
-            result[end-index] = list[index];
+            result[index] = Integer.parseInt(list[end-index]);
+            result[end-index] = Integer.parseInt(list[index]);
         }
 
         return result;
