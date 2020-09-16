@@ -30,4 +30,10 @@ public class DescendNumberTest {
     {
         assertArrayEquals(new String[]{"8","7","3","2","1","1"}, dn.sort(sn.split(rn.toString(118372)),"desc"));
     }
+
+    @Test
+    void testParseLong()
+    {
+        assertEquals(Long.parseLong("873211"), dn.parseLong(dn.sort(sn.split(rn.toString(118372)),"desc")));
+    }
 }

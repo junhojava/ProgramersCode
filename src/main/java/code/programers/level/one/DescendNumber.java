@@ -14,4 +14,16 @@ public class DescendNumber {
 
         return list;
     }
+
+    long parseLong(String[] list)
+    {
+        String result = "";
+
+        for(String str: list)
+        {
+            result += str;
+        }
+
+        return Long.parseLong(result);
+    }
 }
