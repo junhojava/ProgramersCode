@@ -61,7 +61,7 @@ public class AlterKey {
         return result;
     }
 
-    int[][] dimension(int[] list)
+    public int[][] dimension(int[] list)
     {
         int[][] result = new int[list.length][1];
 

@@ -21,7 +21,7 @@ public class SumTwoNumberTest {
         int[] result;
         int[] numbers = {2,1,3,4,1};
         int[] columns = ak.columns(numbers.length);
-        int[][] indexs = {{0},{1},{2},{3},{4}};
+        int[][] indexs = ak.dimension(columns);
 
         int[][] dimension = ak.combination(columns, indexs);
 
