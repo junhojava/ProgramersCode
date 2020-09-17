@@ -11,4 +11,9 @@ public class Collatz {
     {
         return number % 2 == 0;
     }
+
+    int evenCalc(int number)
+    {
+        return number /2;
+    }
 }

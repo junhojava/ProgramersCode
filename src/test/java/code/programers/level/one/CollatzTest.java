@@ -1,5 +1,6 @@
 package code.programers.level.one;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -15,8 +16,14 @@ public class CollatzTest {
     }
 
     @Test
-    void isEven()
+    void testIsEven()
     {
         assertTrue(collatz.isEven(2));
+    }
+
+    @Test
+    void testEvenCalc()
+    {
+        assertEquals(2, collatz.evenCalc(4));
     }
 }
