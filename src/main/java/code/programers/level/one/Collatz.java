@@ -16,4 +16,9 @@ public class Collatz {
     {
         return number /2;
     }
+
+    int oddCalc(int number)
+    {
+        return number * 3 + 1;
+    }
 }

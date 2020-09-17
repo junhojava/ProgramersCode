@@ -26,4 +26,10 @@ public class CollatzTest {
     {
         assertEquals(2, collatz.evenCalc(4));
     }
+
+    @Test
+    void testOddCalc()
+    {
+        assertEquals(10, collatz.oddCalc(3));
+    }
 }
