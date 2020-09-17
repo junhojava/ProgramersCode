@@ -1,6 +1,7 @@
 package code.programers.level.one;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,9 +53,8 @@ public class DivisorNMultiple {
     {
         List<Integer> result = new ArrayList<>();
 
-        for(int index= 1; index*number<= 20; index++)
+        for(int index= 1; index*number<= 1000000; index++)
             result.add(index*number);
-        // 1000000
 
         return result;
     }
@@ -75,5 +75,12 @@ public class DivisorNMultiple {
                 result.add(entry.getKey());
 
         return result;
+    }
+
+    int smallestCommonMultiple(List<Integer> list)
+    {
+        Collections.sort(list);
+
+        return list.get(0);
     }
 }

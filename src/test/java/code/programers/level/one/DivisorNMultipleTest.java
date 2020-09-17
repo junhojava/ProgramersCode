@@ -71,4 +71,14 @@ public class DivisorNMultipleTest {
 
         assertEquals(result, dnm.commonMultiple(four, six));
     }
+
+    @Test
+    void testSmallestCommonMultiple()
+    {
+        List<Integer> four = dnm.multipleList(4);
+        List<Integer> six = dnm.multipleList(6);
+        List<Integer> commonList = dnm.commonMultiple(four, six);
+
+        assertEquals(12, dnm.smallestCommonMultiple(commonList));
+    }
 }
