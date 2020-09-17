@@ -2,23 +2,23 @@ package code.programers.level.one;
 
 public class Collatz {
     
-    boolean isOne(int number)
+    boolean isOne(long number)
     {
         return number == 1;
     }
 
-    boolean isEven(int number)
+    boolean isEven(long number)
     {
         return number % 2 == 0;
     }
 
-    int evenCalc(int number)
+    long evenCalc(long number)
     {
         return number /2;
     }
 
-    int oddCalc(int number)
+    long oddCalc(long number)
     {
-        return number * 3 + 1;
+        return (number * 3) + 1;
     }
 }
