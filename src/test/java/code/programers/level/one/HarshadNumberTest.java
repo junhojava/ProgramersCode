@@ -35,6 +35,6 @@ public class HarshadNumberTest {
             result += Integer.parseInt(number.substring(index, index+1));
         }
 
-
+        assertEquals(9, result);
     }
 }
