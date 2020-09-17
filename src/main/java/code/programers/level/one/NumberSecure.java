@@ -13,4 +13,9 @@ public class NumberSecure {
 
         return result;
     }
+
+    String concatNumber(String left, String right)
+    {
+        return left.concat(right);
+    }
 }

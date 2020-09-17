@@ -17,4 +17,18 @@ public class NumberSecureTest {
 
         assertEquals("*******", result);
     }
+
+    @Test
+    void testConcatNumber()
+    {
+        String result = "";
+        result = ns.appendSecureCode("*", 7);
+
+        result = ns.concatNumber(result, "4");
+        result = ns.concatNumber(result, "4");
+        result = ns.concatNumber(result, "4");
+        result = ns.concatNumber(result, "4");
+
+        assertEquals("*******4444", result);
+    }
 }
