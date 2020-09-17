@@ -37,4 +37,18 @@ public class HarshadNumberTest {
 
         assertEquals(9, result);
     }
+
+    @Test
+    void testCaseOne()
+    {
+        int result = 0;
+        String number= sn.convertIntToString(18);
+
+        for(int index=0; index<number.length(); index++)
+        {
+            result += Integer.parseInt(number.substring(index, index+1));
+        }
+
+        assertTrue(hn.modIsZero(18, result));
+    }
 }
