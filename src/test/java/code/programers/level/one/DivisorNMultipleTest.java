@@ -21,4 +21,19 @@ public class DivisorNMultipleTest {
 
         assertEquals(result, dnm.divisorList(3));
     }
+
+    @Test
+    void testCommonDivisor()
+    {
+        List<Integer> three = dnm.divisorList(3);
+        List<Integer> twelve = dnm.divisorList(12);
+
+        List<Integer> result = new ArrayList<Integer>();
+
+        result.add(1);
+        result.add(3);
+
+        assertEquals(result, dnm.commonDivisor(three, twelve));
+
+    }
 }
