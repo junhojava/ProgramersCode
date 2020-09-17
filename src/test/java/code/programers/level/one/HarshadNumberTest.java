@@ -46,7 +46,7 @@ public class HarshadNumberTest {
 
         for(int index=0; index<number.length(); index++)
         {
-            result += Integer.parseInt(number.substring(index, index+1));
+            result = av.sum(result, Integer.parseInt(number.substring(index, index+1)));
         }
 
         assertTrue(hn.modIsZero(18, result));
