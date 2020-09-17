@@ -45,4 +45,18 @@ public class DivisorNMultipleTest {
 
         assertEquals(3, dnm.biggestCommonDivisor(commonList));
     }
+
+    @Test
+    void testMultipleList()
+    {
+        List<Integer> result = new ArrayList<Integer>();
+
+        result.add(4);
+        result.add(8);
+        result.add(12);
+        result.add(16);
+        result.add(20);
+        
+        assertEquals(result, dnm.multipleList(4));
+    }
 }

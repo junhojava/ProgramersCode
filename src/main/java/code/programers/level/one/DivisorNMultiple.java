@@ -10,7 +10,7 @@ public class DivisorNMultiple {
 
     List<Integer> divisorList(int number)
     {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
 
         for(int index=1; index<=number; index++)
             if((number % index) == 0)
@@ -21,8 +21,8 @@ public class DivisorNMultiple {
 
     List<Integer> commonDivisor(List<Integer> list1, List<Integer> list2)
     {
-        List<Integer> list = new ArrayList<Integer>();
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        List<Integer> list = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
         for(int number:list1)
             map.put(number, map.getOrDefault(number, 0) +1);
@@ -44,6 +44,17 @@ public class DivisorNMultiple {
         for(int number:list)
             if(result < number)
                 result = number;
+
+        return result;
+    }
+
+    List<Integer> multipleList(int number)
+    {
+        List<Integer> result = new ArrayList<>();
+
+        for(int index= 1; index*number<= 20; index++)
+            result.add(index*number);
+        // 1000000
 
         return result;
     }
