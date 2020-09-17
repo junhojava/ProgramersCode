@@ -58,4 +58,22 @@ public class DivisorNMultiple {
 
         return result;
     }
+
+    List<Integer> commonMultiple(List<Integer> list1, List<Integer> list2)
+    {
+        List<Integer> result = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int number: list1)
+            map.put(number, 1);
+
+        for(int number: list2)
+            map.put(number, map.getOrDefault(number, 0) +1);
+
+        for(Entry<Integer, Integer> entry: map.entrySet())
+            if(entry.getValue() > 1)
+                result.add(entry.getKey());
+
+        return result;
+    }
 }
