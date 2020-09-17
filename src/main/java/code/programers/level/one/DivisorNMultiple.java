@@ -36,4 +36,15 @@ public class DivisorNMultiple {
 
         return list;
     }
+
+    int biggestCommonDivisor(List<Integer> list)
+    {
+        int result = 0;
+
+        for(int number:list)
+            if(result < number)
+                result = number;
+
+        return result;
+    }
 }

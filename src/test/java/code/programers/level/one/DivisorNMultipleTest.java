@@ -34,6 +34,15 @@ public class DivisorNMultipleTest {
         result.add(3);
 
         assertEquals(result, dnm.commonDivisor(three, twelve));
+    }
 
+    @Test
+    void testBiggestCommonDivisor()
+    {
+        List<Integer> three = dnm.divisorList(3);
+        List<Integer> twelve = dnm.divisorList(12);
+        List<Integer> commonList = dnm.commonDivisor(three, twelve);
+
+        assertEquals(3, dnm.biggestCommonDivisor(commonList));
     }
 }
