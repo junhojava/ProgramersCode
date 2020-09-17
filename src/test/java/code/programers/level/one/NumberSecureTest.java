@@ -31,4 +31,21 @@ public class NumberSecureTest {
 
         assertEquals("*******4444", result);
     }
+
+    @Test
+    void testCaseOne()
+    {
+        String str = "027778888";
+        int length = str.length()-4;
+        String result = "";
+
+        result = ns.appendSecureCode("*", length);
+
+        for(int index= length; index< str.length(); index++)
+        {
+            result = ns.concatNumber(result, str.substring(index, index+1));
+        }
+
+        assertEquals("*****8888", result);
+    }
 }
