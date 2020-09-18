@@ -6,5 +6,4 @@ public class HarshadNumber {
     {
         return left % right == 0;
     }
-    
 }
