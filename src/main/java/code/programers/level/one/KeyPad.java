@@ -14,7 +14,7 @@ public class KeyPad {
 
     int mod(int left, int right)
     {
-        return right % left;
+        return left % right;
     }
 
     boolean isZero(int number)
