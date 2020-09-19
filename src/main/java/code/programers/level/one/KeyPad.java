@@ -33,6 +33,9 @@ public class KeyPad {
 
     int[] position(int number)
     {
+        if(number == 0)
+            return new int[]{3,2};
+
         int[] result = new int[2];
 
         result[0] = divide(number, 3);
