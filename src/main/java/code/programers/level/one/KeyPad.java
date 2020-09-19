@@ -6,4 +6,9 @@ public class KeyPad {
     {
         return 2;
     }
+
+    int mod(int left, int right)
+    {
+        return right % left;
+    }
 }
