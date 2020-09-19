@@ -36,7 +36,14 @@ public class KeyPad {
         int[] result = new int[2];
 
         result[0] = divide(number, 3);
-        result[1] = mod(number, 3);
+
+        if(mod(number, 3) == 0)
+        {
+            result[1] = 3;
+            result[0] -= 1;
+        }
+        else
+            result[1] = mod(number, 3);
 
         return result;
     }
