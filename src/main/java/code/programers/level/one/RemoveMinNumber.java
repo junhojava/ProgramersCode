@@ -12,4 +12,14 @@ public class RemoveMinNumber {
 
         return copy[0];
     }
+
+    boolean findMin(int left, int right)
+    {
+        return left == right;
+    }
+
+    int[] removeMin()
+    {
+        return new int[0];
+    }
 }
