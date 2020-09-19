@@ -1,5 +1,6 @@
 package code.programers.level.one;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,7 +21,6 @@ public class KyePadTest {
      * [2] = [7, 8, 9]
      * [3] = [*, 0, #]
      * 
-
      * 1에서 5는
      * 절대값(0-1) + 절대값(0-1) = 2
      * [0][0] ~ [1][1] = 2
@@ -53,5 +53,11 @@ public class KyePadTest {
     {
         assertTrue(kp.isZero(0));
         assertFalse(kp.isZero(1));
+    }
+
+    @Test
+    void position()
+    {
+        assertArrayEquals(new int[]{0,1}, kp.position(1));
     }
 }
