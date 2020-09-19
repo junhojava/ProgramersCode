@@ -1,7 +1,7 @@
 package code.programers.level.one;
 
 public class KeyPad {
-    String hand;
+    String most_used;
 
     int divide(int left, int right)
     {
@@ -69,9 +69,9 @@ public class KeyPad {
         else
         {
             if(ldistance == rdistance)
-                return hand;
+                return most_used;
             else
-                if(ldistance > rdistance)
+                if(ldistance < rdistance)
                     return "L";
                 else
                     return "R";
