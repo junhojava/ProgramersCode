@@ -1,11 +1,12 @@
 package code.programers.level.one;
 
 public class KeyPad {
+    String hand;
+
     int divide(int left, int right)
     {
         return left / right;
     }
-
 
     int distance(int[] position, int[] target)
     {
@@ -54,5 +55,19 @@ public class KeyPad {
     boolean isSameDistance(int left, int right)
     {
         return left == right;
+    }
+
+    String usedHand(int[] left, int[] right, int[] target)
+    {
+        int ldistance = distance(left, target);
+        int rdistance = distance(right, target);
+
+        if(ldistance == rdistance)
+            return hand;
+        else
+            if(ldistance > rdistance)
+                return "L";
+            else
+                return "R";
     }
 }

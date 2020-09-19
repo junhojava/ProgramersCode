@@ -75,4 +75,11 @@ public class KyePadTest {
 
         assertTrue(kp.isSameDistance(kp.distance(left, target), kp.distance(right, target)));
     }
+
+    @Test
+    void testUsedHand()
+    {
+        kp.hand = "L";
+        assertEquals("L", kp.usedHand(new int[]{3,1}, new int[]{3,3}, kp.position(0)));
+    }
 }
