@@ -39,7 +39,7 @@ public class KyePadTest {
     @Test
     void testDistance()
     {
-        assertEquals(2, kp.distance(1,5));
+        assertEquals(2, kp.distance(new int[]{0,1},new int[]{1,2}));
     }
 
     @Test

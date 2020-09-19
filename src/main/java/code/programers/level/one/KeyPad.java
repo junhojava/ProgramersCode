@@ -7,9 +7,18 @@ public class KeyPad {
     }
 
 
-    int distance(int start, int goal)
+    int distance(int[] position, int[] target)
     {
-        return 2;
+        int zero = position[0] - target[0];
+        int one = position[1] - target[1];
+
+        if(zero < 0)
+            zero *= -1;
+
+        if(one < 0)
+            one *= -1;
+
+        return zero + one;
     }
 
     int mod(int left, int right)
