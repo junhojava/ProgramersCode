@@ -67,13 +67,14 @@ public class KyePadTest {
     }
 
     @Test
-    void start()
+    void testSameDistance()
     {
         int[] left = {3,1};
         int[] right = {3,3};
         int[] target = kp.position(0);
+        String hand = "left";
+        hand = hand.substring(0,1).toUpperCase();
 
-        assertEquals(1, kp.distance(left, target));
-        assertEquals(1, kp.distance(right, target));
+        assertTrue(kp.isSameDistance(kp.distance(left, target), kp.distance(right, target)));
     }
 }

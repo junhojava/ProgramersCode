@@ -50,4 +50,9 @@ public class KeyPad {
 
         return result;
     }
+
+    boolean isSameDistance(int left, int right)
+    {
+        return left == right;
+    }
 }
