@@ -1,14 +1,35 @@
 package code.programers.level.one;
 
-public class PrimeNumber {
+import java.util.ArrayList;
+import java.util.List;
 
-    int divide(int left, int right)
+public class PrimeNumber {
+    boolean[] table;
+    List<Integer> list;
+
+    void init(int length)
     {
-        return left / right;
+        table = new boolean[length];
+        list = new ArrayList<>();
     }
 
-    int mod(int left, int right)
+    void check(int number, int end)
     {
-        return left % right;
+        list.add(number);
+        for(int index=1; index*number<=end; index++)
+        {
+            table[index*number] = true;
+        }
+    }
+
+    int primeNumber(int number)
+    {
+        for(int index=2; index<=number; index++)
+        {
+            if(!table[index])
+                check(index, number);
+        }
+
+        return list.size();
     }
 }

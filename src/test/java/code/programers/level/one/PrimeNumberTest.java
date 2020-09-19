@@ -1,9 +1,7 @@
 package code.programers.level.one;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,36 +10,19 @@ public class PrimeNumberTest {
     PrimeNumber pn = new PrimeNumber();
 
     @Test
-    void tsetDivideOne()
+    void tsetInit()
     {
-        assertEquals(1, pn.divide(2,2));
-    }
+        pn.init(10);
 
-    @Test
-    void testModZero()
-    {
-        assertEquals(0, pn.mod(2,2));
+        assertArrayEquals(new boolean[]{false, false, false, false, false, false, false, false, false, false}, pn.table);
     }
 
     @Test
     void testCaseOne()
     {
-        int n = 10;
-        int count = 0;
+        pn.init(11);
 
-        for(int left= 2; left<= n; left++)
-        {
-            count++;
-            for(int right = 2; right <= left; right++)
-            {
-                if(pn.mod(left, right) == 0)
-                {
-                    if(pn.divide(left, right) != 1)
-                        count--;
-                        break;
-                }
-            }
-        }
+        int count = pn.primeNumber(10);
 
         assertEquals(4, count);
     }
@@ -49,28 +30,10 @@ public class PrimeNumberTest {
     @Test
     void testCaseTwo()
     {
-        List<Integer> list = new ArrayList<Integer>();
-        list.add(2);
-        int n = 5;
+        pn.init(6);
 
-        for(int left= 3; left<= n; left++)
-        {
-            boolean flag = true;
-            for(Integer right:list)
-            {
-                if(pn.mod(left, right) == 0)
-                {
-                    flag = false;
-                    break;
-                }
-            }
+        int count = pn.primeNumber(5);
 
-            if(flag)
-            {
-                list.add(left);
-            }
-        }
-
-        assertEquals(3, list.size());
+        assertEquals(3, count);
     }
 }
