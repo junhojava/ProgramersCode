@@ -62,12 +62,19 @@ public class KeyPad {
         int ldistance = distance(left, target);
         int rdistance = distance(right, target);
 
-        if(ldistance == rdistance)
-            return hand;
+        if(target[1] == 1)
+            return "L";
+        else if(target[1] == 3)
+            return "R";
         else
-            if(ldistance > rdistance)
-                return "L";
+        {
+            if(ldistance == rdistance)
+                return hand;
             else
-                return "R";
+                if(ldistance > rdistance)
+                    return "L";
+                else
+                    return "R";
+        }
     }
 }

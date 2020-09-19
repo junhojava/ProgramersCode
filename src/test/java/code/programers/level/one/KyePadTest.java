@@ -80,6 +80,6 @@ public class KyePadTest {
     void testUsedHand()
     {
         kp.hand = "L";
-        assertEquals("L", kp.usedHand(new int[]{3,1}, new int[]{3,3}, kp.position(0)));
+        assertEquals("L", kp.usedHand(new int[]{3,1}, new int[]{3,3}, kp.position(1)));
     }
 }
