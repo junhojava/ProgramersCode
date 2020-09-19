@@ -65,4 +65,15 @@ public class KyePadTest {
     {
         assertArrayEquals(new int[]{0,1}, kp.position(1));
     }
+
+    @Test
+    void start()
+    {
+        int[] left = {3,1};
+        int[] right = {3,3};
+        int[] target = kp.position(0);
+
+        assertEquals(1, kp.distance(left, target));
+        assertEquals(1, kp.distance(right, target));
+    }
 }
