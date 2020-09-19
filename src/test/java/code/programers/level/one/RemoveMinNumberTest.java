@@ -9,8 +9,12 @@ public class RemoveMinNumberTest {
     RemoveMinNumber rmn = new RemoveMinNumber();
 
     @Test
-    void testMax()
+    void testMin()
     {
-        assertEquals(4, rmn.max(new int[]{4,3,2,1}));
+        int[] list = new int[]{4,3,2,1};
+
+        int min = rmn.min(list);
+
+        assertEquals(1, min);
     }
 }

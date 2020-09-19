@@ -1,15 +1,15 @@
 package code.programers.level.one;
 
+import java.util.Arrays;
+
 public class RemoveMinNumber {
     
-    int max(int[] list)
+    int min(int[] list)
     {
-        int max = 0;
+        int[] copy = Arrays.copyOf(list, list.length);
 
-        for(int number: list)
-            if(max < number)
-                max = number;
-        
-        return max;
+        Arrays.sort(copy);
+
+        return copy[0];
     }
 }
