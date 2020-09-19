@@ -79,7 +79,60 @@ public class KyePadTest {
     @Test
     void testUsedHand()
     {
-        kp.hand = "L";
+        kp.most_used = "L";
         assertEquals("L", kp.usedHand(new int[]{3,1}, new int[]{3,3}, kp.position(1)));
+    }
+
+    @Test
+    void testCaseOne()
+    {
+        int[] numbers = {1,3,4,5,8,2,1,4,5,9,5};
+        String hand = "right";
+        
+        int[] left = {3,1};
+        int[] right = {3,3};
+        kp.most_used = hand.substring(0,1).toUpperCase();
+        String result = "";
+
+        for(int index=0; index<numbers.length; index++)
+        {
+            int[] target = kp.position(numbers[index]);
+            String used = kp.usedHand(left, right, target);
+
+            result += used;
+
+            if(used.equals("L"))
+                left = target;
+            else
+                right = target;
+        }
+
+        assertEquals("LRLLLRLLRRL", result);
+    }
+    @Test
+    void testCaseTwo()
+    {
+        int[] numbers = {7,0,8,2,8,3,1,5,7,6,2};
+        String hand = "left";
+        
+        int[] left = {3,1};
+        int[] right = {3,3};
+        kp.most_used = hand.substring(0,1).toUpperCase();
+        String result = "";
+
+        for(int index=0; index<numbers.length; index++)
+        {
+            int[] target = kp.position(numbers[index]);
+            String used = kp.usedHand(left, right, target);
+
+            result += used;
+
+            if(used.equals("L"))
+                left = target;
+            else
+                right = target;
+        }
+
+        assertEquals("LRLLRRLLLRR", result);
     }
 }
