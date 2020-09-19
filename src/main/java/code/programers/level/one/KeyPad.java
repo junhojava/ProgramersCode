@@ -11,4 +11,9 @@ public class KeyPad {
     {
         return right % left;
     }
+
+    boolean isZero(int number)
+    {
+        return number == 0;
+    }
 }

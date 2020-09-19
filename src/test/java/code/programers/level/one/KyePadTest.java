@@ -1,6 +1,8 @@
 package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -44,5 +46,12 @@ public class KyePadTest {
     void testMod()
     {
         assertEquals(0, kp.mod(3,3));
+    }
+
+    @Test
+    void testIsZero()
+    {
+        assertTrue(kp.isZero(0));
+        assertFalse(kp.isZero(1));
     }
 }
