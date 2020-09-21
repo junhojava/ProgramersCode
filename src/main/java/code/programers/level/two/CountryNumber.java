@@ -11,4 +11,8 @@ public class CountryNumber {
         return left % right;
     }
 
+    boolean isZero(int number) {
+        return number == 0;
+    }
+
 }
