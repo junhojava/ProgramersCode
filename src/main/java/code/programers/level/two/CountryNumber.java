@@ -15,4 +15,8 @@ public class CountryNumber {
         return number == 0;
     }
 
+    String reverse(String str)
+    {
+        return new StringBuilder(str).reverse().toString();
+    }
 }

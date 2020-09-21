@@ -45,4 +45,51 @@ public class CountryNumberTest {
     {
         assertTrue(cn.isZero(0));
     }
+
+    @Test
+    void testCaseOne()
+    {
+        int number = 1;
+        String result = "";
+
+        int mod = cn.mod(number, 3);
+        number = cn.divide(number, 3);
+
+        if(mod == 0)
+        {
+            number--;
+            mod = 4;
+        }
+
+        result += mod;
+
+        if(number > 0 && number < 3)
+        {
+            result += number;
+        }
+
+
+        while(cn.divide(number, 3) > 0)
+        {
+            mod = cn.mod(number, 3);
+            number = cn.divide(number, 3);
+
+            if(mod == 0)
+            {
+                number--;
+                mod = 4;
+            }
+
+            result += mod;
+
+            if(number > 0 && number < 3)
+            {
+                result += number;
+            }
+        }
+
+        result = cn.reverse(result);
+
+        assertEquals("412", result);
+    }
 }
