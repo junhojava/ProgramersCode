@@ -1,9 +1,9 @@
 package code.programers.level.two;
 
 public class Stock {
-    
-    boolean isBigger(int left, int right)
+
+    boolean isSmaller(int left, int right)
     {
-        return left > right;
+        return left < right;
     }
 }
