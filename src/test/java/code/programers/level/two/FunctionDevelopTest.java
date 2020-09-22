@@ -47,4 +47,35 @@ public class FunctionDevelopTest {
         
         assertArrayEquals(new int[]{2,1}, fd.toArray(result));
     }
+
+    @Test
+    void testCaseTwo()
+    {
+        int[] progresses = {95, 90, 99, 99, 80, 99};
+        int[] speeds = {1, 1, 1, 1, 1, 1};
+        List<Integer> progress_list = fd.asList(progresses);
+        List<Integer> speed_list = fd.asList(speeds);
+        List<Integer> result = new ArrayList<Integer>();
+
+        while(progress_list.size() > 0)
+        {
+            for(int index=0; index<progress_list.size(); index++)
+                progress_list.set(index, fd.sum(progress_list.get(index), speed_list.get(index)));
+
+            int count = fd.count(progress_list);
+            
+            if(count > 0)
+            {
+                result.add(count);
+
+                for(int index=0; index<count; index++)
+                {
+                    progress_list.remove(0);
+                    speed_list.remove(0);
+                }
+            }
+        }
+        
+        assertArrayEquals(new int[]{1,3,2}, fd.toArray(result));
+    }
 }

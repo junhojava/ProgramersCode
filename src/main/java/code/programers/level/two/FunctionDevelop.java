@@ -15,7 +15,7 @@ public class FunctionDevelop {
         int count = 0;
 
         for(int index= 0; index < progress_list.size(); index++)
-            if(progress_list.get(index) > 100)
+            if(progress_list.get(index) >= 100)
                 count++;
             else
                 break;
