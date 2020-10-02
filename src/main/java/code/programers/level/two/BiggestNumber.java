@@ -30,4 +30,9 @@ public class BiggestNumber {
         arr[n1] = arr[n2];
         arr[n2] = temp;
     }
+
+    public int compare(String left, String right)
+    {
+        return (right+left).compareTo(left+right);
+    }
 }
