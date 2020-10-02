@@ -1,10 +1,14 @@
 package code.programers.level.two;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BiggestNumber {
     List<int[]> list;
+
+    Integer[] array;
 
     public void permutation(int[] arr, int startIdx)
     {
@@ -31,8 +35,25 @@ public class BiggestNumber {
         arr[n2] = temp;
     }
 
-    public int compare(String left, String right)
+    public int stringCompare(String left, String right)
     {
         return (right+left).compareTo(left+right);
+    }
+
+    public void sort()
+    {
+        Arrays.sort(array, new Comparator<Integer>() {
+
+            @Override
+            public int compare(Integer left, Integer right)
+            {
+                return stringCompare(Integer.toString(left), Integer.toString(right));
+            }
+        });
+    }
+
+    public void init(int[] number)
+    {
+        array = Arrays.stream(number).boxed().toArray(Integer[]::new);
     }
 }

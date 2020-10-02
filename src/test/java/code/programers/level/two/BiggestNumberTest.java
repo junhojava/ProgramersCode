@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +41,7 @@ public class BiggestNumberTest {
     @Test
     void testCompare()
     {
-        int compare = bn.compare("10", "2");
+        int compare = bn.stringCompare("10", "2");
 
         boolean result = (compare > 0) ? true: false;
 
@@ -53,21 +51,10 @@ public class BiggestNumberTest {
     @Test
     void testSort()
     {
-        int[] number = {6, 10, 2};
-        Integer[] array = new Integer[number.length];
+        int[] numbers = {6, 10, 2};
+        bn.init(numbers);
+        bn.sort();
 
-        for(int index=0; index<number.length; index++)
-            array[index] = number[index];
-
-        Arrays.sort(array, new Comparator<Integer>() {
-
-            @Override
-            public int compare(Integer left, Integer right)
-            {
-                return bn.compare(Integer.toString(left), Integer.toString(right));
-            }
-        });
-
-        assertArrayEquals(new Integer[]{6, 2, 10}, array);
+        assertArrayEquals(new Integer[]{6, 2, 10}, bn.array);
     }
 }
