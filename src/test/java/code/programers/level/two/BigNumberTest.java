@@ -11,9 +11,8 @@ public class BigNumberTest {
     @Test
     void testBigIndex()
     {
-
         int index = bn.bigIndex("192");
 
-        assertEquals(2, index);
+        assertEquals(1, index);
     }
 }
