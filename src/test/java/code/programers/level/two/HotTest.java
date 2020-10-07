@@ -43,19 +43,21 @@ public class HotTest {
     }
 
     @Test
-    void testHeap()
+    void testInsertMaxHeap()
     {
         int[] array = new int[]{1,2,3,9,10,12};
 
-        hot.initHeap();
+        hot.initHeap(array.length+1);
 
-        hot.insert(array[0]);
-        hot.insert(array[1]);
-        hot.insert(array[2]);
-        hot.insert(array[3]);
-        hot.insert(array[4]);
-        hot.insert(array[5]);
+        for(int index= 0; index < array.length; index++)
+            hot.insertMaxHeap(array[index], index+1);
 
         assertArrayEquals(new int[]{0,12,9,10,1,3,2}, hot.heapArray);
+    }
+
+    @Test
+    void testDeleteHeap()
+    {
+        
     }
 }

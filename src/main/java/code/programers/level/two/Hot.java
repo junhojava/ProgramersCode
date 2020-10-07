@@ -1,25 +1,36 @@
 package code.programers.level.two;
 
-import java.util.Arrays;
-
 public class Hot {
 
     int[] heapArray;
 
-    void initHeap()
+    void initHeap(int length)
     {
-        heapArray = new int[1];
+        heapArray = new int[length];
     }
 
-    void insert(int number)
+    void insertMaxHeap(int number, int index)
     {
-        heapArray = Arrays.copyOf(heapArray, heapArray.length+1);
+        heapArray[index] = number;
 
-        heapArray[heapArray.length-1] = number;
-
-        for(int index= heapArray.length -1; index > 1; index/=2)
+        for(; index > 1; index/=2)
         {
             if(heapArray[index] > heapArray[index/2])
+            {
+                int buffer = heapArray[index];
+                heapArray[index] = heapArray[index/2];
+                heapArray[index/2] = buffer;
+            }
+        }
+    }
+
+    void insertMinHeap(int number, int index)
+    {
+        heapArray[index] = number;
+
+        for(; index > 1; index/=2)
+        {
+            if(heapArray[index] < heapArray[index/2])
             {
                 int buffer = heapArray[index];
                 heapArray[index] = heapArray[index/2];
