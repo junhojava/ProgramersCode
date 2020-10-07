@@ -50,14 +50,40 @@ public class HotTest {
         hot.initHeap(array.length+1);
 
         for(int index= 0; index < array.length; index++)
-            hot.insertMaxHeap(array[index], index+1);
+            hot.insertMaxHeap(array[index]);
 
         assertArrayEquals(new int[]{0,12,9,10,1,3,2}, hot.heapArray);
     }
 
+    // [0, 12]
+    // [0, 10, 12]
+    // [0, 9, 12, 10]
+    // [0, 3, 9, 10, 12]
+    // [0, 2, 3, 10, 12, 9]
+    // [0, 1, 3, 2, 12 ,9, 10]
     @Test
-    void testDeleteHeap()
+    void testInsertMinHeap()
     {
-        
+        int[] array = new int[]{12,10,9,3,2,1};
+        hot.initHeap(array.length+1);
+        for(int index= 0; index < array.length; index++)
+            hot.insertMinHeap(array[index]);
+
+        assertArrayEquals(new int[]{0,1,3,2,12,9,10}, hot.heapArray);
     }
+
+    // [0, 2, 3, 10, 12, 9]
+    @Test
+    void testDeleteMinHeap()
+    {
+        int[] array = new int[]{12,10,9,3,2,1};
+        hot.initHeap(array.length+1);
+        for(int index= 0; index < array.length; index++)
+            hot.insertMinHeap(array[index]);
+
+        hot.deleteMinHeap();
+
+        assertArrayEquals(new int[]{0, 2, 3, 10, 12 ,9, 0}, hot.heapArray);
+    }
+
 }
