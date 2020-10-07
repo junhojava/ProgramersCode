@@ -86,4 +86,35 @@ public class HotTest {
         assertArrayEquals(new int[]{0, 2, 3, 10, 12 ,9, 0}, hot.heapArray);
     }
 
+    @Test
+    void testCaseOne()
+    {
+        int[] array= new int[]{1,2,3,9,10,12};
+        int[] numbers = new int[2];
+        hot.initHeap(array.length+1);
+        int count = 0;
+
+        for(int number: array)
+            hot.insertMinHeap(number);
+
+        while(hot.heapArray[1] < 7)
+        {
+            if(hot.heap_size == 1)
+            {
+                count= -1;
+                break;
+            }
+            
+            for(int index=0; index< 2; index++)
+            {
+                numbers[index] = hot.heapArray[1];
+                hot.deleteMinHeap();
+            }
+
+            hot.insertMinHeap(numbers[0] + (numbers[1]*2));
+            count++;
+        }
+
+        assertEquals(2, count);
+    }
 }
