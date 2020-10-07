@@ -1,8 +1,10 @@
 package code.programers.level.two;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
+import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,19 +22,26 @@ public class PassBridgeTest {
     }
 
     @Test
-    void testCount()
+    void testCaseOne()
     {
-        pb.time = 10;
         int[] trucks = new int[]{7,4,5,6};
-        pb.putTruckInfo(trucks);
-        pb.weight = 10;
-        int count = 0;
-        int[] times = new int[pb.trucks.size()];
-        int index=0;
 
-        while(index>times.length)
-        {
+        assertEquals(8, pb.solution(2, 10, trucks));
+    }
 
-        }
+    @Test
+    void testCaseTwo()
+    {
+        int[] trucks = new int[]{10};
+
+        assertEquals(101, pb.solution(100, 100, trucks));
+    }
+
+    @Test
+    void testCaseThree()
+    {
+        int[] trucks = new int[]{10,10,10,10,10,10,10,10,10,10};
+
+        assertEquals(110, pb.solution(100, 100, trucks));
     }
 }
