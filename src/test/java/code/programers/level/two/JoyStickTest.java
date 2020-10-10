@@ -1,5 +1,6 @@
 package code.programers.level.two;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -24,5 +25,13 @@ public class JoyStickTest
         int vertical = js.vertical("JAZ");
 
         assertEquals(10, vertical);
+    }
+
+    @Test
+    void testLeftRightDistance()
+    {
+        int[] distance = js.distance("JAZ", 0);
+
+        assertArrayEquals(new int[]{1, 2}, distance);
     }
 }

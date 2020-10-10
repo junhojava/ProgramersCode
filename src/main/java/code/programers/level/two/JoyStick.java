@@ -37,15 +37,63 @@ public class JoyStick {
         word = sb.toString();
     }
 
-    public int vertical(String string)
+    int vertical(String str)
     {
         int number = 0;
 
-        for(int index=0; index< string.length(); index++)
+        for(int index=0; index< str.length(); index++)
         {
-            number += keys.get(string.substring(index, index+1));
+            number += keys.get(str.substring(index, index+1));
         }
 
         return number;
+    }
+
+    int[] distance(String str, int start)
+    {
+        int right= 0;
+        int left= 0;
+        int leftIndex= start;
+        int rightIndex= start;
+        boolean leftChecked= true;
+        boolean rightChecked = true;
+
+        while(leftChecked || rightChecked)
+        {
+            if(rightIndex == str.length())
+                rightIndex = 0;
+
+            if(leftIndex == 0)
+                leftIndex = str.length()-1;
+
+            if(leftChecked)
+            {
+                left++;
+
+                if(keys.get(str.substring(left-1, left)) > 0)
+                    leftChecked = false;
+                else
+                    leftIndex++;
+            }
+
+            if(rightChecked)
+            {
+                right++;
+
+                if(keys.get(str.substring(right, right+1)) > 0)
+                    rightChecked = false;
+                else
+                    rightIndex++;
+            }
+        }
+
+        if(left > right)
+        {
+            return new int[]{right, rightIndex};
+        }
+        else
+        {
+            return new int[]{left, leftIndex};
+        }
     }
 }
