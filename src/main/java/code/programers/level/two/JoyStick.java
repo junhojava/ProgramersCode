@@ -36,4 +36,16 @@ public class JoyStick {
 
         word = sb.toString();
     }
+
+    public int vertical(String string)
+    {
+        int number = 0;
+
+        for(int index=0; index< string.length(); index++)
+        {
+            number += keys.get(string.substring(index, index+1));
+        }
+
+        return number;
+    }
 }

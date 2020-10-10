@@ -15,4 +15,14 @@ public class JoyStickTest
 
         assertEquals("AAA", js.word);
     }
+
+    @Test
+    void testUpDownCommand()
+    {
+        js.create(3);
+
+        int vertical = js.vertical("JAZ");
+
+        assertEquals(10, vertical);
+    }
 }
