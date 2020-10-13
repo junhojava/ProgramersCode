@@ -51,49 +51,43 @@ public class JoyStick {
 
     int[] distance(String str, int start)
     {
-        int right= 0;
-        int left= 0;
-        int leftIndex= start;
-        int rightIndex= start;
-        boolean leftChecked= true;
-        boolean rightChecked = true;
+        // 0 : left, 1: right
+        int[] stickArray = {0, 0};
+        int[] indexArray = {start, start};
+        boolean[] checkedArray = {true, true};
 
-        while(leftChecked || rightChecked)
+        while(checkedArray[0] || checkedArray[1])
         {
-            if(rightIndex == str.length())
-                rightIndex = 0;
+            if(indexArray[1] == str.length())
+                indexArray[1] = 0;
 
-            if(leftIndex == 0)
-                leftIndex = str.length()-1;
+            if(indexArray[0]-1 < 0)
+                indexArray[0] = str.length();
 
-            if(leftChecked)
+            if(checkedArray[0])
             {
-                left++;
+                stickArray[0]++;
 
-                if(keys.get(str.substring(left-1, left)) > 0)
-                    leftChecked = false;
-                else
-                    leftIndex++;
+                if(keys.get(str.substring(indexArray[0]-1, indexArray[0])) > 0)
+                    checkedArray[0] = true;
+
+                indexArray[0]--;
             }
 
-            if(rightChecked)
+            if(checkedArray[1])
             {
-                right++;
+                stickArray[1]++;
 
-                if(keys.get(str.substring(right, right+1)) > 0)
-                    rightChecked = false;
-                else
-                    rightIndex++;
+                if(keys.get(str.substring(indexArray[1], indexArray[1]+1)) > 0)
+                    checkedArray[1] = true;
+
+                    indexArray[1]++;
             }
         }
 
-        if(left > right)
-        {
-            return new int[]{right, rightIndex};
-        }
+        if(stickArray[0] < stickArray[1])
+            return new int[]{stickArray[0], indexArray[0]};
         else
-        {
-            return new int[]{left, leftIndex};
-        }
+            return new int[]{stickArray[1], indexArray[1]};
     }
 }

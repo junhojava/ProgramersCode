@@ -30,8 +30,8 @@ public class JoyStickTest
     @Test
     void testLeftRightDistance()
     {
-        int[] distance = js.distance("JAZ", 0);
+        int[] distance = js.distance("AAAAZAAAAA", 7);
 
-        assertArrayEquals(new int[]{1, 2}, distance);
+        assertArrayEquals(new int[]{3, 4}, distance);
     }
 }
