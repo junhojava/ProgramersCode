@@ -7,7 +7,7 @@ public class PrimeNumber {
     boolean[] table;
     List<Integer> list;
 
-    void init(int length)
+    public void init(int length)
     {
         table = new boolean[length];
         list = new ArrayList<>();
@@ -22,7 +22,7 @@ public class PrimeNumber {
         }
     }
 
-    int primeNumber(int number)
+    public int primeNumber(int number)
     {
         for(int index=2; index<=number; index++)
         {
@@ -31,5 +31,10 @@ public class PrimeNumber {
         }
 
         return list.size();
+    }
+
+    public List<Integer> primeNumbers()
+    {
+        return this.list;
     }
 }
