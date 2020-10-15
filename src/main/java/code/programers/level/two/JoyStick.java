@@ -58,30 +58,31 @@ public class JoyStick {
 
         while(checkedArray[0] || checkedArray[1])
         {
-            if(indexArray[1] == str.length())
-                indexArray[1] = 0;
-
-            if(indexArray[0]-1 < 0)
-                indexArray[0] = str.length();
-
             if(checkedArray[0])
             {
+                if(indexArray[0]-1 < 0)
+                    indexArray[0] = str.length()-1;
+                else
+                    indexArray[0]--;
+
                 stickArray[0]++;
 
-                if(keys.get(str.substring(indexArray[0]-1, indexArray[0])) > 0)
-                    checkedArray[0] = true;
+                if(keys.get(str.substring(indexArray[0], indexArray[0]+1)) > 0)
+                    checkedArray[0] = false;
 
-                indexArray[0]--;
             }
 
             if(checkedArray[1])
             {
+                if(indexArray[1] == str.length()-1)
+                    indexArray[1] = 0;
+                else
+                    indexArray[1]++;
+
                 stickArray[1]++;
 
                 if(keys.get(str.substring(indexArray[1], indexArray[1]+1)) > 0)
-                    checkedArray[1] = true;
-
-                    indexArray[1]++;
+                    checkedArray[1] = false;
             }
         }
 
