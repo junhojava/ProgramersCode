@@ -50,6 +50,14 @@ public class CamoflagueTest {
         for(int[] arr: combination)
             result += camoflague.count(arr, array, camoflague.partsEquied(clothes));
 
-        assertEquals(3, result);
+        for(int count = 1; count < columns.length; count++)
+        {
+            combination = ak.combination(columns, combination);
+
+            for(int[] arr: combination)
+                result += camoflague.count(arr, array, camoflague.partsEquied(clothes));
+        }
+
+        assertEquals(5, result);
     }
 }
