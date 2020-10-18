@@ -11,9 +11,14 @@ public class FindPrimeNumbetTest {
     {
         FindPrimeNumber fpn = new FindPrimeNumber();
 
-        int[] array = new int[]{0,1,1};
+        String numbers = "011";
+        int[] str_array = new int[numbers.length()];
 
-        int count = fpn.solution(array);
+        for(int index=0; index< str_array.length; index++)
+            str_array[index] = Integer.parseInt(numbers.substring(index, index+1));
+
+
+        int count = fpn.solution(str_array);
 
         assertEquals(2, count);
     }
