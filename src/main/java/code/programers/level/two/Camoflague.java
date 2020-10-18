@@ -25,4 +25,13 @@ public class Camoflague {
 
         return map;
     }
+
+    int count(int[] arr, String[] array, Map<String, Integer> map)
+    {
+        int result = 1;
+        for(int index: arr)
+            result *= map.get(array[index]);
+
+        return result;
+    }
 }

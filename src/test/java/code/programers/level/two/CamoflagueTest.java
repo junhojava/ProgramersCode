@@ -32,4 +32,24 @@ public class CamoflagueTest {
 
         assertEquals(map, camoflague.partsEquied(clothes));
     }
+
+    @Test
+    void testCombination()
+    {
+        String[][] clothes = {{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
+
+        String[] array = camoflague.parts(clothes);
+        AlterKey ak = new AlterKey();
+
+        int[] columns = ak.columns(array.length);
+
+        int[][] combination = ak.dimension(columns);
+
+        int result = 0;
+
+        for(int[] arr: combination)
+            result += camoflague.count(arr, array, camoflague.partsEquied(clothes));
+
+        assertEquals(3, result);
+    }
 }
