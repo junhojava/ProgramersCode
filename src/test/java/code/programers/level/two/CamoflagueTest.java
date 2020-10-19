@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
@@ -59,5 +60,33 @@ public class CamoflagueTest {
         }
 
         assertEquals(5, result);
+    }
+
+    @Test
+    void twoFactorial()
+    {
+        assertEquals(10, camoflague.factorial(4));
+    }
+
+    @Test
+    void testSpace()
+    {
+        assertEquals(30, camoflague.space(5));
+    }
+
+    @Test
+    void testAnotherCombination()
+    {
+        String[][] clothes = {{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
+        int[] parts = camoflague.partsCount(clothes);
+        int n = parts.length;
+
+        camoflague.count = 0;
+
+        boolean[] visited = new boolean[n];
+
+        camoflague.combination(parts, visited, 0, n , 2);
+
+        assertEquals(2, camoflague.count);
     }
 }
