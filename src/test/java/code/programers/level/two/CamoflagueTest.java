@@ -96,4 +96,21 @@ public class CamoflagueTest {
 
         assertEquals(5, result);
     }
+
+    @Test
+    void testCalc()
+    {
+        String[][] clothes = {{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
+        int[] parts = camoflague.partsCount(clothes);
+        int result = 1;
+
+        for(int number: parts)
+        {
+            result *= (number+1);
+        }
+
+        result--;
+
+        assertEquals(5, result);
+    }
 }
