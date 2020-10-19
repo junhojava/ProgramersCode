@@ -80,13 +80,20 @@ public class CamoflagueTest {
         String[][] clothes = {{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
         int[] parts = camoflague.partsCount(clothes);
         int n = parts.length;
-
-        camoflague.count = 0;
-
+        int result = 0;
         boolean[] visited = new boolean[n];
 
-        camoflague.combination(parts, visited, 0, n , 2);
+        int count = 1;
+        while(count <= n)
+        {
+            camoflague.count = 0;
 
-        assertEquals(2, camoflague.count);
+            camoflague.combination(parts, visited, 0, n , count);
+
+            count++;
+            result += camoflague.count;
+        }
+
+        assertEquals(5, result);
     }
 }
