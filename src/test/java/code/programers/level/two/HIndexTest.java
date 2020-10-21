@@ -42,4 +42,14 @@ public class HIndexTest {
 
         assertEquals(5, count);
     }
+
+    @Test
+    void testHalf()
+    {
+        int five = hindex.half(5);
+        int six = hindex.half(6);
+
+        assertEquals(2, five);
+        assertEquals(2, six);
+    }
 }
