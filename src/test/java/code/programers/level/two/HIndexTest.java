@@ -21,7 +21,7 @@ public class HIndexTest {
     @Test
     void testLoop()
     {
-        int[] citation = new int[]{3,0,6,1,5};
+        int[] citation = new int[]{3,0,6,1,5,0,2,4,7,1,8,9,10};
 
         hindex.sort(citation);
         int index= hindex.index(citation);
@@ -29,6 +29,17 @@ public class HIndexTest {
         if(index > 0)
             index--;
 
-        assertEquals(3, citation[index]);
+        assertEquals(4, citation[index]);
+    }
+
+    @Test
+    void testCount()
+    {
+        int[] citation = new int[]{3,0,6,1,5};
+
+        int h = 0;
+        int count = hindex.count(citation, h);
+
+        assertEquals(5, count);
     }
 }

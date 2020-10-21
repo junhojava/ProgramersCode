@@ -22,4 +22,15 @@ public class HIndex
 
         return idx;
     }
+
+    int count(int[] citation, int h)
+    {
+        int count = 0;
+
+        for(int number: citation)
+            if(h <= number)
+                count++;
+
+        return count;
+    }
 }
