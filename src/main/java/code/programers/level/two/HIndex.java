@@ -8,4 +8,18 @@ public class HIndex
     {
         Arrays.sort(citation);
     }
+
+    int index(int[] citation)
+    {
+        int idx = 1;
+        int length = citation.length;
+
+        for(int number: citation)
+            if(idx > length- idx)
+                break;
+            else
+                idx++;
+
+        return idx;
+    }
 }
