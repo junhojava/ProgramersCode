@@ -16,4 +16,9 @@ class Matrix
 
         return result;
     }
+
+    int[][] size(int row, int column)
+    {
+        return new int[row][column];
+    }
 }
