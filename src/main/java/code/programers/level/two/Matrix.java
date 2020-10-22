@@ -21,4 +21,14 @@ class Matrix
     {
         return new int[row][column];
     }
+
+    int calc(int[] row1, int[] row2)
+    {
+        int result = 0;
+
+        for(int index=0; index<row1.length; index++)
+            result += (row1[index]*row2[index]);
+
+        return result;
+    }
 }
