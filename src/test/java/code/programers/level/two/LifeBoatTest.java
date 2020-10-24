@@ -1,6 +1,7 @@
 package code.programers.level.two;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class LifeBoatTest
     Boat boat = new Boat();
 
     @Test
-    void test()
+    void testList()
     {
         List<Integer> list = new ArrayList<>();
 
@@ -23,5 +24,11 @@ public class LifeBoatTest
         list.add(70);
 
         assertEquals(list, boat.list(new int[]{40,50,50,60,70}));
+    }
+
+    @Test
+    void testIsOver()
+    {
+        assertFalse(boat.isOver(20, 30, 60));
     }
 }

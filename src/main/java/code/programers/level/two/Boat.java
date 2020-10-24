@@ -12,4 +12,9 @@ public class Boat
                      .boxed()
                      .collect(Collectors.toList());
     }
+
+    boolean isOver(int left, int right, int limit)
+    {
+        return (left+right) > limit;
+    }
 }
