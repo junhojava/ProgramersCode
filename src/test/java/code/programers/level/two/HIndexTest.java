@@ -13,43 +13,16 @@ public class HIndexTest {
     {
         int[] citation = new int[]{3,0,6,1,5};
 
-        hindex.sort(citation);
-
-        assertArrayEquals(new int[]{0,1,3,5,6}, citation);
+        assertArrayEquals(new int[]{6,5,3,1,0}, hindex.sort(citation));
     }
 
     @Test
-    void testLoop()
+    void testIndex()
     {
-        int[] citation = new int[]{3,0,6,1,5,0,2,4,7,1,8,9,10};
+        int[] citation = new int[]{999, 998, 997};
 
-        hindex.sort(citation);
-        int index= hindex.index(citation);
+        int index= hindex.index(hindex.sort(citation));
 
-        if(index > 0)
-            index--;
-
-        assertEquals(4, citation[index]);
-    }
-
-    @Test
-    void testCount()
-    {
-        int[] citation = new int[]{3,0,6,1,5};
-
-        int h = 0;
-        int count = hindex.count(citation, h);
-
-        assertEquals(5, count);
-    }
-
-    @Test
-    void testHalf()
-    {
-        int five = hindex.half(5);
-        int six = hindex.half(6);
-
-        assertEquals(2, five);
-        assertEquals(2, six);
+        assertEquals(3, index);
     }
 }

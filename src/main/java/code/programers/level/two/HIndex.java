@@ -1,41 +1,28 @@
 package code.programers.level.two;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class HIndex
 {
-    void sort(int[] citation)
+    int[] sort(int[] citation)
     {
-        Arrays.sort(citation);
+        return Arrays.stream(citation).boxed()
+                     .sorted(Collections.reverseOrder())
+                     .mapToInt(Integer::intValue)
+                     .toArray();
     }
 
     int index(int[] citation)
     {
         int idx = 1;
-        int length = citation.length;
 
         for(int number: citation)
-            if(idx > length- idx)
+            if(idx > number)
                 break;
             else
                 idx++;
 
-        return idx;
-    }
-
-    int count(int[] citation, int h)
-    {
-        int count = 0;
-
-        for(int number: citation)
-            if(h <= number)
-                count++;
-
-        return count;
-    }
-
-    int half(int length)
-    {
-        return (length % 2 == 0)? length/2 -1: length/2;
+        return idx-1;
     }
 }
