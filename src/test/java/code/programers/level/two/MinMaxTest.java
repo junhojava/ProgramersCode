@@ -16,4 +16,12 @@ public class MinMaxTest
 
         assertArrayEquals(result, mm.split(str));
     }
+
+    @Test
+    void testCompare()
+    {
+        String[] result = {"-1", "-2", "-3", "-4"};
+
+        assertArrayEquals(new int[]{-4, -3, -2, -1}, mm.parseInt(result));
+    }
 }
