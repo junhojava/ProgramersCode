@@ -18,8 +18,8 @@ public class BiggestSquareTest
     }
 
     @Test
-    void testSize()
+    void testMin()
     {
-        assertEquals(4, bs.size(0,2,new int[][]{{0,0,1,1},{1,1,1,1}},0));
+        assertEquals(1, bs.min(1,5,3));
     }
 }
