@@ -6,4 +6,9 @@ class BiggestSquare
     {
         return number == 1;
     }
+
+    int size(int x, int y, int[][] array, int size)
+    {
+        return 4;
+    }
 }
