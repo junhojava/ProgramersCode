@@ -20,6 +20,6 @@ public class BiggestSquareTest
     @Test
     void testSize()
     {
-        assertEquals(4, bs.size(0,2,new int[][]{{0,0,1,1},{1,1,1,1}},1));
+        assertEquals(4, bs.size(0,2,new int[][]{{0,0,1,1},{1,1,1,1}},0));
     }
 }
