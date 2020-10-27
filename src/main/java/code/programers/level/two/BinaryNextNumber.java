@@ -51,4 +51,20 @@ public class BinaryNextNumber
 
         return sb.reverse().toString();
     }
+
+    int canShiftedIndex(String str)
+    {
+        return str.lastIndexOf("01");
+    }
+
+    int countOne(int index, String str)
+    {
+        int count=0;
+
+        for(; index< str.length(); index++)
+            if(str.substring(index, index+1).equals("1"))
+                count++;
+
+        return count;
+    }
 }

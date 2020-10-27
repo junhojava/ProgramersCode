@@ -19,4 +19,16 @@ public class BinaryNextNumberTest
     {
         assertEquals("1000", bnn.convertBinary(8));
     }
+
+    @Test
+    void testCanShiftedIndex()
+    {
+        assertEquals(4,bnn.canShiftedIndex("10010110"));
+    }
+
+    @Test
+    void testCountOne()
+    {
+        assertEquals(0,bnn.countOne(8, "10010101"));
+    }
 }
