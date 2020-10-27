@@ -9,8 +9,8 @@ public class BinaryNextNumberTest
     BinaryNextNumber bnn = new BinaryNextNumber();
 
     @Test
-    void testConvert()
+    void testConvertNumber()
     {
-        assertEquals(5, bnn.convert("101"));
+        assertEquals(11, bnn.convertNumber("1011"));
     }
 }
