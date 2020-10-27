@@ -29,6 +29,6 @@ public class BinaryNextNumberTest
     @Test
     void testCountOne()
     {
-        assertEquals(0,bnn.countOne(8, "10010101"));
+        assertEquals(1,bnn.countOne(6, "10010110"));
     }
 }
