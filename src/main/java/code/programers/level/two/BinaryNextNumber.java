@@ -34,4 +34,21 @@ public class BinaryNextNumber
 
         return result;
     }
+
+    String convertBinary(int number)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        while(number > 0)
+        {
+            if(number % 2 == 1)
+                sb.append(1);
+            else
+                sb.append(0);
+
+            number /= 2;
+        }
+
+        return sb.reverse().toString();
+    }
 }

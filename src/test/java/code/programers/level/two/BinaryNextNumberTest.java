@@ -13,4 +13,10 @@ public class BinaryNextNumberTest
     {
         assertEquals(11, bnn.convertNumber("1011"));
     }
+
+    @Test
+    void testConvertBinary()
+    {
+        assertEquals("1000", bnn.convertBinary(8));
+    }
 }
