@@ -57,11 +57,11 @@ public class BinaryNextNumber
         return str.lastIndexOf("01");
     }
 
-    int countOne(int index, String str)
+    int countOne(String str)
     {
         int count=0;
 
-        for(; index< str.length(); index++)
+        for(int index = 0; index< str.length(); index++)
             if(str.substring(index, index+1).equals("1"))
                 count++;
 
