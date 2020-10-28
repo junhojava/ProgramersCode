@@ -15,15 +15,36 @@ public class LeastCommonMultiple
     
     void factorization(int number)
     {
-        for(int index = 2; number > 1;)
+        int count = 0;
+        int index = 2;
+        
+        while(number > 1)
         {
             if(number % index == 0)
             {
-                map.put(index, map.getOrDefault(index, 0)+1);
+                count++;
                 number /= index;
             }
             else
-                index++;
+            {
+                if(count > 0)
+                {
+                    if(map.get(index) == null)
+                        map.put(index, count);
+                    else if(map.get(index) < count)
+                        map.put(index, count);
+
+                    count = 0;
+                }
+
+                    index++;
+            }
         }
+
+        if(count > 0)
+            if(map.get(index) == null)
+                map.put(index, count);
+            else if(map.get(index) < count)
+                map.put(index, count);
     }
 }
