@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class JadenCaseTest
 {
-    JadenCase jc = new JadenCase();
-
     @Test
     void testSplit()
     {
@@ -20,17 +18,28 @@ public class JadenCaseTest
     @Test
     void testToUpperCase()
     {
-        String str = "3asdf zxcv qwer";
-        String[] result = str.split(" ");
+        String str = " 3asd  fzxcvqwer";
         StringBuilder sb = new StringBuilder();
 
-        for(String word: result)
-        {
-            sb.append(word.substring(0,1).toUpperCase());
-            sb.append(word.substring(1,word.length()).toLowerCase()+" ");
-        }
-        sb.delete(sb.length()-1, sb.length());
+        boolean flag = true;
 
-        assertEquals("3asdf Zxcv Qwer", sb.toString());
+        for(int index=0; index< str.length(); index++)
+        {
+            if(str.substring(index, index+1).equals(" "))
+            {
+                sb.append(str.substring(index, index+1));
+                flag = true;
+            }
+            else
+                if(flag == true)
+                {
+                    sb.append(str.substring(index, index+1).toUpperCase());
+                    flag = false;
+                }
+                else
+                    sb.append(str.substring(index, index+1).toLowerCase());
+        }
+
+        assertEquals(" 3asd  Fzxcvqwer", sb.toString());
     }
 }
