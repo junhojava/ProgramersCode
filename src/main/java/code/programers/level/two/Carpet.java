@@ -11,4 +11,9 @@ public class Carpet
     {
         return (left%right) == 0;
     }
+
+    int fill(int vertical, int horizontal)
+    {
+        return vertical*2 + horizontal *2;
+    }
 }

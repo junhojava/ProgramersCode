@@ -26,4 +26,25 @@ public class CarpetTest
     {
         assertTrue(3<=4);
     }
+
+    @Test
+    void testFill()
+    {
+        int brown = 8;
+        int yellow = 1;
+
+        int x = brown + yellow;
+        int y;
+
+        for(y =3; y<=Math.sqrt(x); y++)
+        {
+            int z = carpet.divide(x, y);
+
+            if(carpet.modIsZero(x, y))
+                if(carpet.fill(y, z-2) == brown)
+                    break;
+        }
+
+        assertEquals(y, 6);
+    }
 }
