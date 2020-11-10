@@ -14,4 +14,13 @@ public class FibonaciTest
         assertEquals(0, fbnc.calc(0));
         assertEquals(1, fbnc.calc(1));
     }
+
+    @Test
+    void testCalc()
+    {
+        int n = 5;
+
+        assertEquals(n, fbnc.calc(n));
+    }
+
 }
