@@ -38,7 +38,5 @@ public class LeastCommonMultipleTest
             result *= Math.pow(entry.getKey(), entry.getValue());
 
         assertEquals(result, 70);
-
-
     }
 }
