@@ -4,6 +4,11 @@ public class Carpet
 {
     int divide(int left, int right)
     {
-        return 4;
+        return left/right;
+    }
+
+    boolean modIsZero(int left, int right)
+    {
+        return (left%right) == 0;
     }
 }
