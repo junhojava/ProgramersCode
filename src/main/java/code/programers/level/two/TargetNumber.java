@@ -14,12 +14,19 @@ public class TargetNumber
         results = new int[length];
     }
 
-    void fill(int number, int depth)
+    void fill(int number, int count)
     {
+        int c = 0;
+
         for(int i=0; i< results.length; i++)
-            if(i%2 == 0)
-                results[i] = number;
-            else
-                results[i] = -number;
+        {
+            results[i] = number;
+            c++;
+            if(c == count)
+            {
+                number *= -1;
+                c = 0;
+            }
+        }
     }
 }
