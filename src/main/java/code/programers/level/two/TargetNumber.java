@@ -20,7 +20,7 @@ public class TargetNumber
 
         for(int i=0; i< results.length; i++)
         {
-            results[i] = number;
+            results[i] += number;
             c++;
             if(c == count)
             {
