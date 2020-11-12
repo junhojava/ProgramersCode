@@ -16,6 +16,10 @@ public class TargetNumber
 
     void fill(int number, int depth)
     {
-        results = new int[]{1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1};
+        for(int i=0; i< results.length; i++)
+            if(i%2 == 0)
+                results[i] = number;
+            else
+                results[i] = -number;
     }
 }
