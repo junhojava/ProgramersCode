@@ -13,4 +13,9 @@ public class TargetNumber
 
         results = new int[length];
     }
+
+    void fill(int number)
+    {
+        results = new int[]{1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1};
+    }
 }
