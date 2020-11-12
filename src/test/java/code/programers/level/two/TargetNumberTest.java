@@ -18,7 +18,7 @@ public class TargetNumberTest
     @Test
     void testFill()
     {
-        tn.fill(1);
+        tn.fill(1, 1);
 
         int[] results = new int[32];
 
