@@ -1,20 +1,20 @@
 package code.programers.level.two;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
 /**
- * https://kknr-study.atlassian.net/browse/ZIGT-123
+ * https://kknr-study.atlassian.net/browse/ZIGT-128
  */
 public class HanoiTest
 {
     Hanoi hanoi = new Hanoi();
 
     @Test
-    void testRing()
+    void testRecursiveMove()
     {
-        hanoi.setRing(2);
-        assertEquals(2, hanoi.ring);
+        hanoi.move(3,1,2,3);
+        assertArrayEquals(new int[][]{{1,3},{1,2},{3,2},{1,3},{2,1},{2,3},{1,3}} , hanoi.list.toArray(int[][]::new));
     }
 }
