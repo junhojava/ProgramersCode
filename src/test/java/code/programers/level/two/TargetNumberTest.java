@@ -18,9 +18,18 @@ public class TargetNumberTest
     @Test
     void testFill()
     {
-        tn.fill(1, 1);
+        int[] array = {1,1,1};
+        int count = 0;
 
-        int[] results = new int[]{1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1};
+        for(int number: array)
+        {
+            if(count == 0)
+                tn.fill(number, ++count);
+            else
+                tn.fill(number, count*=2);
+        }
+
+        int[] results = new int[]{3,1,1,-1,1,-1,-1,-3,3,1,1,-1,1,-1,-1,-3,3,1,1,-1,1,-1,-1,-3,3,1,1,-1,1,-1,-1,-3};
 
         assertArrayEquals(tn.results, results);
     }
