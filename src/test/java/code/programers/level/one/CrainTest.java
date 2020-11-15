@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 /**
- *  https://kknr-study.atlassian.net/browse/ZIGT-129
+ *  link: https://kknr-study.atlassian.net/browse/ZIGT-129
  */
 public class CrainTest
 {
