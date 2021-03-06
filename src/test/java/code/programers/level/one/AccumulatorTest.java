@@ -2,8 +2,6 @@ package code.programers.level.one;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,21 +19,17 @@ public class AccumulatorTest {
     }
 
     @Test
-    void testEqualsNumber()
+    void testBetweenTwoNumbers()
     {
         Accumulator accumulator = new Accumulator();
 
-        assertFalse(accumulator.numberEquals(5, 3));
-        assertTrue(accumulator.numberEquals(3, 3));
-    }
+        long[] caseOne = new long[]{-2, -10};
+        long[] caseTwo = new long[]{10, 10};
 
-    @Test
-    void testCaseOne()
-    {
-        Accumulator accumulator = new Accumulator();
+        accumulator.sortLongArray(caseOne);
+        accumulator.sortLongArray(caseTwo);
 
-        long[] pair = accumulator.diffMinMax(-2, -10);
-
-        assertEquals(-54, accumulator.sumBetweenMinToMax(pair[0], pair[1]));
+        assertEquals(-54, accumulator.sumBetweenMinToMax(caseOne[0], caseOne[1]));
+        assertEquals(10, accumulator.sumBetweenMinToMax(caseTwo[0], caseTwo[1]));
     }
 }
