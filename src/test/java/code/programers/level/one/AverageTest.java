@@ -14,12 +14,6 @@ public class AverageTest {
     }
 
     @Test
-    void length()
-    {
-        assertEquals(2, average.length(new int[]{0, 1}));
-    }
-
-    @Test
     void average()
     {
         assertEquals(2.5, average.average(10, 4));

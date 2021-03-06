@@ -12,11 +12,6 @@ public class Average {
         return result;
     }
 
-    int length(int[] list)
-    {
-        return list.length;
-    }
-
     double average(int left, int right)
     {
         return (double)left / (double)right;
