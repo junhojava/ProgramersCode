@@ -1,14 +1,7 @@
 package code.programers.level.one;
 
-import java.util.Arrays;
-
 public class Budget {
     
-    void sort(int[] list)
-    {
-        Arrays.sort(list);
-    }
-
     boolean isBudget(int[][] combination, int[] list, int budget)
     {
         boolean can = false;

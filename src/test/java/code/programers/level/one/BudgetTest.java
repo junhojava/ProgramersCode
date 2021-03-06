@@ -1,6 +1,5 @@
 package code.programers.level.one;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -8,25 +7,14 @@ import org.junit.jupiter.api.Test;
 import code.programers.level.two.AlterKey;
 
 public class BudgetTest {
-
+    
     Budget budget = new Budget();
-
-
-    @Test
-    void testAscend()
-    {
-        int[] list = {1,3,2,5,4};
-
-        budget.sort(list);
-
-        assertArrayEquals(new int[]{1,2,3,4,5}, list);
-    }
+    AlterKey ak = new AlterKey();
 
     @Test
     void testCombination()
     {
         int[] list = {1,3,2,5,4};
-        AlterKey ak = new AlterKey();
         int[] columns = ak.columns(list.length);
         int[][] combination = ak.dimension(columns);
 
@@ -52,7 +40,6 @@ public class BudgetTest {
     void testCaseTwo()
     {
         int[] list = {2,2,3,3};
-        AlterKey ak = new AlterKey();
         int[] columns = ak.columns(list.length);
         int[][] combination = ak.dimension(columns);
 
