@@ -1,7 +1,5 @@
 package code.programers.level.one;
 
-import java.util.Arrays;
-
 public class Accumulator {
     Accumulator()
     {
