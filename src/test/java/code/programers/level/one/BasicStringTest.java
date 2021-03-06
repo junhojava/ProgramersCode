@@ -9,18 +9,10 @@ public class BasicStringTest {
     BasicString bs = new BasicString();
 
     @Test
-    void testLength()
-    {
-        String str = "a234";
-
-        assertEquals(4, str.length());
-    }
-
-    @Test
     void testReplaceNumber()
     {
         String str = "a234";
-
-        assertEquals("a", bs.replaceNumber(str));
+        
+        assertEquals("a", bs.removeNumber(str));
     }
 }

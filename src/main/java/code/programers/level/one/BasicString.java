@@ -2,7 +2,7 @@ package code.programers.level.one;
 
 public class BasicString {
     
-    String replaceNumber(String str)
+    String removeNumber(String str)
     {
         return str.replaceAll("\\d", "");
     }
