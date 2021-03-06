@@ -2,18 +2,18 @@ package code.programers.level.one;
 
 public class Average {
     
-    int sum(int... numbers)
+    double sum(double... numbers)
     {
-        int result = 0;
+        double result = 0;
 
-        for(int number : numbers)
+        for(double number : numbers)
             result += number;
 
         return result;
     }
 
-    double average(int left, int right)
+    double divide(double left, double right)
     {
-        return (double)left / (double)right;
+        return left / right;
     }
 }

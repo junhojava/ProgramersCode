@@ -8,14 +8,12 @@ public class AverageTest {
     Average average = new Average();
 
     @Test
-    void testSum()
+    void testCalc()
     {
-        assertEquals(20, average.sum(4,6, 10));
-    }
+        double sumOfValue = average.sum(4,6);
+        double twoHalf = average.divide(10, 4);
 
-    @Test
-    void average()
-    {
-        assertEquals(2.5, average.average(10, 4));
+        assertEquals(10, sumOfValue);
+        assertEquals(2.5, twoHalf);
     }
 }
