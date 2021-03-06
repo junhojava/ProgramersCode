@@ -13,7 +13,7 @@ public class BasicStringTest {
     {
         String str = "a234";
 
-        assertEquals(4, bs.length(str));
+        assertEquals(4, str.length());
     }
 
     @Test
