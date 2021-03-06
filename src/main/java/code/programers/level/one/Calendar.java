@@ -2,39 +2,39 @@ package code.programers.level.one;
 
 public class Calendar {
 
-    int new_year = 5;
+    int newYear;
 
-    int[] lastdays = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int[] lastDays;
 
-    String[] daystr = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+    String[] dayStr;
 
-    String dayConvertString(int day)
+    public Calendar (int newYear)
     {
-        return daystr[day];
+        this.newYear = newYear;
+        this.lastDays = new int[]{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        this.dayStr = new String[]{"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
     }
 
-    int date(int month, int day)
+    String whatDay(int day)
+    {
+        return dayStr[day];
+    }
+
+    int dayIndex(int month, int day)
     {
         if(month == 1 && day == 1)
-        {
-            return new_year;
-        }
+            return newYear;
         else
-        {
-            day += convertMonthToDay(month);
-            day += new_year - 1;
-        }
-
-        return day % 7;
+            return (day + addedDate(month) + newYear - 1) % 7;
     }
 
-    int convertMonthToDay(int month)
+    int addedDate(int month)
     {
         int result = 0;
+
         for(int index= 0; index< month-1; index++)
-        {
-            result += lastdays[index];
-        }
+            result += lastDays[index];
+
         return result;
     }
 }
