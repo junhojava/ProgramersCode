@@ -1,8 +1,8 @@
 package datatype;
 
-abstract public class NumberType {
+abstract public class Number {
 
-    public NumberType()
+    public Number()
     {
 
     }

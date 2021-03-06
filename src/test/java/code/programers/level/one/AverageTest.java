@@ -4,16 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import datatype.NumberType;
+import datatype.DoubleNumber;
+import datatype.Number;
 
 public class AverageTest {
-    NumberType average = new Average();
+    Number doubleNumber = new DoubleNumber();
 
     @Test
     void testCalc()
     {
-        double sumOfValue = average.sum(4,6);
-        double twoHalf = average.divide(10, 4);
+        double sumOfValue = doubleNumber.sum(4,6);
+        double twoHalf = doubleNumber.divide(10, 4);
 
         assertEquals(10, sumOfValue);
         assertEquals(2.5, twoHalf);

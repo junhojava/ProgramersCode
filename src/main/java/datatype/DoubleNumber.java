@@ -1,10 +1,8 @@
-package code.programers.level.one;
+package datatype;
 
-import datatype.NumberType;
-
-public class Average extends NumberType{
-
-    public Average()
+public class DoubleNumber extends Number{
+    
+    public DoubleNumber()
     {
         super();
     }
