@@ -13,7 +13,7 @@ public class Accumulator {
         Arrays.sort(longArray);
     }
 
-    long sumBetweenMinToMax(long min, long max)
+    long sumBetweenTwoNumbers(long min, long max)
     {
         return (max - min +1) * (min + max) / 2;
     }

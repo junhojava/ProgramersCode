@@ -29,7 +29,7 @@ public class AccumulatorTest {
         accumulator.sortLongArray(caseOne);
         accumulator.sortLongArray(caseTwo);
 
-        assertEquals(-54, accumulator.sumBetweenMinToMax(caseOne[0], caseOne[1]));
-        assertEquals(10, accumulator.sumBetweenMinToMax(caseTwo[0], caseTwo[1]));
+        assertEquals(-54, accumulator.sumBetweenTwoNumbers(caseOne[0], caseOne[1]));
+        assertEquals(10, accumulator.sumBetweenTwoNumbers(caseTwo[0], caseTwo[1]));
     }
 }
