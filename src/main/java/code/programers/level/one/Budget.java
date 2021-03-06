@@ -2,26 +2,20 @@ package code.programers.level.one;
 
 public class Budget {
     
-    boolean isBudget(int[][] combination, int[] list, int budget)
+    int budgetSupport(int budget, int... priceArary)
     {
-        boolean can = false;
-
-        for(int[] dimension:combination)
+        int result = 0;
+        
+        for(int number: priceArary)
         {
-            int value = 0;
-            
-            for(int number: dimension)
-                value += list[number];
+            if(number > budget)
+                break;
 
-            if(value <= budget)
-                can = true;
+                budget -= number;
+
+                result++;
         }
 
-        return can;
-    }
-
-    boolean isMax(boolean[] list, int length)
-    {
-        return list[length];
+        return result;
     }
 }
