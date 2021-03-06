@@ -15,11 +15,8 @@ public class AccumulatorTest {
         Accumulator accumulator = new Accumulator();
         long[] pair = new long[]{5, 3};
 
-        boolean result = accumulator.isSequential(pair);
+        accumulator.sortLongArray(pair);
 
-        pair = accumulator.diffMinMax(5, 3);
-
-        assertFalse(result);
         assertArrayEquals(new long[]{3, 5}, pair);
     }
 

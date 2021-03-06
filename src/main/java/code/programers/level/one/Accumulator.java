@@ -1,26 +1,16 @@
 package code.programers.level.one;
 
+import java.util.Arrays;
+
 public class Accumulator {
     Accumulator()
     {
 
     }
 
-    boolean isSequential(long[] pair)
+    void sortLongArray(long[] longArray)
     {
-        return pair[0] < pair[1];
-    }
-
-
-    long[] diffMinMax(int left, int right)
-    {
-        if(left < right)
-        {
-            return new long[]{left, right};
-        }else
-        {
-            return new long[]{right, left};
-        }
+        Arrays.sort(longArray);
     }
 
     boolean numberEquals(int left, int right)
