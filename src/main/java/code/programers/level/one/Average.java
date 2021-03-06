@@ -1,8 +1,16 @@
 package code.programers.level.one;
 
-public class Average {
+import datatype.NumberType;
+
+public class Average extends NumberType{
+
+    public Average()
+    {
+        super();
+    }
     
-    double sum(double... numbers)
+    @Override
+    public double sum(double... numbers)
     {
         double result = 0;
 
@@ -12,7 +20,8 @@ public class Average {
         return result;
     }
 
-    double divide(double left, double right)
+    @Override
+    public double divide(double left, double right)
     {
         return left / right;
     }

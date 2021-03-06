@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import datatype.NumberType;
+
 public class AverageTest {
-    Average average = new Average();
+    NumberType average = new Average();
 
     @Test
     void testCalc()
