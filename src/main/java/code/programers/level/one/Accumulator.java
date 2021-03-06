@@ -6,6 +6,12 @@ public class Accumulator {
 
     }
 
+    boolean isSequential(long[] pair)
+    {
+        return pair[0] < pair[1];
+    }
+
+
     long[] diffMinMax(int left, int right)
     {
         if(left < right)

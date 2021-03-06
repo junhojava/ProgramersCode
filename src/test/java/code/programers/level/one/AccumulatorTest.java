@@ -13,9 +13,13 @@ public class AccumulatorTest {
     void testBiggerNumber()
     {
         Accumulator accumulator = new Accumulator();
+        long[] pair = new long[]{5, 3};
 
-        long[] pair = accumulator.diffMinMax(5, 3);
+        boolean result = accumulator.isSequential(pair);
 
+        pair = accumulator.diffMinMax(5, 3);
+
+        assertFalse(result);
         assertArrayEquals(new long[]{3, 5}, pair);
     }
 
