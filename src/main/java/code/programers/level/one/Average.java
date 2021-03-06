@@ -2,9 +2,14 @@ package code.programers.level.one;
 
 public class Average {
     
-    int sum(int left, int right)
+    int sum(int... numbers)
     {
-        return left + right;
+        int result = 0;
+
+        for(int number : numbers)
+            result += number;
+
+        return result;
     }
 
     int length(int[] list)

@@ -10,7 +10,7 @@ public class AverageTest {
     @Test
     void testSum()
     {
-        assertEquals(10, average.sum(4,6));
+        assertEquals(20, average.sum(4,6, 10));
     }
 
     @Test
