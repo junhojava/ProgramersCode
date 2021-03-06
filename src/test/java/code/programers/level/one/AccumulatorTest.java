@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class AccumulatorTest {
     
     @Test
-    void testBetweenTwoNumbers()
+    void sumAllNumbersBetweenTwoNumbers()
     {
         Accumulator accumulator = new Accumulator();
 
